@@ -1,0 +1,3 @@
+--exclude=*min.js
+--recurse=yes
+--langmap=JavaScript:.js.json.jsx
