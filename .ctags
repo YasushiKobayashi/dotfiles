@@ -1,3 +1,9 @@
---exclude=*min.js
---recurse=yes
---langmap=JavaScript:.js.json.jsx
+--exclude=.git
+--exclude=log
+--exclude=node_modules
+--exclude=jquery.*.js
+--exclude=jquery-*.js
+--exclude=vendor
+--exclude=*.bundle.js
+--exclude=bundle.js
+--exclude=*.min.js
