@@ -39,7 +39,8 @@ imap [ []<LEFT>
 imap ( ()<LEFT>
 
 " setting ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vender'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\vender|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry)$'
+
 
 " setting neobundle
 let g:neocomplete#enable_at_startup = 1
@@ -178,6 +179,7 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'tomasr/molokai'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle "Shougo/neosnippet"
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -188,25 +190,19 @@ NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle "ctrlpvim/ctrlp.vim"
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mattn/emmet-vim'
-NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'surround.vim'
-NeoBundle 'heavenshell/vim-jsdoc'
-NeoBundle 'PDV--phpDocumentor-for-Vim'
-NeoBundle 'moll/vim-node'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'PDV--phpDocumentor-for-Vim'
 NeoBundle 'othree/yajs.vim'
-NeoBundle 'maxmellon/vim-jsx-pretty'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'violetyk/cake.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'gabrielelana/vim-markdown'
 
 NeoBundle 'scrooloose/nerdtree'
 
