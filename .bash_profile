@@ -15,6 +15,8 @@ export PATH=$PATH:$PYENV_ROOT/bin
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
 alias ll='ls -la'
 alias ctags="`brew --prefix`/bin/ctags"
 

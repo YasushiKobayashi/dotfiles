@@ -162,6 +162,9 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 nnoremap <silent><C-\> :NERDTreeToggle<CR>
 
+" golang
+let g:gofmt_command = 'goimports'
+
 " others
 autocmd BufWritePre * :%s/\s\+$//ge
 let g:nerdtree_tabs_open_on_console_startup=1
@@ -203,6 +206,8 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'gabrielelana/vim-markdown'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'maxmellon/vim-jsx-pretty'
 
 NeoBundle 'scrooloose/nerdtree'
 
