@@ -7,3 +7,4 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.zprofile ~/.zprofile
 ln -sf ~/dotfiles/.inputrc ~/.inputrc
 ln -sf ~/dotfiles/.ctags ~/.ctags
+ln -sf ~/dotfiles/.editorconfig ~/.editorconfig

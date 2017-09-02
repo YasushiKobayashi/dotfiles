@@ -1,6 +1,3 @@
-set term=xterm-256color
-autocmd colorscheme molokai highlight Visual ctermbg=8
-colorscheme molokai
 syntax on
 set synmaxcol=200
 set autoindent
@@ -10,10 +7,11 @@ set smartindent
 set nobackup
 set directory=~/.vim/tmp
 set clipboard=unnamed,autoselect
+" set clipboard+=unnamedplus
 set undodir=D:/home/koron/var/vim/undo
 set tabstop=2
 set shiftwidth=2
-set cursorline
+set nocursorline
 set number
 set guifont=Inconsolata
 set encoding=utf-8
@@ -39,7 +37,7 @@ imap [ []<LEFT>
 imap ( ()<LEFT>
 
 " setting ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\vender|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry)$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|\vender|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry)$'
 
 
 " setting neobundle
@@ -151,19 +149,34 @@ nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 
-" setting NERDTree
-let NERDTreeShowHidden = 1
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-let NERDTreeIgnore =['\.pyc$', '\.css$', '\.DS_Store$']
+" setting vimfiler
+let g:vimfiler_as_default_explorer = 1
+function! UniteFileCurrentDir()
+  let s  = ':Unite file -start-insert -path='
+  let s .= vimfiler#helper#_get_file_directory()
+
+  execute s
+endfunction
+
+autocmd FileType vimfiler
+      \ nnoremap <buffer><silent>/
+      \ :call UniteFileCurrentDir() <CR>
+
 " easy alighn
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-nnoremap <silent><C-\> :NERDTreeToggle<CR>
 
 " golang
-let g:gofmt_command = 'goimports'
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+" markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:previm_open_cmd = 'open -a Firefox'
 
 " others
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -184,7 +197,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'tomasr/molokai'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle "Shougo/neosnippet"
+NeoBundle "Shougo/neosnippet.vim"
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'w0rp/ale'
@@ -208,10 +221,13 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'maxmellon/vim-jsx-pretty'
-
-NeoBundle 'scrooloose/nerdtree'
-
-
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
+
+" set term=xterm-256color
+autocmd colorscheme molokai highlight Visual ctermbg=8
+colorscheme molokai
+
