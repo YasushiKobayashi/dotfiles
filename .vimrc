@@ -37,7 +37,7 @@ imap [ []<LEFT>
 imap ( ()<LEFT>
 
 " setting ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|\vender|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry)$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
 
 
 " setting neobundle
@@ -162,11 +162,6 @@ autocmd FileType vimfiler
       \ nnoremap <buffer><silent>/
       \ :call UniteFileCurrentDir() <CR>
 
-" easy alighn
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 " golang
 let g:go_fmt_command = "goimports"
@@ -215,7 +210,6 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'gabrielelana/vim-markdown'
@@ -223,6 +217,9 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'maxmellon/vim-jsx-pretty'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'osyo-manga/vim-over'
+
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck

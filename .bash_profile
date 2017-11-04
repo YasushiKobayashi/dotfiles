@@ -27,7 +27,5 @@ alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
-
-# mysetting
-export DOCUMENT_ENV=develop
-
+export PATH="$HOME/.goenv/bin:$PATH"
+eval "$(goenv init -)"
