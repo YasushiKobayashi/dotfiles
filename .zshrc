@@ -67,6 +67,9 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
 
+# nvim
+export XDG_CONFIG_HOME=$HOME/dotfiles
+
 
 #
 # Executes commands at the start of an interactive session.
