@@ -2,19 +2,40 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+depends = ['neosnippet-snippets']
+on_i = 1
+on_ft = ['snippet']
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = 'has("nvim")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+if = 'has("lua")'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -35,22 +56,42 @@ repo = 'Yggdroot/indentLine'
 repo = 'terryma/vim-multiple-cursors'
 
 [[plugins]]
-repo = 'surround.vim'
+repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'Townk/vim-autoclose'
+on_i = 1
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+on_i = 1
 
 [[plugins]]
 repo = 'w0rp/ale'
 
 [[plugins]]
-repo = 'fatih/vim-go'
+repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
 
 [[plugins]]
 repo = 'othree/yajs.vim'
 
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'

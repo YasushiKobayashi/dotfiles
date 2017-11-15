@@ -21,13 +21,17 @@ set wildmenu
 set history=5000
 set whichwrap=b,s,<,>,[,]
 set showtabline=2
+set spell
+set spelllang=en_us
 scriptencoding utf-8
 
 " imap
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
-
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 nnoremap s <Nop>
 nnoremap sj <C-w>j
@@ -56,9 +60,10 @@ nnoremap sQ :<C-u>bd<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
+" 起動時設定
+au BufRead,BufNewFile *.scss set filetype=css
 
 let s:dein_path = expand('~/.vim/dein')
-
 if &compatible
   set nocompatible
 endif
@@ -84,12 +89,28 @@ endif
 filetype plugin indent on
 syntax enable
 
-
 " set term=xterm-256color
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
+autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai
+
+"Python3 support
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_profile = 1
+
+" multiple-cursors
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  let g:deoplete#disable_auto_complete = 1
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  let g:deoplete#disable_auto_complete = 0
+endfunction
 
 " setting ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
@@ -98,9 +119,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|t
 let g:auto_ctags = 1
 nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-
-" 起動時設定
-au BufRead,BufNewFile *.scss set filetype=css
 
 " ALE lint
 let g:lightline = {
@@ -134,17 +152,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
-
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
+" jsdoc
+let g:jsdoc_default_mapping = 0
+nnoremap <silent> <C-J> :JsDoc<CR>

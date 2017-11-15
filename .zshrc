@@ -54,9 +54,6 @@ eval "$(pyenv virtualenv-init -)"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-alias ll='ls -la'
-alias ctags="`brew --prefix`/bin/ctags"
-
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -66,6 +63,11 @@ export PATH="$PATH:$GOPATH/bin"
 
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
+
+alias ll='ls -la'
+alias ctags="`brew --prefix`/bin/ctags"
+alias g='cd $(ghq root)/$(ghq list | peco)'
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/dotfiles

@@ -35,6 +35,9 @@ nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " setting ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
@@ -215,8 +218,6 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'gabrielelana/vim-markdown'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'maxmellon/vim-jsx-pretty'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'osyo-manga/vim-over'
 
