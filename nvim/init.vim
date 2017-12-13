@@ -106,14 +106,25 @@ let g:deoplete#enable_profile = 1
 function! Multiple_cursors_before()
   let g:deoplete#disable_auto_complete = 1
 endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
   let g:deoplete#disable_auto_complete = 0
 endfunction
 
 " setting ctrlp
+let g:ctrlp_max_height          = 20
+let g:ctrlp_user_command = 'ag %s -l'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 " ctags
 let g:auto_ctags = 1
@@ -155,3 +166,6 @@ let g:go_highlight_structs = 1
 " jsdoc
 let g:jsdoc_default_mapping = 0
 nnoremap <silent> <C-J> :JsDoc<CR>
+
+" vim-over
+nnoremap <C-o> :OverCommandLine<CR>

@@ -41,7 +41,8 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " setting ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
-
+let g:ctrlp_user_command = 'ag %s -l'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
 
 " setting neobundle
 let g:neocomplete#enable_at_startup = 1

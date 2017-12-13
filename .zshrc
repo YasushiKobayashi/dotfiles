@@ -40,9 +40,9 @@ setopt hist_ignore_all_dups
 # package setting
 eval "$(direnv hook zsh)"
 
-export PATH=/usr/local/bin:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+# export PATH=/usr/local/bin:$PATH
+# export PATH=$HOME/.rbenv/bin:$PATH
+# eval "$(rbenv init -)"
 
 eval "$(nodenv init -)"
 export PATH="$HOME/.nodenv/bin:$PATH"
@@ -68,6 +68,7 @@ alias ll='ls -la'
 alias ctags="`brew --prefix`/bin/ctags"
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias pcat='cat $(ls | peco)'
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/dotfiles

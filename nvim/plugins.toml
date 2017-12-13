@@ -21,10 +21,6 @@ if = 'has("lua")'
 on_i = 1
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
-on_path = '.*'
-
-[[plugins]]
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
@@ -84,6 +80,10 @@ repo = 'othree/yajs.vim'
 
 [[plugins]]
 repo = 'maxmellon/vim-jsx-pretty'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'Galooshi/vim-import-js'
 on_ft = 'javascript'
 
 [[plugins]]
