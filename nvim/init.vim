@@ -23,6 +23,8 @@ set whichwrap=b,s,<,>,[,]
 set showtabline=2
 set spell
 set spelllang=en_us
+set ttimeout
+set ttimeoutlen=50
 scriptencoding utf-8
 
 " imap
@@ -163,9 +165,17 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
-" jsdoc
-let g:jsdoc_default_mapping = 0
-nnoremap <silent> <C-J> :JsDoc<CR>
+" eslint pretter
+let g:neoformat_javascript_prettiereslint = {
+      \ 'exe': './node_modules/.bin/prettier-eslint',
+      \ 'args': ['--stdin'],
+      \ 'stdin': 1,
+      \ }
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
+let g:neoformat_enabled_javascript = ['prettiereslint']
 
 " vim-over
 nnoremap <C-o> :OverCommandLine<CR>

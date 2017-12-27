@@ -69,6 +69,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='cat $(ls | peco)'
+alias dc='docker-compose'
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/dotfiles

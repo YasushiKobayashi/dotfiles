@@ -87,7 +87,7 @@ repo = 'Galooshi/vim-import-js'
 on_ft = 'javascript'
 
 [[plugins]]
-repo = 'heavenshell/vim-jsdoc'
+repo = 'sbdchd/neoformat'
 on_ft = 'javascript'
 
 [[plugins]]
@@ -95,3 +95,7 @@ repo = 'davidhalter/jedi-vim'
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'gabrielelana/vim-markdown'
+on_ft = ['markdown','mkd']
