@@ -2,6 +2,8 @@
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
     "workbench.colorTheme": "Monokai",
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "prettier.eslintIntegration": true
 }
