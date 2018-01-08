@@ -5,5 +5,17 @@
     "editor.formatOnSave": true,
     "workbench.colorTheme": "Monokai",
     "window.zoomLevel": -1,
-    "prettier.eslintIntegration": true
+    "prettier.eslintIntegration": true,
+    "sync.gist": "09e8def4162d71e08d57ffe84636463f",
+    "sync.lastUpload": "2018-01-08T11:28:17.765Z",
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "sync.anonymousGist": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "git.autofetch": true
 }
