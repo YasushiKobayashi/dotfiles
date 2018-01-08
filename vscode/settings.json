@@ -1,0 +1,7 @@
+{
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "workbench.colorTheme": "Monokai",
+    "window.zoomLevel": -1
+}

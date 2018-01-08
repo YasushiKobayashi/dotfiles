@@ -40,9 +40,9 @@ setopt hist_ignore_all_dups
 # package setting
 eval "$(direnv hook zsh)"
 
-# export PATH=/usr/local/bin:$PATH
-# export PATH=$HOME/.rbenv/bin:$PATH
-# eval "$(rbenv init -)"
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
 
 eval "$(nodenv init -)"
 export PATH="$HOME/.nodenv/bin:$PATH"
