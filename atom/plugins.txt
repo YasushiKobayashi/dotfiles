@@ -6,7 +6,6 @@ atom-material-syntax-light@0.4.6
 atom-ternjs@0.18.3
 atom-typescript@11.0.10
 autoclose-html@0.23.0
-autocomplete-ctags@0.4.1
 autocomplete-html-entities@0.2.0
 autocomplete-js-import@1.4.0
 autocomplete-paths@2.12.1

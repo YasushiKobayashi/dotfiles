@@ -29,3 +29,4 @@ export PATH="$PATH:$GOPATH/bin"
 
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
+export PATH=/usr/local/bin:$PATH
