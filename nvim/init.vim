@@ -166,16 +166,27 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
 " eslint pretter
-let g:neoformat_javascript_prettiereslint = {
-      \ 'exe': './node_modules/.bin/prettier-eslint',
-      \ 'args': ['--stdin'],
-      \ 'stdin': 1,
-      \ }
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
-let g:neoformat_enabled_javascript = ['prettiereslint']
+let g:prettier#exec_cmd_async = 1
+let g:prettier#quickfix_enabled = 1
+let g:prettier#quickfix_enabled = 1
+let g:prettier#autoformat = 1
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync
+
 
 " vim-over
 nnoremap <C-o> :OverCommandLine<CR>
+
+" vim-airline
+let g:airline_theme = 'wombat'
+set laststatus=2
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+let g:airline_section_c = '%t'
+let g:airline_section_x = '%{&filetype}'
+let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
+let g:airline#extensions#ale#error_symbol = ' '
+let g:airline#extensions#ale#warning_symbol = ' '
+let g:airline#extensions#default#section_truncate_width = {}
+let g:airline#extensions#whitespace#enabled = 1
