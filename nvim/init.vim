@@ -151,6 +151,15 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
+let g:ale_fixers = {
+      \ 'javascript': ['prettier_eslint'],
+      \ 'python': ['autopep8', 'isort'],
+      \ }
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_javascript_prettier_eslint_options = '--single-quote=true --trailing-comma=all es5 --no-semi=false 	--no-bracket-spacing=true --jsx-bracket-same-line=true --arrow-parens=avoid'
+
+
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 1
 function! UniteFileCurrentDir()
@@ -166,11 +175,12 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
 " eslint pretter
-let g:prettier#exec_cmd_async = 1
-let g:prettier#quickfix_enabled = 1
-let g:prettier#quickfix_enabled = 1
-let g:prettier#autoformat = 1
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync
+" let g:prettier#exec_cmd_async = 1
+" let g:prettier#quickfix_enabled = 1
+" let g:prettier#quickfix_enabled = 1
+" let g:prettier#autoformat = 1
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync
+" let g:prettier#config#single_quote = 'false'
 
 
 " vim-over

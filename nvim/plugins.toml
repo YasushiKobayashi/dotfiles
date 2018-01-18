@@ -88,10 +88,6 @@ on_ft = 'go'
 repo = 'othree/yajs.vim'
 
 [[plugins]]
-repo = 'prettier/vim-prettier'
-on_ft = 'javascript'
-
-[[plugins]]
 repo = 'Galooshi/vim-import-js'
 on_ft = 'javascript'
 
