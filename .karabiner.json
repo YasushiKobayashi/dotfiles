@@ -183,7 +183,6 @@
                     }
                 }
             ],
-            "name": "ctr ＋　vim移動でカーソル移動を行う",
             "selected": true,
             "simple_modifications": [
                 {
@@ -192,6 +191,14 @@
                     },
                     "to": {
                         "key_code": "escape"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "escape"
+                    },
+                    "to": {
+                        "key_code": "grave_accent_and_tilde"
                     }
                 }
             ],
