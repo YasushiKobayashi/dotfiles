@@ -92,6 +92,10 @@ repo = 'Galooshi/vim-import-js'
 on_ft = 'javascript'
 
 [[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = 'javascript'
+
+[[plugins]]
 repo = 'sbdchd/neoformat'
 
 [[plugins]]

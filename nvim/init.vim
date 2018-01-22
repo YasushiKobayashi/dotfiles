@@ -153,6 +153,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier_eslint'],
+      \ 'css': ['prettier_eslint'],
       \ 'python': ['autopep8', 'isort'],
       \ }
 let g:ale_fix_on_save = 1
