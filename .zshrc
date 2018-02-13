@@ -47,7 +47,7 @@ eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 export PATH="$HOME/.nodenv/bin:$PATH"
 
-PYENV_ROOT=~/.pyenv
+export PYENV_ROOT=~/.pyenv
 export PATH=$PATH:$PYENV_ROOT/bin
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -73,6 +73,8 @@ alias dc='docker-compose'
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/dotfiles
+export NVIM_PYTHON_LOG_FILE=/tmp/log
+export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 
 #

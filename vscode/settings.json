@@ -7,7 +7,7 @@
     "window.zoomLevel": -1,
     "prettier.eslintIntegration": true,
     "sync.gist": "09e8def4162d71e08d57ffe84636463f",
-    "sync.lastUpload": "2018-01-08T11:28:17.765Z",
+    "sync.lastUpload": "2018-01-15T06:18:31.159Z",
     "sync.autoDownload": false,
     "sync.autoUpload": false,
     "sync.lastDownload": "",
@@ -17,5 +17,37 @@
     "sync.pathPrefix": "",
     "sync.quietSync": false,
     "sync.askGistName": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "vim.useSystemClipboard": true,
+    "editor.renderIndentGuides": false,
+    "workbench.startupEditor": "newUntitledFile",
+    // Enable per-language
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": true
+    },
+    "[scss]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": false
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "prettier.eslintIntegration": true,
+    "flow.useNPMPackagedFlow": true,
+    "javascript.validate.enable": false,
+    "eslint.nodePath": "$(npm bin)/eslint",
+    "eslint.enable": true,
+    "editor.tabSize": 2,
+    // Controls if the editor will insert spaces for tabs. Accepted values:  "auto", true, false. If set to "auto", the value will be guessed when a file is opened.
+    "editor.insertSpaces": true,
+    // Controls whether the editor should render whitespace characters
+    "editor.renderWhitespace": "all",
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "yapf",
+    "explorer.confirmDragAndDrop": false,
+    // phpcs
+    // "vscode-php-cs-fixer.config": ".php_cs.dist",
+    "vscode-php-cs-fixer.fixOnSave": true,
+    "explorer.confirmDelete": false,
 }
