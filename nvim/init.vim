@@ -98,6 +98,15 @@ set background=dark
 autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai
 
+" setting neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#min_keyword_length = 3
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#auto_completion_start_length = 1
+imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+
 "Python3 support
 let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 let g:deoplete#enable_at_startup = 1
@@ -107,9 +116,15 @@ let g:deoplete#enable_profile = 1
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
   let g:deoplete#disable_auto_complete = 1
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
 endfunction
 function! Multiple_cursors_after()
   let g:deoplete#disable_auto_complete = 0
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
 endfunction
 
 " setting ctrlp
@@ -161,6 +176,9 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_javascript_prettier_eslint_options = '--single-quote=true --trailing-comma=all es5 --no-semi=false 	--no-bracket-spacing=true --jsx-bracket-same-line=true --arrow-parens=avoid'
 
+let g:tigris#enabled = 1
+let g:tigris#on_the_fly_enabled = 1
+let g:tigris#delay = 300
 
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 1
@@ -175,14 +193,6 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
-
-" eslint pretter
-" let g:prettier#exec_cmd_async = 1
-" let g:prettier#quickfix_enabled = 1
-" let g:prettier#quickfix_enabled = 1
-" let g:prettier#autoformat = 1
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync
-" let g:prettier#config#single_quote = 'false'
 
 
 " vim-over
@@ -202,3 +212,4 @@ let g:airline#extensions#ale#error_symbol = ' '
 let g:airline#extensions#ale#warning_symbol = ' '
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
+

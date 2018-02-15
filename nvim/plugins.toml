@@ -24,6 +24,10 @@ on_i = 1
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
 repo = 'Shougo/vimfiler'
 
 [[plugins]]
@@ -104,6 +108,10 @@ repo = 'Quramy/tsuquyomi'
 on_ft = 'typescript'
 
 [[plugins]]
+repo = 'billyvg/tigris.nvim'
+on_ft = 'javascript'
+
+[[plugins]]
 repo = 'sbdchd/neoformat'
 
 [[plugins]]
@@ -111,6 +119,9 @@ repo = 'davidhalter/jedi-vim'
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
 
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'

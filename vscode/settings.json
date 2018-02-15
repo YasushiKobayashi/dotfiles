@@ -33,7 +33,10 @@
     "[javascript]": {
         "editor.formatOnSave": true
     },
-    "prettier.eslintIntegration": true,
+    "prettier": {
+        "eslintIntegration": true,
+        "printWidth": 100
+    },
     "flow.useNPMPackagedFlow": true,
     "javascript.validate.enable": false,
     "eslint.nodePath": "$(npm bin)/eslint",
