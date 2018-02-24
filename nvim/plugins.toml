@@ -73,6 +73,9 @@ repo = 'w0rp/ale'
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
@@ -82,7 +85,7 @@ repo = 'vim-airline/vim-airline-themes'
 repo  = 'ryanoasis/vim-devicons'
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'majutsushi/tagbar'
 
 [[plugins]]
 repo = 'fatih/vim-go'

@@ -151,6 +151,10 @@ let g:auto_ctags = 1
 nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
+" tagnar
+let g:tagbar_autofocus = 1
+nnoremap <C-t> :TagbarToggle<CR>
+
 " ALE lint
 let g:lightline = {
   \'active': {
@@ -181,10 +185,10 @@ let g:ale_javascript_prettier_eslint_options = '--single-quote=true --trailing-c
 
 let g:tigris#enabled = 1
 let g:tigris#on_the_fly_enabled = 1
-let g:tigris#delay = 300
+let g:tigris#delay = 301
 
 " setting vimfiler
-let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_as_default_explorer = 2
 function! UniteFileCurrentDir()
   let s  = ':Unite file -start-insert -path='
   let s .= vimfiler#helper#_get_file_directory()
