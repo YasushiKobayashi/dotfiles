@@ -112,6 +112,9 @@ let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_profile = 1
 
+" jscomplete_use
+let g:jscomplete_use = ['dom', 'moz', 'es6th']
+
 " multiple-cursors
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
@@ -145,8 +148,8 @@ endif
 
 " ctags
 let g:auto_ctags = 1
-nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " ALE lint
 let g:lightline = {

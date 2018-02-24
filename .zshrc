@@ -65,7 +65,6 @@ export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
 
 alias ll='ls -la'
-alias ctags="`brew --prefix`/bin/ctags"
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='cat $(ls | peco)'

@@ -112,6 +112,14 @@ repo = 'billyvg/tigris.nvim'
 on_ft = 'javascript'
 
 [[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
+
+[[plugins]]
+repo ='mattn/jscomplete-vim'
+on_ft = 'javascript'
+
+[[plugins]]
 repo = 'sbdchd/neoformat'
 
 [[plugins]]
