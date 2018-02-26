@@ -148,8 +148,8 @@ endif
 
 " ctags
 let g:auto_ctags = 1
-nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " tagnar
 let g:tagbar_autofocus = 1
