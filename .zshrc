@@ -70,6 +70,10 @@ alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='cat $(ls | peco)'
 alias dc='docker-compose'
 
+# completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+source <(kompose completion zsh)
+
 # nvim
 export XDG_CONFIG_HOME=$HOME/dotfiles
 export NVIM_PYTHON_LOG_FILE=/tmp/log

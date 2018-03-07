@@ -115,6 +115,12 @@ let g:deoplete#enable_profile = 1
 " jscomplete_use
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
+" auto close
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+
 " multiple-cursors
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
