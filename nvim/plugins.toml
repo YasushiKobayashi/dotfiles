@@ -123,6 +123,11 @@ repo ='mattn/jscomplete-vim'
 on_ft = 'javascript'
 
 [[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = 'javascript'
+on_ft = 'html'
+
+[[plugins]]
 repo = 'sbdchd/neoformat'
 
 [[plugins]]
