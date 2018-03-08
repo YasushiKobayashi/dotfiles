@@ -77,6 +77,7 @@
       printWidth: 100
       singleQuote: true
       trailingComma: "all"
+    useEslint: true
   "tree-view":
     hideIgnoredNames: true
   welcome:

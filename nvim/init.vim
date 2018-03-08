@@ -1,4 +1,5 @@
 syntax on
+scriptencoding utf-8
 set synmaxcol=200
 set autoindent
 set expandtab
@@ -25,7 +26,8 @@ set spell
 set spelllang=en_us
 set ttimeout
 set ttimeoutlen=50
-scriptencoding utf-8
+set list
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 
 " imap
 imap { {}<LEFT>
@@ -121,6 +123,10 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
+" js import
+nnoremap <C-i> :ImportJSFix<CR>
+
+
 " multiple-cursors
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
@@ -154,7 +160,7 @@ endif
 
 " ctags
 let g:auto_ctags = 1
-nnoremap <C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " tagnar
