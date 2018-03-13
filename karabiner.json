@@ -501,7 +501,7 @@
                         "key_code": "slash"
                     },
                     "to": {
-                        "key_code": "z"
+                        "key_code": "semicolon"
                     }
                 },
                 {
@@ -557,7 +557,7 @@
                         "key_code": "z"
                     },
                     "to": {
-                        "key_code": "semicolon"
+                        "key_code": "z"
                     }
                 }
             ],
