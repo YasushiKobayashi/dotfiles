@@ -128,6 +128,17 @@ let g:closetag_close_shortcut = '<leader>>'
 " js import
 nnoremap <C-i> :ImportJSFix<CR>
 
+" php-cs-fixer
+let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
+let g:php_cs_fixer_level = "all"
+let g:php_cs_fixer_php_path = "php"
+let g:php_cs_fixer_fixers_list = 'linefeed,short_tag,indentation'
+let g:php_cs_fixer_dry_run = 0
+let g:php_cs_fixer_verbose = 1
+augroup phpCsFixer
+  autocmd!
+  autocmd BufWritePost *.php :call PhpCsFixerFixFile()
+augroup END
 
 " multiple-cursors
 " Called once right before you start selecting multiple cursors

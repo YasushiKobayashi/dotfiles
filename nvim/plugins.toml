@@ -128,6 +128,10 @@ on_ft = 'javascript'
 on_ft = 'html'
 
 [[plugins]]
+repo = 'stephpy/vim-php-cs-fixer'
+on_ft = 'php'
+
+[[plugins]]
 repo = 'sbdchd/neoformat'
 
 [[plugins]]
