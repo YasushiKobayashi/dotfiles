@@ -39,6 +39,7 @@ setopt hist_ignore_all_dups
 ##############################
 # package setting
 eval "$(direnv hook zsh)"
+alias ctags="`brew --prefix`/bin/ctags"
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
