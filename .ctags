@@ -49,6 +49,7 @@
 --regex-less=/^[ t]*@medias+([A-Za-z0-9_-]+)/1/m,media,medias/
 
 --exclude=node_modules
+--exclude=vender
 --exclude=dist
 --exclude=.git
 --exclude=.session.vim

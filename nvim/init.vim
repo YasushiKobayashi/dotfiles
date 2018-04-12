@@ -120,8 +120,9 @@ let g:deoplete#enable_profile = 1
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
 " auto close
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.erb'
+let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
@@ -173,6 +174,7 @@ endif
 
 " ctags
 let g:auto_ctags = 1
+nnoremap <C-]> g<C-]>
 nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
@@ -229,6 +231,9 @@ let g:go_highlight_structs = 1
 
 " vim-over
 nnoremap <C-o> :OverCommandLine<CR>
+
+" vim-altr
+nnoremap <Leader>a <Plug>(altr-forward)
 
 " vim-airline
 let g:airline_theme = 'wombat'
