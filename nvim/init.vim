@@ -65,6 +65,10 @@ nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 nnoremap tc :s/_\(.\)/\u\1/g<CR>;
+autocmd QuickFixCmdPost vimgrep cwindow
+autocmd QuickFixCmdPost *grep* cwindow
+
+let mapleader = "\<Space>"
 
 " 起動時設定
 au BufRead,BufNewFile *.scss set filetype=css
@@ -228,12 +232,14 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
+" Qfreplace
+nnoremap <silent> <Leader>q :Qfreplace<CR>
 
 " vim-over
-nnoremap <C-o> :OverCommandLine<CR>
+nnoremap <silent> <Leader>o :OverCommandLine<CR>
 
 " vim-altr
-nnoremap <Leader>a <Plug>(altr-forward)
+nnoremap <silent> <Leader>a <Plug>(altr-forward)
 
 " vim-airline
 let g:airline_theme = 'wombat'
@@ -259,14 +265,14 @@ let g:unite_source_file_mru_limit = 200
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
-nnoremap <silent> ,y :<C-u>Unite history/yank<CR>
-nnoremap <silent> ,b :<C-u>Unite buffer<CR>
-nnoremap <silent> ,f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,r :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> <Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> <Leader>r  :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> <Leader>y :<C-u>Unite history/yank<CR>
+nnoremap <silent> <Leader>b :<C-u>Unite buffer<CR>
+nnoremap <silent> <Leader>f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <Leader>r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <Leader>uu :<C-u>Unite file_mru buffer<CR>
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')

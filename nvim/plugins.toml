@@ -73,6 +73,9 @@ on_i = 1
 repo = 'w0rp/ale'
 
 [[plugins]]
+repo = 'thinca/vim-qfreplace'
+
+[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
