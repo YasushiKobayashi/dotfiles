@@ -120,9 +120,6 @@ let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_profile = 1
 
-" jscomplete_use
-let g:jscomplete_use = ['dom', 'moz', 'es6th']
-
 " auto close
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx"
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.erb'
@@ -182,9 +179,6 @@ nnoremap <C-]> g<C-]>
 nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
-" tagnar
-let g:tagbar_autofocus = 1
-nnoremap <C-t> :TagbarToggle<CR>
 
 " ALE lint
 let g:lightline = {
@@ -232,15 +226,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 
-" Qfreplace
-nnoremap <silent> <Leader>q :Qfreplace<CR>
-
-" vim-over
-nnoremap <silent> <Leader>o :OverCommandLine<CR>
-
-" vim-altr
-nnoremap <silent> <Leader>a <Plug>(altr-forward)
-
 " vim-airline
 let g:airline_theme = 'wombat'
 set laststatus=2
@@ -265,6 +250,7 @@ let g:unite_source_file_mru_limit = 200
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
+
 nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> <Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> <Leader>r  :<C-u>UniteResume search-buffer<CR>
@@ -280,3 +266,17 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+" tagnar
+let g:tagbar_autofocus = 1
+nnoremap <silent> <Leader>t :TagbarToggle<CR>
+
+" Qfreplace
+nnoremap <silent> <Leader>q :Qfreplace<CR>
+
+" vim-over
+nnoremap <silent> <Leader>o :OverCommandLine<CR>
+
+" vim-altr
+nnoremap <silent> <Leader>a <Plug>(altr-forward)
+
