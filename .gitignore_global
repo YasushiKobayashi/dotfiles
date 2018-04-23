@@ -7,3 +7,5 @@ tags
 tags.lock
 .tern-port
 *.cache
+.mypy_cache
+
