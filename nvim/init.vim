@@ -210,7 +210,8 @@ let g:ale_javascript_prettier_eslint_options = '--single-quote=true --trailing-c
 
 let g:tigris#enabled = 1
 let g:tigris#on_the_fly_enabled = 1
-let g:tigris#delay = 301
+let g:tigris#delay = 300
+let g:vim_jsx_pretty_enable_jsx_highlight = 1
 
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 2

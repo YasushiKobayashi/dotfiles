@@ -103,41 +103,35 @@ on_ft = 'go'
 build = 'make'
 
 [[plugins]]
-repo = 'othree/yajs.vim'
-
-[[plugins]]
 repo = 'Galooshi/vim-import-js'
-on_ft = 'javascript'
+on_ft = ['javascript']
 
 [[plugins]]
-repo = 'maxmellon/vim-jsx-pretty'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = 'typescript'
-
-[[plugins]]
-repo = 'Quramy/tsuquyomi'
-on_ft = 'typescript'
+repo = 'neovim/node-host'
+on_ft = ['javascript']
+hook_post_update = '''
+  let g:dein#plugin.build = 'npm install'
+'''
 
 [[plugins]]
 repo = 'billyvg/tigris.nvim'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'javascript'
+on_ft = ['javascript']
+hook_post_update = '''
+  let g:dein#plugin.build = './install.sh'
+'''
 
 [[plugins]]
 repo ='carlitux/deoplete-ternjs'
-on_ft = 'javascript'
+on_ft = ['javascript']
 build = 'npm install -g tern'
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-on_ft = 'javascript'
-on_ft = 'html'
+on_ft = ['javascript', 'html']
+
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
+on_ft = ['javascript']
 
 [[plugins]]
 repo = 'stephpy/vim-php-cs-fixer'
@@ -154,9 +148,6 @@ repo = 'davidhalter/jedi-vim'
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
-
-[[plugins]]
-repo = 'chase/vim-ansible-yaml'
 
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
