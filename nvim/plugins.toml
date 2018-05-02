@@ -147,10 +147,6 @@ repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript']
 
 [[plugins]]
-repo = 'stephpy/vim-php-cs-fixer'
-on_ft = 'php'
-
-[[plugins]]
 repo = 'sbdchd/neoformat'
 
 [[plugins]]
