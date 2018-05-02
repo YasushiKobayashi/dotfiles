@@ -33,3 +33,4 @@
 
 'body':
   'alt-cmd-2': 'pane:split-right-and-copy-active-item'
+  'cmd-h': 'window:focus-next-pane'
