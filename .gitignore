@@ -33,3 +33,5 @@ vendor
 direnv/*
 configstore/*
 gocode/*
+.netrwhist
+nvim/repos/*
