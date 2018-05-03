@@ -140,11 +140,7 @@ build = 'npm install -g tern'
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-on_ft = ['javascript', 'html']
-
-[[plugins]]
-repo = 'styled-components/vim-styled-components'
-on_ft = ['javascript']
+on_ft = ['javascript', 'html', 'php']
 
 [[plugins]]
 repo = 'sbdchd/neoformat'
