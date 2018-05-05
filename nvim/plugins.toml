@@ -143,9 +143,6 @@ repo = 'alvan/vim-closetag'
 on_ft = ['javascript', 'html', 'php']
 
 [[plugins]]
-repo = 'sbdchd/neoformat'
-
-[[plugins]]
 repo = 'AndrewRadev/switch.vim'
 
 [[plugins]]
@@ -159,3 +156,7 @@ repo = 'osyo-manga/vim-over'
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
 on_ft = ['markdown','mkd']
+
+[[plugins]]	
+repo = 'stephpy/vim-php-cs-fixer'	
+on_ft = 'php'
