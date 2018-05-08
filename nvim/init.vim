@@ -37,6 +37,8 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
+tnoremap <silent> <ESC> <C-\><C-n>
+
 nnoremap s <Nop>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -196,16 +198,16 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_javascript_prettier_eslint_options = '--single-quote=true --trailing-comma=all es5 --no-semi=false 	--no-bracket-spacing=true --jsx-bracket-same-line=true --arrow-parens=avoid'
 
-" php-cs-fixer	
-let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"	
-let g:php_cs_fixer_level = "all"	
-let g:php_cs_fixer_php_path = "php"	
-let g:php_cs_fixer_fixers_list = 'linefeed,short_tag,indentation'	
-let g:php_cs_fixer_dry_run = 0	
-let g:php_cs_fixer_verbose = 1	
-augroup phpCsFixer	
-  autocmd!	
-  autocmd BufWritePost *.php :call PhpCsFixerFixFile()	
+" php-cs-fixer
+let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
+let g:php_cs_fixer_level = "all"
+let g:php_cs_fixer_php_path = "php"
+let g:php_cs_fixer_fixers_list = 'linefeed,short_tag,indentation'
+let g:php_cs_fixer_dry_run = 0
+let g:php_cs_fixer_verbose = 1
+augroup phpCsFixer
+  autocmd!
+  autocmd BufWritePost *.php :call PhpCsFixerFixFile()
 augroup END
 
 let g:tigris#enabled = 1
