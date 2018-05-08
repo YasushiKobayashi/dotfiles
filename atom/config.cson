@@ -32,7 +32,7 @@
       "monokai"
     ]
   editor:
-    fontSize: 10
+    fontSize: 11
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true

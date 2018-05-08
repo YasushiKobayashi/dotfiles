@@ -77,7 +77,7 @@ let s:dein_path = expand('~/.vim/dein')
 if &compatible
   set nocompatible
 endif
-set runtimepath+=$XDG_CONFIG_HOME/nvim/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(s:dein_path)
   call dein#begin(s:dein_path)
