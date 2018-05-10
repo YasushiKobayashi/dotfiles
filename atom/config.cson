@@ -3,8 +3,8 @@
     general:
       _analyticsUserId: "ccee6fa0-69d9-4173-8455-5cf11c6570f7"
     php:
+      beautify_on_save: true
       cs_fixer_config_file: "/Users/kobayashiyasushi/dotfiles/.phpcs.dist"
-      cs_fixer_path: "/Users/kobayashiyasushi/.composer/vendor/bin/php-cs-fixer"
   "atom-package-deps":
     ignored: []
   core:
