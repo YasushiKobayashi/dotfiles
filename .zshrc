@@ -80,6 +80,8 @@ export XDG_CONFIG_HOME=$HOME/dotfiles
 export NVIM_PYTHON_LOG_FILE=/tmp/log
 export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
+# hub https://github.com/github/hub
+eval "$(hub alias -s)"
 
 #
 # Executes commands at the start of an interactive session.

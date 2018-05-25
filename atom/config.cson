@@ -58,7 +58,7 @@
     phpmdExecutablePath: "/usr/local/bin/phpmd"
   "linter-pycodestyle": {}
   "linter-ui-default":
-    panelHeight: -29
+    panelHeight: 69
   minimap:
     absoluteMode: true
     adjustAbsoluteModeHeight: true
