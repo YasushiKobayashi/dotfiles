@@ -95,10 +95,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yasushikobayashi/Desktop/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/yasushikobayashi/Desktop/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then source '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/yasushikobayashi/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/yasushikobayashi/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then source '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
