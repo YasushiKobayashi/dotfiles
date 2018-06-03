@@ -35,3 +35,4 @@ configstore/*
 gocode/*
 .netrwhist
 nvim/repos/*
+.zprofile
