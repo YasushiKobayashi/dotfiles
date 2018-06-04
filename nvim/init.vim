@@ -1,4 +1,4 @@
-let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
+let g:python3_host_prog = expand('$HOME') . '/.pyenv/versions/3.6.0/bin/python'
 
 syntax on
 scriptencoding utf-8

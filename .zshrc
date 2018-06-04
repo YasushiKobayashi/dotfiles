@@ -95,6 +95,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+export CLOUDSDK_PYTHON=$HOME/.pyenv/versions/2.7.11/bin/python
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then source $HOME/google-cloud-sdk/path.zsh.inc; fi
 
