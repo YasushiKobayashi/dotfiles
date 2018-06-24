@@ -231,6 +231,7 @@ function! UniteFileCurrentDir()
 endfunction
 
 " golang
+let g:syntastic_go_checkers = ['go', 'golint', 'govet']
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
