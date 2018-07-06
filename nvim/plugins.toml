@@ -120,6 +120,7 @@ build = 'make'
 repo = 'Galooshi/vim-import-js'
 on_ft = ['javascript']
 
+[[plugins]]
 repo = 'neovim/node-host'
 on_ft = ['javascript']
 hook_post_update = '''
@@ -132,6 +133,10 @@ on_ft = ['javascript']
 hook_post_update = '''
   let g:dein#plugin.build = './install.sh'
 '''
+
+[[plugins]]
+repo = 'styled-components/vim-styled-components'
+on_ft = ['javascript']
 
 [[plugins]]
 repo ='carlitux/deoplete-ternjs'
@@ -157,6 +162,6 @@ repo = 'osyo-manga/vim-over'
 repo = 'gabrielelana/vim-markdown'
 on_ft = ['markdown','mkd']
 
-[[plugins]]	
-repo = 'stephpy/vim-php-cs-fixer'	
+[[plugins]]
+repo = 'stephpy/vim-php-cs-fixer'
 on_ft = 'php'
