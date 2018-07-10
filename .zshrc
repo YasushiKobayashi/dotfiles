@@ -70,6 +70,7 @@ alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='cat $(ls | peco)'
 alias dc='docker-compose'
+alias bs='BrowserStackLocal --key $BS_KEY'
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)

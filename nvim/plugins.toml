@@ -55,9 +55,6 @@ repo = 'Shougo/vimshell.vim'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'soramugi/auto-ctags.vim'
-
-[[plugins]]
 repo = 'kana/vim-altr'
 
 [[plugins]]
@@ -143,6 +140,11 @@ repo ='carlitux/deoplete-ternjs'
 on_ft = ['javascript']
 build = 'npm install -g tern'
 
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+on_ft = ['typescript']
+
 [[plugins]]
 repo = 'alvan/vim-closetag'
 on_ft = ['javascript', 'html', 'php']
@@ -162,6 +164,3 @@ repo = 'osyo-manga/vim-over'
 repo = 'gabrielelana/vim-markdown'
 on_ft = ['markdown','mkd']
 
-[[plugins]]
-repo = 'stephpy/vim-php-cs-fixer'
-on_ft = 'php'

@@ -165,7 +165,6 @@ else
 endif
 
 " ctags
-let g:auto_ctags = 1
 nnoremap <C-]> g<C-]>
 nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 " nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
@@ -203,19 +202,6 @@ let g:ale_fixers = {
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_javascript_prettier_eslint_options = '--single-quote=true --trailing-comma=all es5 --no-semi=false 	--no-bracket-spacing=true --jsx-bracket-same-line=true --arrow-parens=avoid'
-
-" php-cs-fixer
-let g:php_cs_fixer_path = "~/.composer/vendor/bin/php-cs-fixer"
-let g:php_cs_fixer_level = "all"
-let g:php_cs_fixer_php_path = "php"
-let g:php_cs_fixer_fixers_list = 'linefeed,short_tag,indentation'
-let g:php_cs_fixer_dry_run = 0
-let g:php_cs_fixer_verbose = 1
-augroup phpCsFixer
-  autocmd!
-  autocmd BufWritePost *.php :call PhpCsFixerFixFile()
-augroup END
 
 let g:tigris#enabled = 1
 let g:tigris#on_the_fly_enabled = 1
