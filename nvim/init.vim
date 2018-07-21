@@ -4,7 +4,6 @@ syntax on
 scriptencoding utf-8
 set synmaxcol=200
 set autoindent
-set expandtab
 set modifiable
 set smartindent
 set nobackup
@@ -13,6 +12,9 @@ set clipboard+=unnamedplus
 set undodir=D:/home/koron/var/vim/undo
 set tabstop=2
 set shiftwidth=2
+set expandtab
+set smarttab
+set shiftround
 set nocursorline
 set number
 set encoding=utf-8
@@ -30,6 +32,11 @@ set ttimeout
 set ttimeoutlen=50
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+set inccommand=split
 
 " imap
 imap { {}<LEFT>
@@ -208,6 +215,12 @@ let g:tigris#on_the_fly_enabled = 1
 let g:tigris#delay = 300
 let g:vim_jsx_pretty_enable_jsx_highlight = 1
 
+" setting typescript
+autocmd FileType typescript setlocal completeopt-=menu
+let g:tsuquyomi_completion_detail = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 2
 function! UniteFileCurrentDir()
@@ -270,9 +283,6 @@ nnoremap <silent> <Leader>t :TagbarToggle<CR>
 
 " Qfreplace
 nnoremap <silent> <Leader>q :Qfreplace<CR>
-
-" vim-over
-nnoremap <silent> <Leader>o :OverCommandLine<CR>
 
 " vim-altr
 nnoremap <silent> <Leader>a <Plug>(altr-forward)

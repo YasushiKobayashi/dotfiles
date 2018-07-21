@@ -143,7 +143,6 @@ build = 'npm install -g tern'
 
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
@@ -156,9 +155,6 @@ repo = 'AndrewRadev/switch.vim'
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 on_i = 1
-
-[[plugins]]
-repo = 'osyo-manga/vim-over'
 
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
