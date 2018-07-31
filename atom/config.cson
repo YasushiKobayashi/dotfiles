@@ -69,9 +69,12 @@
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true
+      isDisabledIfNoConfigFile: true
       respectEslintignore: false
       showInStatusBar: true
+    prettierEslintOptions: {}
     prettierOptions:
+      arrowParens: "always"
       jsxBracketSameLine: true
       parser: "flow"
       printWidth: 100

@@ -199,10 +199,12 @@ let g:ale_linters = {
       \ 'html': [],
       \ 'css': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
+      \ 'typescript': ['tslint', 'stylelint'],
       \ }
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier_eslint'],
+      \ 'typescript': ['prettier'],
       \ 'css': ['prettier_eslint'],
       \ 'scss': ['prettier_eslint'],
       \ 'python': ['autopep8', 'isort'],
@@ -216,7 +218,7 @@ let g:tigris#delay = 300
 let g:vim_jsx_pretty_enable_jsx_highlight = 1
 
 " setting typescript
-autocmd FileType typescript setlocal completeopt-=menu
+autocmd BufRead,BufNewFile *.ts, *.tsx set filetype=typescript
 let g:tsuquyomi_completion_detail = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 

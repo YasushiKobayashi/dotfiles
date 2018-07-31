@@ -115,38 +115,44 @@ build = 'make'
 
 [[plugins]]
 repo = 'Galooshi/vim-import-js'
-on_ft = ['javascript']
+on_ft = ['javascript', 'typescript']
 
 [[plugins]]
 repo = 'neovim/node-host'
-on_ft = ['javascript']
+on_ft = ['javascript', 'typescript']
 hook_post_update = '''
   let g:dein#plugin.build = 'npm install'
 '''
 
 [[plugins]]
 repo = 'billyvg/tigris.nvim'
-on_ft = ['javascript']
+on_ft = ['javascript', 'typescript']
 hook_post_update = '''
   let g:dein#plugin.build = './install.sh'
 '''
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
-on_ft = ['javascript']
+on_ft = ['javascript', 'typescript']
 
 [[plugins]]
 repo ='carlitux/deoplete-ternjs'
-on_ft = ['javascript']
+on_ft = ['javascript', 'typescript']
 build = 'npm install -g tern'
 
 
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
+on_ft = ['typescript']
+build = 'make -f make_mac.mak'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-on_ft = ['javascript', 'html', 'php']
+on_ft = ['javascript', 'html', 'php', 'typescript']
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
