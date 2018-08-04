@@ -76,6 +76,7 @@ nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 nnoremap tc :s/_\(.\)/\u\1/g<CR>;
+autocmd InsertLeave * set nopaste
 autocmd QuickFixCmdPost vimgrep cwindow
 autocmd QuickFixCmdPost *grep* cwindow
 
@@ -282,6 +283,9 @@ endif
 " tagnar
 let g:tagbar_autofocus = 1
 nnoremap <silent> <Leader>t :TagbarToggle<CR>
+
+" vim test
+nnoremap <silent> <Leader>u :TestFile<CR>
 
 " Qfreplace
 nnoremap <silent> <Leader>q :Qfreplace<CR>
