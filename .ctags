@@ -1,3 +1,6 @@
+--append=yes
+--recurse=yes
+
 --langdef=js
 --langmap=js:.js
 --langmap=js:+.jsx
@@ -7,14 +10,6 @@
 --regex-JavaScript=/([A-Za-z0-9._$\#\(\)]+)[ \t]*[:][ \t]*([A-Za-z0-9\'\"._\-\#\(]+)[ \t]*\{/\1/p,property/
 --regex-JavaScript=/var ([A-Za-z0-9._$\#]+)[ \t]*[=][ \t]*([A-Za-z0-9._'"\$\#\[\{]+)[,|;]/\1/v,variable/
 --regex-JavaScript=/([A-Za-z0-9._$\#]+)[ \t]*[=][ \t]*([A-Za-z0-9._'"\$\#]+)extend\(/\1/c,class/
-
---regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
---regex-ruby=/(^|;)[ \t]*(has_many|belongs_to|has_one|has_and_belongs_to_many)\(? *:([[:alnum:]_]+)/\3/f,function,association/
---regex-ruby=/(^|;)[ \t]*(named_)?scope\(? *:([[:alnum:]_]+)/\3/f,function,named_scope/
---regex-ruby=/(^|;)[ \t]*expose\(? *:([[:alnum:]_]+)/\2/f,function,exposure/
---regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2/f,function,aasm_event/
---regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2!/f,function,aasm_event/
---regex-ruby=/(^|;)[ \t]*event\(? *:([[:alnum:]_]+)/\2?/f,function,aasm_event/
 
 --langdef=markdown
 --langmap=markdown:.md.markdown.mdown.mkd.mkdn
@@ -48,6 +43,19 @@
 --regex-less=/^[ t]*(([A-Za-z0-9_-]+[ tn,]+)+){/1/t,tag,tags/
 --regex-less=/^[ t]*@medias+([A-Za-z0-9_-]+)/1/m,media,medias/
 
+--langdef=swift
+--langmap=swift:.swift
+--regex-swift=/[[:<:]]class[[:>:]][[:space:]]+([[:alnum:]_]+)/\1/c,class/
+--regex-swift=/[[:<:]]enum[[:>:]][[:space:]]+([[:alnum:]_]+)/\1/e,enum/
+--regex-swift=/[[:<:]]func[[:>:]][[:space:]]+([[:alnum:]_]+)/\1/f,function/
+--regex-swift=/[[:<:]]protocol[[:>:]][[:space:]]+([[:alnum:]_]+)/\1/P,protocol/
+--regex-swift=/[[:<:]]struct[[:>:]][[:space:]]+([[:alnum:]_]+)/\1/s,struct/
+--regex-swift=/[[:<:]]extension[[:>:]][[:space:]]+([[:alnum:]_]+)/\1/E,extension/
+--regex-swift=/[[:<:]]typealias[[:>:]][[:space:]]+([[:alnum:]_]+)/\1/t,typealias/
+--langdef=Elixir
+--langmap=Elixir:.ex.exs
+--regex-elixir=/^[ \t]*defmodule[ \t]+([a-zA-Z0-9_.]+)/\1/m,modules/
+
 --exclude=node_modules
 --exclude=vender
 --exclude=dist
@@ -57,4 +65,5 @@
 --exclude=webpack.config.babel.js
 --exclude=postcss.config.js
 --exclude=yarn.lock
---exclude=config.js
+--exclude=bundle.js
+--exclude=*.pyc

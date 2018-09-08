@@ -11,6 +11,7 @@
     destroyEmptyPanes: false
     disabledPackages: [
       "symbols-view"
+      "go-plus"
     ]
     ignoredNames: [
       ".git"
@@ -59,6 +60,7 @@
   "linter-pycodestyle": {}
   "linter-ui-default":
     panelHeight: 69
+    showPanel: true
   minimap:
     absoluteMode: true
     adjustAbsoluteModeHeight: true
@@ -83,6 +85,8 @@
     useEslint: true
   "tree-view":
     hideIgnoredNames: true
+  "vim-mode-plus":
+    keymapYToYankToLastCharacterOfLine: true
   welcome:
     showOnStartup: false
 ".html.php.text":

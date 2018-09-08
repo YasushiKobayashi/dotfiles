@@ -219,7 +219,6 @@ let g:tigris#delay = 300
 let g:vim_jsx_pretty_enable_jsx_highlight = 1
 
 " setting typescript
-autocmd BufRead,BufNewFile *.ts, *.tsx set filetype=typescript
 let g:tsuquyomi_completion_detail = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
@@ -293,3 +292,12 @@ nnoremap <silent> <Leader>q :Qfreplace<CR>
 " vim-altr
 nnoremap <silent> <Leader>a <Plug>(altr-forward)
 
+" swift
+autocmd FileType swift imap <buffer> <C-]> <Plug>(deoplete_swift_jump_to_placeholder)
+let g:deoplete#sources#swift#daemon_autostart = 1
+
+" twitvim
+let twitvim_browser_cmd = 'open' " for Mac
+let twitvim_force_ssl = 1
+let twitvim_enable_python =1
+let twitvim_count = 40

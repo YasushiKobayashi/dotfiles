@@ -121,19 +121,28 @@ on_ft = 'go'
 build = 'make'
 
 [[plugins]]
-repo = 'Galooshi/vim-import-js'
+repo = 'landaire/deoplete-swift'
+on_ft = 'swift'
+
+[[plugins]]
+repo ='carlitux/deoplete-ternjs'
 on_ft = ['javascript', 'typescript']
+build = 'npm install -g tern'
+
+[[plugins]]
+repo = 'Galooshi/vim-import-js'
+on_ft = ['javascript']
 
 [[plugins]]
 repo = 'neovim/node-host'
-on_ft = ['javascript', 'typescript']
+on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 hook_post_update = '''
   let g:dein#plugin.build = 'npm install'
 '''
 
 [[plugins]]
 repo = 'billyvg/tigris.nvim'
-on_ft = ['javascript', 'typescript']
+on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 hook_post_update = '''
   let g:dein#plugin.build = './install.sh'
 '''
@@ -141,12 +150,6 @@ hook_post_update = '''
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo ='carlitux/deoplete-ternjs'
-on_ft = ['javascript', 'typescript']
-build = 'npm install -g tern'
-
 
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
@@ -173,3 +176,13 @@ on_i = 1
 repo = 'gabrielelana/vim-markdown'
 on_ft = ['markdown','mkd']
 
+[[plugins]]
+repo = 'kballard/vim-swift'
+on_ft = 'swift'
+
+[[plugins]]
+repo = 'keith/swift.vim'
+on_ft = 'swift'
+
+[[plugins]]
+repo = 'twitvim/twitVim'
