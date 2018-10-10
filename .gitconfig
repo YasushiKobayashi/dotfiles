@@ -1,12 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [user]
 	name = YasushiKobayashi
 	email = ptpadan@gmail.com
@@ -19,5 +13,3 @@
 	root = ~/go/src
 [commit]
 	template = ~/.stCommitMsg
-[alias]
-  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|dev|master'|xargs git branch -d; };f"

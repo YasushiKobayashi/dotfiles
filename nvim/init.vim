@@ -157,13 +157,12 @@ function! Multiple_cursors_after()
 endfunction
 
 " setting ctrlp
-let g:ctrlp_max_height          = 20
-let g:ctrlp_user_command = 'ag %s -l'
+let g:ctrlp_max_height    = 20
+let g:ctrlp_user_command  = 'ag %s -l'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching   = 0
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 else
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
@@ -201,6 +200,7 @@ let g:ale_linters = {
       \ 'css': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
       \ 'typescript': ['tslint', 'stylelint'],
+      \ 'swift': ['swiftlint'],
       \ }
 
 let g:ale_fixers = {
@@ -212,7 +212,9 @@ let g:ale_fixers = {
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_typescript_tslint_config_path = 'tslint.yml'
 
+" jsx syntax
 let g:tigris#enabled = 1
 let g:tigris#on_the_fly_enabled = 1
 let g:tigris#delay = 300
@@ -279,12 +281,8 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-" tagnar
-let g:tagbar_autofocus = 1
-nnoremap <silent> <Leader>t :TagbarToggle<CR>
-
 " vim test
-nnoremap <silent> <Leader>u :TestFile<CR>
+nnoremap <silent> <Leader>t :TestFile<CR>
 
 " Qfreplace
 nnoremap <silent> <Leader>q :Qfreplace<CR>
@@ -301,3 +299,7 @@ let twitvim_browser_cmd = 'open' " for Mac
 let twitvim_force_ssl = 1
 let twitvim_enable_python =1
 let twitvim_count = 40
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)

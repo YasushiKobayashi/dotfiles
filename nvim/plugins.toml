@@ -35,6 +35,9 @@ if = 'has("lua")'
 on_i = 1
 
 [[plugins]]
+repo  = 'ryanoasis/vim-devicons'
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
@@ -106,10 +109,14 @@ repo = 'vim-airline/vim-airline'
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo  = 'ryanoasis/vim-devicons'
+repo = 'AndrewRadev/switch.vim'
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
+repo = 'twitvim/twitVim'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
 
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -162,10 +169,7 @@ on_ft = ['typescript']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-on_ft = ['javascript', 'html', 'php', 'typescript']
-
-[[plugins]]
-repo = 'AndrewRadev/switch.vim'
+on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
@@ -183,6 +187,3 @@ on_ft = 'swift'
 [[plugins]]
 repo = 'keith/swift.vim'
 on_ft = 'swift'
-
-[[plugins]]
-repo = 'twitvim/twitVim'
