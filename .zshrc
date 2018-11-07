@@ -53,6 +53,9 @@ export PATH=$PATH:$PYENV_ROOT/bin
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
@@ -61,9 +64,6 @@ alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
-
-export PATH="$HOME/.goenv/bin:$PATH"
-eval "$(goenv init -)"
 
 alias ll='ls -la'
 alias g='cd $(ghq root)/$(ghq list | peco)'
@@ -110,3 +110,4 @@ export PATH="/usr/local/sbin:$PATH"
 export EXPANDED_CODE_SIGN_IDENTITY=
 export EXPANDED_CODE_SIGN_IDENTITY_NAME=
 export EXPANDED_PROVISIONING_PROFILE=
+export PATH="/usr/local/opt/bison/bin:$PATH"

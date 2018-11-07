@@ -118,18 +118,12 @@ set background=dark
 autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai
 
-" setting neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#min_keyword_length = 3
-let g:neocomplete#enable_auto_delimiter = 1
-let g:neocomplete#auto_completion_start_length = 1
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
-
 "Python3 support
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_profile = 1
+
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['phpcd']
 
 " auto close
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx, *.php"
@@ -141,20 +135,6 @@ let g:closetag_close_shortcut = '<leader>>'
 " js import
 nnoremap <C-i> :ImportJSFix<CR>
 
-" multiple-cursors
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  let g:deoplete#disable_auto_complete = 1
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
-function! Multiple_cursors_after()
-  let g:deoplete#disable_auto_complete = 0
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
 
 " setting ctrlp
 let g:ctrlp_max_height    = 20
@@ -201,6 +181,7 @@ let g:ale_linters = {
       \ 'javascript': ['eslint', 'stylelint'],
       \ 'typescript': ['tslint', 'stylelint'],
       \ 'swift': ['swiftlint'],
+      \ 'php': ['phpcs'],
       \ }
 
 let g:ale_fixers = {
@@ -209,10 +190,12 @@ let g:ale_fixers = {
       \ 'css': ['prettier_eslint'],
       \ 'scss': ['prettier_eslint'],
       \ 'python': ['autopep8', 'isort'],
+      \ 'php': ['php_cs_fixer'],
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_typescript_tslint_config_path = 'tslint.yml'
+let g:ale_php_phpcs_standard = 'PSR2'
 
 " jsx syntax
 let g:tigris#enabled = 1
@@ -277,7 +260,7 @@ nnoremap <silent> <Leader>uu :<C-u>Unite file_mru buffer<CR>
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --ignore=*.log'
   let g:unite_source_grep_recursive_opt = ''
 endif
 

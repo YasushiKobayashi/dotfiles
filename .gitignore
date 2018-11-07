@@ -36,3 +36,4 @@ gocode/*
 .netrwhist
 nvim/repos/*
 .zprofile
+hub
