@@ -11,7 +11,6 @@
     destroyEmptyPanes: false
     disabledPackages: [
       "symbols-view"
-      "go-plus"
     ]
     ignoredNames: [
       ".git"
@@ -33,7 +32,7 @@
       "monokai"
     ]
   editor:
-    fontSize: 11
+    fontSize: 12
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
@@ -59,7 +58,7 @@
     phpmdExecutablePath: "/usr/local/bin/phpmd"
   "linter-pycodestyle": {}
   "linter-ui-default":
-    panelHeight: 69
+    panelHeight: 300
     showPanel: true
   minimap:
     absoluteMode: true
@@ -89,6 +88,10 @@
     keymapYToYankToLastCharacterOfLine: true
   welcome:
     showOnStartup: false
+".blade.html.php.text":
+  editor:
+    commentEnd: " --}}"
+    commentStart: "{{-- "
 ".html.php.text":
   editor:
     tabLength: 4

@@ -26,8 +26,7 @@ set wildmenu
 set history=5000
 set whichwrap=b,s,<,>,[,]
 set showtabline=2
-set spell
-set spelllang=en_us
+set nospell
 set ttimeout
 set ttimeoutlen=50
 set list
@@ -84,6 +83,7 @@ let mapleader = "\<Space>"
 
 " 起動時設定
 au BufRead,BufNewFile *.scss set filetype=css
+au BufRead,BufNewFile *.scala  set filetype=scala
 
 let s:dein_path = expand('~/.vim/dein')
 if &compatible
@@ -123,7 +123,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_profile = 1
 
 let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.php = ['phpcd']
+let g:deoplete#ignore_sources.php = ['omni']
 
 " auto close
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx, *.php"
@@ -135,6 +135,8 @@ let g:closetag_close_shortcut = '<leader>>'
 " js import
 nnoremap <C-i> :ImportJSFix<CR>
 
+" vue
+autocmd FileType vue syntax sync fromstart
 
 " setting ctrlp
 let g:ctrlp_max_height    = 20
@@ -179,6 +181,7 @@ let g:ale_linters = {
       \ 'html': [],
       \ 'css': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
+      \ 'vue': ['eslint', 'stylelint'],
       \ 'typescript': ['tslint', 'stylelint'],
       \ 'swift': ['swiftlint'],
       \ 'php': ['phpcs'],
@@ -187,6 +190,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ 'javascript': ['prettier_eslint'],
       \ 'typescript': ['prettier'],
+      \ 'vue': ['prettier'],
       \ 'css': ['prettier_eslint'],
       \ 'scss': ['prettier_eslint'],
       \ 'python': ['autopep8', 'isort'],
