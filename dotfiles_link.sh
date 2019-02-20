@@ -15,3 +15,6 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.stCommitMsg ~/.gitconfigstCommitMsg
 ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 ln -sf ~/dotfiles/.agignore ~/.agignore
+ln -sf ~/dotfiles/config.fish ~/.config/fish/config.fish
+ln -sf ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/dotfiles/nvim/plugins.toml ~/.config/nvim/plugins.tom

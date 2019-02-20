@@ -138,21 +138,6 @@ nnoremap <C-i> :ImportJSFix<CR>
 " vue
 autocmd FileType vue syntax sync fromstart
 
-" setting ctrlp
-let g:ctrlp_max_height    = 20
-let g:ctrlp_user_command  = 'ag %s -l'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
-let g:ctrlp_use_caching   = 0
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
-
 " ctags
 nnoremap <C-]> g<C-]>
 nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
@@ -181,14 +166,14 @@ let g:ale_linters = {
       \ 'html': [],
       \ 'css': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
-      \ 'vue': ['eslint', 'stylelint'],
+      \ 'vue': ['eslint', 'stylelint', 'tslint'],
       \ 'typescript': ['tslint', 'stylelint'],
       \ 'swift': ['swiftlint'],
       \ 'php': ['phpcs'],
       \ }
 
 let g:ale_fixers = {
-      \ 'javascript': ['prettier_eslint'],
+      \ 'javascript': ['prettier'],
       \ 'typescript': ['prettier'],
       \ 'vue': ['prettier'],
       \ 'css': ['prettier_eslint'],
@@ -242,6 +227,21 @@ let g:airline#extensions#ale#warning_symbol = ' '
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
 
+" setting ctrlp
+let g:ctrlp_max_height    = 20
+let g:ctrlp_user_command  = 'ag %s -l'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log)$'
+let g:ctrlp_use_caching   = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
+
 " unite
 " insert modeで開始
 let g:unite_enable_start_insert = 1
@@ -251,7 +251,7 @@ let g:unite_source_file_mru_limit = 200
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
-
+nnoremap <silent> <Leader>p  :<C-u>CtrlP<CR>
 nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> <Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> <Leader>r  :<C-u>UniteResume search-buffer<CR>

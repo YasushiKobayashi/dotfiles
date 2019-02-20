@@ -42,17 +42,6 @@ eval "$(direnv hook zsh)"
 alias ctags="`brew --prefix`/bin/ctags"
 
 export PATH=/usr/local/bin:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-
-eval "$(nodenv init -)"
-export PATH="$HOME/.nodenv/bin:$PATH"
-
-export PYENV_ROOT=~/.pyenv
-export PATH=$PATH:$PYENV_ROOT/bin
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
@@ -74,7 +63,6 @@ alias bs='BrowserStackLocal --key $BS_KEY'
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
-source <(kompose completion zsh)
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/dotfiles
