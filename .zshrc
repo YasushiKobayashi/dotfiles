@@ -1,4 +1,4 @@
-# 環境変数
+
 export LANG=ja_JP.UTF-8
 
 
@@ -53,6 +53,7 @@ alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
 
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
+export PATH=$GOENV_ROOT/bin:$PATH
 
 alias ll='ls -la'
 alias g='cd $(ghq root)/$(ghq list | peco)'
@@ -65,7 +66,7 @@ alias bs='BrowserStackLocal --key $BS_KEY'
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # nvim
-export XDG_CONFIG_HOME=$HOME/dotfiles
+export XDG_CONFIG_HOME=$HOME/.config
 export NVIM_PYTHON_LOG_FILE=/tmp/log
 export NVIM_PYTHON_LOG_LEVEL=DEBUG
 

@@ -1,4 +1,5 @@
-let g:python3_host_prog = expand('$HOME') . '/.pyenv/versions/3.6.0/bin/python'
+let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
+let g:node_host_prog =  expand('$HOME') . '.anyenv/envs/nodenv/shims/node'
 
 syntax on
 scriptencoding utf-8
@@ -85,7 +86,7 @@ let mapleader = "\<Space>"
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.scala  set filetype=scala
 
-let s:dein_path = expand('~/.vim/dein')
+let s:dein_path = expand('$XDG_CONFIG_HOME/dein')
 if &compatible
   set nocompatible
 endif
@@ -126,8 +127,8 @@ let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 let g:deoplete#ignore_sources.php = ['omni']
 
 " auto close
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx, *.php"
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.erb, *.php'
+let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.erb,*.jsx, *.php, *.tsx"
+let g:closetag_xhtml_filenames = '*.xhtml, *.jsx, *.erb, *.php, *.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
@@ -137,12 +138,6 @@ nnoremap <C-i> :ImportJSFix<CR>
 
 " vue
 autocmd FileType vue syntax sync fromstart
-
-" ctags
-nnoremap <C-]> g<C-]>
-nnoremap <C-s> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
-" nnoremap <C-a> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
-
 
 " ALE lint
 let g:lightline = {
@@ -167,7 +162,7 @@ let g:ale_linters = {
       \ 'css': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
       \ 'vue': ['eslint', 'stylelint', 'tslint'],
-      \ 'typescript': ['tslint', 'stylelint'],
+      \ 'typescript': ['tslint', 'stylelint', 'eslint'],
       \ 'swift': ['swiftlint'],
       \ 'php': ['phpcs'],
       \ }
@@ -185,6 +180,7 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_typescript_tslint_config_path = 'tslint.yml'
 let g:ale_php_phpcs_standard = 'PSR2'
+let g:ale_php_cs_fixer_options = '--config ' . expand('$HOME') . '/.php_cs.dist'
 
 " jsx syntax
 let g:tigris#enabled = 1

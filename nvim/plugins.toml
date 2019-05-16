@@ -1,5 +1,6 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
+repo = 'Shougo/denite.nvim'
+if = 'has("nvim")'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -13,19 +14,10 @@ on_i = 1
 if = 'has("nvim")'
 
 [[plugins]]
-repo = 'Shougo/neocomplete'
-if = 'has("lua")'
-on_i = 1
-
-[[plugins]]
 repo  = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-if = 'has("nvim")'
 
 [[plugins]]
 repo = 'Shougo/vimfiler'
