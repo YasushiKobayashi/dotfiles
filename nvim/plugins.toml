@@ -120,16 +120,12 @@ on_ft = ['javascript']
 [[plugins]]
 repo = 'neovim/node-host'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-hook_post_update = '''
-  let g:dein#plugin.build = 'npm install'
-'''
+build = './install.sh'
 
 [[plugins]]
 repo = 'billyvg/tigris.nvim'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-hook_post_update = '''
-  let g:dein#plugin.build = './install.sh'
-'''
+build = './install.sh'
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
@@ -138,7 +134,6 @@ on_ft = ['javascript', 'typescript']
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
 on_ft = ['typescript']
-build = 'make -f make_mac.mak'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
@@ -172,9 +167,14 @@ on_ft = 'swift'
 [[plugins]]
 repo = 'lvht/phpcd.vim'
 on_ft = 'php'
+build = 'composer install'
 
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
+on_ft = 'scala'
+
+[[plugins]]
+repo = 'ensime/ensime-vim'
 on_ft = 'scala'
 
 [[plugins]]

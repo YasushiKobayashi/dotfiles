@@ -1,6 +1,20 @@
 
 export LANG=ja_JP.UTF-8
 
+# 履歴ファイルの保存先
+export HISTFILE=${HOME}/.zsh_history
+
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
+
+# 重複を記録しない
+setopt hist_ignore_dups
+
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -51,6 +65,7 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
+export GOENV_DISABLE_GOPATH=1
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH=$GOENV_ROOT/bin:$PATH
@@ -62,12 +77,21 @@ alias pcat='cat $(ls | peco)'
 alias dc='docker-compose'
 alias bs='BrowserStackLocal --key $BS_KEY'
 
+peco-select-history() {
+    BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\*?\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
+    CURSOR=${#BUFFER}
+    zle reset-prompt
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export NVIM_PYTHON_LOG_FILE=/tmp/log
+export NVIM_NODE_LOG_FILE=/tmp/log
 export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 # hub https://github.com/github/hub

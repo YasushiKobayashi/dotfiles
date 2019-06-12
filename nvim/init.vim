@@ -1,5 +1,8 @@
+let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
-let g:node_host_prog =  expand('$HOME') . '.anyenv/envs/nodenv/shims/node'
+let g:node_host_prog =  expand('$HOME') . '.anyenv/envs/nodenv/versions/10.14.2/bin/neovim-node-host'
+
+let g:NVIM_NODE_LOG_FILE ='/tmp/log/node/nvim.log'
 
 syntax on
 scriptencoding utf-8
@@ -172,14 +175,14 @@ let g:ale_fixers = {
       \ 'typescript': ['prettier'],
       \ 'vue': ['prettier'],
       \ 'css': ['prettier_eslint'],
-      \ 'scss': ['prettier_eslint'],
+      \ 'scss': ['stylelint'],
       \ 'python': ['autopep8', 'isort'],
       \ 'php': ['php_cs_fixer'],
+      \ 'scala': ['scalafmt'],
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_typescript_tslint_config_path = 'tslint.yml'
-let g:ale_php_phpcs_standard = 'PSR2'
 let g:ale_php_cs_fixer_options = '--config ' . expand('$HOME') . '/.php_cs.dist'
 
 " jsx syntax
@@ -277,12 +280,10 @@ nnoremap <silent> <Leader>a <Plug>(altr-forward)
 autocmd FileType swift imap <buffer> <C-]> <Plug>(deoplete_swift_jump_to_placeholder)
 let g:deoplete#sources#swift#daemon_autostart = 1
 
-" twitvim
-let twitvim_browser_cmd = 'open' " for Mac
-let twitvim_force_ssl = 1
-let twitvim_enable_python =1
-let twitvim_count = 40
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" scala
+let g:formatdef_scalafmt = "'scalafmt --stdin'"
+let g:formatters_scala = ['scalafmt']
