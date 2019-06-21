@@ -8,4 +8,5 @@ tags.lock
 .tern-port
 *.cache
 .mypy_cache
-
+.enisma
+enisma.sbt

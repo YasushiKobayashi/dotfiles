@@ -13,3 +13,5 @@
 	root = ~/go/src
 [commit]
 	template = ~/.stCommitMsg
+[alias]
+	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %

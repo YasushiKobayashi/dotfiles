@@ -143,6 +143,7 @@ nnoremap <C-i> :ImportJSFix<CR>
 autocmd FileType vue syntax sync fromstart
 
 " ALE lint
+let g:ale_completion_enabled = 1
 let g:lightline = {
   \'active': {
   \  'left': [
@@ -177,13 +178,12 @@ let g:ale_fixers = {
       \ 'css': ['prettier_eslint'],
       \ 'scss': ['stylelint'],
       \ 'python': ['autopep8', 'isort'],
-      \ 'php': ['php_cs_fixer'],
+      \ 'php': ['phpcbf'],
       \ 'scala': ['scalafmt'],
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_typescript_tslint_config_path = 'tslint.yml'
-let g:ale_php_cs_fixer_options = '--config ' . expand('$HOME') . '/.php_cs.dist'
 
 " jsx syntax
 let g:tigris#enabled = 1
@@ -258,7 +258,6 @@ nnoremap <silent> <Leader>y :<C-u>Unite history/yank<CR>
 nnoremap <silent> <Leader>b :<C-u>Unite buffer<CR>
 nnoremap <silent> <Leader>f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> <Leader>r :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> <Leader>uu :<C-u>Unite file_mru buffer<CR>
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
@@ -276,10 +275,6 @@ nnoremap <silent> <Leader>q :Qfreplace<CR>
 " vim-altr
 nnoremap <silent> <Leader>a <Plug>(altr-forward)
 
-" swift
-autocmd FileType swift imap <buffer> <C-]> <Plug>(deoplete_swift_jump_to_placeholder)
-let g:deoplete#sources#swift#daemon_autostart = 1
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -287,3 +282,5 @@ nmap ga <Plug>(EasyAlign)
 " scala
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
+" :map <C-]> :EnDeclaration<CR>
+
