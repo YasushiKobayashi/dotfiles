@@ -1,6 +1,6 @@
 let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
 let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
-let g:node_host_prog =  expand('$HOME') . '.anyenv/envs/nodenv/versions/10.14.2/bin/neovim-node-host'
+let g:node_host_prog =  expand('$HOME') . '.anyenv/envs/nodenv//shims/neovim-node-host'
 
 let g:NVIM_NODE_LOG_FILE ='/tmp/log/node/nvim.log'
 
@@ -282,5 +282,4 @@ nmap ga <Plug>(EasyAlign)
 " scala
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
-" :map <C-]> :EnDeclaration<CR>
 
