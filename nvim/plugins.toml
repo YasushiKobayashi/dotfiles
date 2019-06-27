@@ -128,10 +128,6 @@ repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript', 'typescript']
 
 [[plugins]]
-repo = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
-
-[[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
 
@@ -141,7 +137,7 @@ on_ft = ['vue', 'javascript', 'javascript.vue']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue', 'typescript.vue']
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
@@ -153,21 +149,16 @@ repo = 'gabrielelana/vim-markdown'
 on_ft = ['markdown','mkd']
 
 [[plugins]]
-repo = 'lvht/phpcd.vim'
-on_ft = 'php'
-build = 'composer install'
-
-[[plugins]]
 repo = 'derekwyatt/vim-scala'
 on_ft = 'scala'
 
 [[plugins]]
-repo = 'ensime/ensime-vim'
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
 on_ft = 'scala'
-build = ':UpdateRemotePlugins'
-hook_source = '''
-:map <C-]> :EnDeclaration<CR>
-'''
 
 [[plugins]]
 repo = 'jparise/vim-graphql'

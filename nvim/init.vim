@@ -191,11 +191,6 @@ let g:tigris#on_the_fly_enabled = 1
 let g:tigris#delay = 300
 let g:vim_jsx_pretty_enable_jsx_highlight = 1
 
-" setting typescript
-let g:tsuquyomi_completion_detail = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
-
-
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 2
 function! UniteFileCurrentDir()
@@ -283,3 +278,7 @@ nmap ga <Plug>(EasyAlign)
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
 
+au BufRead,BufNewFile *.sbt set filetype=scala
+
+" Remap keys for gotos
+:map <C-]> <Plug>(coc-definition)
