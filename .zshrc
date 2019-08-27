@@ -55,6 +55,11 @@ setopt hist_ignore_all_dups
 eval "$(direnv hook zsh)"
 alias ctags="`brew --prefix`/bin/ctags"
 
+export GOENV_DISABLE_GOPATH=1
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH=$GOENV_ROOT/bin:$PATH
+
 export PATH=/usr/local/bin:$PATH
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
@@ -64,11 +69,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-
-export GOENV_DISABLE_GOPATH=1
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
-export PATH=$GOENV_ROOT/bin:$PATH
 
 alias ll='ls -la'
 alias g='cd $(ghq root)/$(ghq list | peco)'

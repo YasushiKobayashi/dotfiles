@@ -87,9 +87,6 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'AndrewRadev/switch.vim'
 
 [[plugins]]
-repo = 'twitvim/twitVim'
-
-[[plugins]]
 repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
@@ -105,35 +102,13 @@ on_ft = 'go'
 build = 'make'
 
 [[plugins]]
-repo ='carlitux/deoplete-ternjs'
-on_ft = ['javascript', 'typescript']
-build = 'npm install -g tern'
-
-[[plugins]]
-repo = 'Galooshi/vim-import-js'
-on_ft = ['javascript']
-
-[[plugins]]
 repo = 'neovim/node-host'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
-build = './install.sh'
-
-[[plugins]]
-repo = 'billyvg/tigris.nvim'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 build = './install.sh'
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript', 'typescript']
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = ['vue', 'javascript', 'javascript.vue']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
@@ -149,17 +124,14 @@ repo = 'gabrielelana/vim-markdown'
 on_ft = ['markdown','mkd']
 
 [[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_ft = 'scala'
-
-[[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
 
 [[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_ft = 'scala'
-
-[[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = 'graphql'
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+hook_add = '''
+'''

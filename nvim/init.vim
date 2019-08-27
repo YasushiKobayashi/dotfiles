@@ -185,12 +185,6 @@ let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_typescript_tslint_config_path = 'tslint.yml'
 
-" jsx syntax
-let g:tigris#enabled = 1
-let g:tigris#on_the_fly_enabled = 1
-let g:tigris#delay = 300
-let g:vim_jsx_pretty_enable_jsx_highlight = 1
-
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 2
 function! UniteFileCurrentDir()

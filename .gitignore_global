@@ -9,4 +9,7 @@ tags.lock
 *.cache
 .mypy_cache
 .enisma
+.metals
+.ensime_cache
+enisma.sbt
 enisma.sbt
