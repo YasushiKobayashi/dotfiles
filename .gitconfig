@@ -1,19 +1,24 @@
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
+  excludesfile = ~/.gitignore_global
+  editor = vim
 [user]
-	name = YasushiKobayashi
-	email = ptpadan@gmail.com
+  name = YasushiKobayashi
+  email = ptpadan@gmail.com
 [filter "lfs"]
-	required = true
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	clean = git-lfs clean -- %f
+  required = true
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  clean = git-lfs clean -- %f
 [ghq]
-	root = ~/go/src
+  root = ~/go/src
 [commit]
-	template = ~/.stCommitMsg
+  template = ~/.stCommitMsg
 [alias]
-	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  ch = checkout
+  # pecoでローカルブランチ切り替え
+  chl = !git b --sort=-authordate | peco | awk '{ print $NF }' | xargs git co
+  # pecoでリモートブランチチェックアウト
+  chr = !git ftp && git b --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed "s/^\\*\\s*//" | sed -E 's/remotes\\/[^\\/]*\\/(.*)/\\1 &/' | xargs git cob
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain

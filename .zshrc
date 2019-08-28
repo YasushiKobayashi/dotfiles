@@ -75,7 +75,8 @@ alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='cat $(ls | peco)'
 alias dc='docker-compose'
-alias bs='BrowserStackLocal --key $BS_KEY'
+alias mkdir='mkdir -p'
+
 
 peco-select-history() {
     BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\*?\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
@@ -124,3 +125,16 @@ export EXPANDED_CODE_SIGN_IDENTITY=
 export EXPANDED_CODE_SIGN_IDENTITY_NAME=
 export EXPANDED_PROVISIONING_PROFILE=
 export PATH="/usr/local/opt/bison/bin:$PATH"
+
+function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
+alias top='tab-color 134 200 0; top; tab-reset'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
