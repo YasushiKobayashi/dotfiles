@@ -178,7 +178,7 @@ let g:ale_fixers = {
       \ 'css': ['prettier_eslint'],
       \ 'scss': ['stylelint'],
       \ 'python': ['autopep8', 'isort'],
-      \ 'php': ['phpcbf'],
+      \ 'php': ['php_cs_fixer'],
       \ 'scala': ['scalafmt'],
       \ }
 let g:ale_fix_on_save = 1
