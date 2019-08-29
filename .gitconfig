@@ -19,6 +19,6 @@
   # pecoでローカルブランチ切り替え
   chl = !git branch --sort=-authordate | peco | awk '{ print $NF }' | xargs git checkout
   # pecoでリモートブランチチェックアウト
-  chr = !git ftp && git branch --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed "s/^\\*\\s*//" | sed -E 's/remotes\\/[^\\/]*\\/(.*)/\\1 &/' | xargs git checkout
+  chr = !git fetch && git branch --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed "s/^\\*\\s*//" | sed -E 's/remotes\\/[^\\/]*\\/(.*)/\\1 &/' | xargs git checkout
 [credential]
   helper = osxkeychain
