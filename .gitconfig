@@ -17,8 +17,8 @@
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
   ch = checkout
   # pecoでローカルブランチ切り替え
-  chl = !git b --sort=-authordate | peco | awk '{ print $NF }' | xargs git co
+  chl = !git branch --sort=-authordate | peco | awk '{ print $NF }' | xargs git checkout
   # pecoでリモートブランチチェックアウト
-  chr = !git ftp && git b --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed "s/^\\*\\s*//" | sed -E 's/remotes\\/[^\\/]*\\/(.*)/\\1 &/' | xargs git cob
+  chr = !git ftp && git branch --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed "s/^\\*\\s*//" | sed -E 's/remotes\\/[^\\/]*\\/(.*)/\\1 &/' | xargs git checkout
 [credential]
   helper = osxkeychain
