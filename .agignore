@@ -9,6 +9,7 @@ old
 .git
 lib
 libs
+dist
 jquery-*.js
 bootstrap*.css
 bootstrap*.js
