@@ -97,7 +97,7 @@ export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 # hub https://github.com/github/hub
 eval "$(hub alias -s)"
-source ~/.zsh-yarn-completion/zsh-yarn-completion.plugin.zsh
+source ~/.yarn-completion/yarn-completion.plugin.zsh
 
 
 #
