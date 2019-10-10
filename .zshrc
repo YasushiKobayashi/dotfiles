@@ -71,11 +71,13 @@ alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 alias ll='ls -la'
-alias g='cd $(ghq root)/$(ghq list | peco)'
+alias g='git'
+alias gc='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
-alias pcat='cat $(ls | peco)'
+alias pcat='bat $(ls | peco)'
 alias dc='docker-compose'
 alias mkdir='mkdir -p'
+alias lerna='npx lerna'
 
 
 peco-select-history() {
