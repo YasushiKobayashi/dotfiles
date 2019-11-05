@@ -136,3 +136,9 @@ repo = 'sheerun/vim-polyglot'
 hook_add = '''
 let g:polyglot_disabled = ['markdown']
 '''
+
+[[plugins]]
+repo = 'glacambre/firenvim'
+hook_post_update = '''
+  call firenvim#install(0)
+'''
