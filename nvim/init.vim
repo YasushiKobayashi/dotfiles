@@ -78,7 +78,6 @@ nnoremap sQ :<C-u>bd<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
-nnoremap tc :s/_\(.\)/\u\1/g<CR>;
 autocmd InsertLeave * set nopaste
 autocmd QuickFixCmdPost vimgrep cwindow
 autocmd QuickFixCmdPost *grep* cwindow
@@ -166,7 +165,7 @@ let g:ale_linters = {
       \ 'css': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
       \ 'vue': ['eslint', 'stylelint', 'tslint'],
-      \ 'typescript': ['tslint', 'stylelint', 'eslint'],
+      \ 'typescript': ['eslint', 'stylelint'],
       \ 'swift': ['swiftlint'],
       \ 'php': ['phpcs'],
       \ }
@@ -271,3 +270,8 @@ au BufRead,BufNewFile *.sbt set filetype=scala
 
 " Remap keys for gotos
 :map <C-]> <Plug>(coc-definition)
+
+" operator-camelize
+xmap tt <plug>(operator-camelize-toggle)
+xmap tc <plug>(operator-camelize)
+xmap ts <plug>(operator-decamelize)

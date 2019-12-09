@@ -30,6 +30,9 @@ build = 'make'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'tpope/vim-rhubarb'
+
+[[plugins]]
 repo = 'kana/vim-altr'
 
 [[plugins]]
@@ -50,6 +53,15 @@ depends = ['vim-dispatch']
 hook_add = '''
 let g:test#strategy = 'dispatch'
 '''
+
+[[plugins]]
+repo = 'bkad/CamelCaseMotion'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'tyru/operator-camelize.vim'
 
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
