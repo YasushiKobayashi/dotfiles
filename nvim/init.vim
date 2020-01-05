@@ -30,7 +30,7 @@ set wildmenu
 set history=5000
 set whichwrap=b,s,<,>,[,]
 set showtabline=2
-set nospell
+set spell
 set ttimeout
 set ttimeoutlen=50
 set list
@@ -121,13 +121,6 @@ set background=dark
 autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai
 
-"Python3 support
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_profile = 1
-
-let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.php = ['omni']
-
 " auto close
 let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.erb,*.jsx, *.php, *.tsx"
 let g:closetag_xhtml_filenames = '*.xhtml, *.jsx, *.erb, *.php, *.tsx'
@@ -164,7 +157,7 @@ let g:ale_linters = {
       \ 'html': [],
       \ 'css': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
-      \ 'vue': ['eslint', 'stylelint', 'tslint'],
+      \ 'vue': ['eslint', 'stylelint'],
       \ 'typescript': ['eslint', 'stylelint'],
       \ 'swift': ['swiftlint'],
       \ 'php': ['phpcs'],
@@ -182,7 +175,16 @@ let g:ale_fixers = {
       \ }
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_typescript_tslint_config_path = 'tslint.yml'
+let g:formatdef_scalafmt = "'scalafmt --stdin'"
+let g:formatters_scala = ['scalafmt']
+
+"Quickfixが残っている場合に閉じる
+augroup QfAutoCommands
+  autocmd!
+        " Auto-close quickfix window
+        autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
+augroup END
+
 
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 2
@@ -212,7 +214,7 @@ let g:airline#extensions#whitespace#enabled = 1
 let g:ctrlp_max_height    = 20
 let g:ctrlp_user_command  = 'ag %s -l'
 let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log|dist)$'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log|dist|out|.next)$'
 let g:ctrlp_use_caching   = 0
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -229,6 +231,7 @@ endif
 let g:unite_enable_start_insert = 1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
+
 " 大文字小文字を区別しない
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
@@ -275,3 +278,4 @@ au BufRead,BufNewFile *.sbt set filetype=scala
 xmap tt <plug>(operator-camelize-toggle)
 xmap tc <plug>(operator-camelize)
 xmap ts <plug>(operator-decamelize)
+

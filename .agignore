@@ -19,3 +19,6 @@ vender
 *.egg
 *.log
 *.egg-info
+out
+.next
+storybook-static/
