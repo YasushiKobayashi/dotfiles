@@ -271,8 +271,9 @@ let g:formatters_scala = ['scalafmt']
 
 au BufRead,BufNewFile *.sbt set filetype=scala
 
-" Remap keys for gotos
+" Remap keys for gotos coc.nvim
 :map <C-]> <Plug>(coc-definition)
+:map <C-[> <Plug>(coc-references)
 
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)

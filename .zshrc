@@ -53,7 +53,6 @@ setopt hist_ignore_all_dups
 ##############################
 # package setting
 eval "$(direnv hook zsh)"
-alias ctags="`brew --prefix`/bin/ctags"
 
 export GOENV_DISABLE_GOPATH=1
 export GOPATH="$HOME/go"
@@ -92,6 +91,8 @@ bindkey '^r' peco-select-history
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+source <(kubectl completion zsh)
+source ~/.yarn-completion/yarn-completion.plugin.zsh
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
@@ -101,7 +102,6 @@ export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 # hub https://github.com/github/hub
 eval "$(hub alias -s)"
-source ~/.yarn-completion/yarn-completion.plugin.zsh
 
 
 #
