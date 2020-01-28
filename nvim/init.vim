@@ -159,13 +159,15 @@ let g:ale_linters = {
       \ 'javascript': ['eslint', 'stylelint'],
       \ 'vue': ['eslint', 'stylelint'],
       \ 'typescript': ['eslint', 'stylelint'],
+      \ 'typescript.tsx': ['eslint', 'stylelint'],
       \ 'swift': ['swiftlint'],
       \ 'php': ['phpcs'],
       \ }
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
-      \ 'typescript': ['prettier'],
+      \ 'typescript': ['prettier', 'stylelint'],
+      \ 'typescript.tsx': ['prettier', 'stylelint'],
       \ 'vue': ['prettier'],
       \ 'css': ['prettier_eslint'],
       \ 'scss': ['stylelint'],
