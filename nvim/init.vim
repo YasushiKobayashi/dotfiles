@@ -51,6 +51,7 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 tnoremap <silent> <ESC> <C-\><C-n>
 
+
 nnoremap s <Nop>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -275,7 +276,7 @@ au BufRead,BufNewFile *.sbt set filetype=scala
 
 " Remap keys for gotos coc.nvim
 :map <C-]> <Plug>(coc-definition)
-:map <C-[> <Plug>(coc-references)
+noremap <C-[> <Plug>(coc-references)
 
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)
