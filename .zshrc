@@ -60,10 +60,6 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH=$GOENV_ROOT/bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-
-export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -91,6 +87,7 @@ bindkey '^r' peco-select-history
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(~/.zsh/completion $fpath)
 source <(kubectl completion zsh)
 source ~/.yarn-completion/yarn-completion.plugin.zsh
 
@@ -134,6 +131,11 @@ export PATH="/usr/local/opt/bison/bin:$PATH"
 
 function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 alias top='tab-color 134 200 0; top; tab-reset'
+
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
