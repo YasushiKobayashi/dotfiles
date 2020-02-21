@@ -1,4 +1,6 @@
 {
+"suggest.noselect": true,
+"suggest.preferCompleteThanJumpPlaceholder": true,
   "languageserver": {
     "metals": {
       "command": "metals-vim",
@@ -12,6 +14,19 @@
         "initializationOptions": {
             "storagePath": "/tmp/intelephense"
         }
+    },
+    "dockerfile": {
+        "command": "docker-langserver",
+        "filetypes": ["dockerfile"],
+        "args": ["--stdio"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".git/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     }
   }
 }

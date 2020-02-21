@@ -89,6 +89,13 @@ let mapleader = "\<Space>"
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.scala  set filetype=scala
 
+augroup QfAutoCommands
+  autocmd!
+
+  " Auto-close quickfix window
+  autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
+augroup END
+
 let s:dein_path = expand('$XDG_CONFIG_HOME/dein')
 if &compatible
   set nocompatible
@@ -197,13 +204,6 @@ function! UniteFileCurrentDir()
   execute s
 endfunction
 
-" golang
-let g:syntastic_go_checkers = ['go', 'golint', 'govet']
-let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-
 " vim-airline
 let g:airline_theme = 'molokai'
 let g:airline#extensions#branch#enabled = 1
@@ -275,8 +275,10 @@ let g:formatters_scala = ['scalafmt']
 au BufRead,BufNewFile *.sbt set filetype=scala
 
 " Remap keys for gotos coc.nvim
-:map <C-]> <Plug>(coc-definition)
-noremap <C-[> <Plug>(coc-references)
+nmap <C-]> <Plug>(coc-definition)
+nnoremap <C-[> <Plug>(coc-references)
+
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)

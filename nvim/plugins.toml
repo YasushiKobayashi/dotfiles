@@ -94,7 +94,7 @@ repo = 'junegunn/vim-easy-align'
 repo = 'kamykn/spelunker.vim'
 
 [[plugins]]
-repo = 'fatih/vim-go'
+repo = 'mattn/vim-goimports'
 on_ft = 'go'
 
 [[plugins]]
