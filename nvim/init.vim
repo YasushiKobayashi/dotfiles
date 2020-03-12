@@ -285,3 +285,4 @@ xmap tt <plug>(operator-camelize-toggle)
 xmap tc <plug>(operator-camelize)
 xmap ts <plug>(operator-decamelize)
 
+let g:camelcasemotion_key = ','
