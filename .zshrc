@@ -1,21 +1,29 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 export LANG=ja_JP.UTF-8
 
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
-
 # メモリに保存される履歴の件数
 export HISTSIZE=1000
-
 # 履歴ファイルに保存される履歴の件数
 export SAVEHIST=100000
-
 # 重複を記録しない
 setopt hist_ignore_dups
-
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
-
+setopt inc_append_history
+setopt share_history
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
@@ -77,14 +85,14 @@ alias k='kubectl'
 alias mkdir='mkdir -p'
 alias lerna='npx lerna'
 
-
-peco-select-history() {
-    BUFFER=$(history 1 | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\*?\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$LBUFFER")
-    CURSOR=${#BUFFER}
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
     zle reset-prompt
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+
+zle -N peco-history-selection
+bindkey '^r' peco-history-selection
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -100,20 +108,6 @@ export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 # hub https://github.com/github/hub
 eval "$(hub alias -s)"
-
-
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 export CLOUDSDK_PYTHON=$HOME/.pyenv/versions/2.7.11/bin/python

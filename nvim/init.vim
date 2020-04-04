@@ -4,6 +4,15 @@ let g:node_host_prog =  expand('$HOME') . '.anyenv/envs/nodenv//shims/neovim-nod
 
 let g:NVIM_NODE_LOG_FILE ='/tmp/log/node/nvim.log'
 
+augroup TransparentBG
+  autocmd!
+  autocmd Colorscheme * highlight Normal ctermbg=none
+  autocmd Colorscheme * highlight NonText ctermbg=none
+  autocmd Colorscheme * highlight LineNr ctermbg=none
+  autocmd Colorscheme * highlight Folded ctermbg=none
+  autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
+augroup END
+
 syntax on
 scriptencoding utf-8
 set synmaxcol=200
@@ -286,3 +295,6 @@ xmap tc <plug>(operator-camelize)
 xmap ts <plug>(operator-decamelize)
 
 let g:camelcasemotion_key = ','
+
+" sonictemplate
+let g:sonictemplate_vim_template_dir = expand('~/.config/nvim/sonictemplate')
