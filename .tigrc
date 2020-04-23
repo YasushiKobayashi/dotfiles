@@ -1,0 +1,5 @@
+# 行数表示をON
+set blob-view-line-number = yes
+set blame-view-line-number = yes
+set diff-highlight = true
+

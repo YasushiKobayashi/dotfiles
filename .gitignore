@@ -37,3 +37,4 @@ gocode/*
 nvim/repos/*
 .zprofile
 hub
+.tmuxinator/client-*

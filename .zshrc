@@ -62,6 +62,7 @@ setopt hist_ignore_all_dups
 # package setting
 eval "$(direnv hook zsh)"
 
+export COMPOSER_PROCESS_TIMEOUT=1600
 export GO111MODULE=on
 export GOENV_DISABLE_GOPATH=1
 export GOPATH="$HOME/go"
@@ -70,7 +71,7 @@ export PATH=$GOENV_ROOT/bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
 
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export EDITOR=/usr/local/bin/nvim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
