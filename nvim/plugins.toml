@@ -111,7 +111,11 @@ on_ft = ['javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue', 'javascript.vue', 'typescript.vue']
+on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
+
+[[plugins]]
+repo = 'AndrewRadev/tagalong.vim'
+on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
