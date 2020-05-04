@@ -39,7 +39,7 @@ set wildmenu
 set history=5000
 set whichwrap=b,s,<,>,[,]
 set showtabline=2
-set spell
+set nospell
 set ttimeout
 set ttimeoutlen=50
 set list
@@ -97,6 +97,9 @@ let mapleader = "\<Space>"
 " 起動時設定
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.scala  set filetype=scala
+au BufRead,BufNewFile *.scala  set filetype=scala
+au BufRead,BufNewFile *.tsx  set filetype=typescript.tsx
+au BufRead,BufNewFile *.jsx  set filetype=typescript.jsx
 
 augroup QfAutoCommands
   autocmd!
@@ -192,6 +195,7 @@ let g:ale_fixers = {
       \ 'php': ['php_cs_fixer', 'phpcbf'],
       \ 'scala': ['scalafmt'],
       \ }
+let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:formatdef_scalafmt = "'scalafmt --stdin'"

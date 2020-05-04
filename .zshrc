@@ -99,7 +99,6 @@ bindkey '^r' peco-history-selection
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zsh/completion $fpath)
 source <(kubectl completion zsh)
-source ~/.yarn-completion/yarn-completion.plugin.zsh
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
