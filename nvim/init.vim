@@ -96,10 +96,9 @@ let mapleader = "\<Space>"
 
 " 起動時設定
 au BufRead,BufNewFile *.scss set filetype=css
-au BufRead,BufNewFile *.scala  set filetype=scala
-au BufRead,BufNewFile *.scala  set filetype=scala
-au BufRead,BufNewFile *.tsx  set filetype=typescript.tsx
-au BufRead,BufNewFile *.jsx  set filetype=typescript.jsx
+au BufRead,BufNewFile *.scala set filetype=scala
+au BufRead,BufNewFile *.tsx set filetype=typescript.tsx
+au BufRead,BufNewFile *.jsx set filetype=typescript.jsx
 
 augroup QfAutoCommands
   autocmd!

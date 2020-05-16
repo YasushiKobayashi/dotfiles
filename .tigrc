@@ -3,13 +3,13 @@ set blob-view-line-number = yes
 set blame-view-line-number = yes
 set diff-highlight = true
 
-# H で reset --hard
-bind main    H      ?git reset --hard %(commit)
-bind diff    H      ?git reset --hard %(commit)
-bind refs    H      ?git reset --hard %(branch)
+# H で reset
+bind main    H      ?git reset %(commit)
+bind diff    H      ?git reset %(commit)
+bind refs    H      ?git reset %(branch)
 
-# H で reset --hard HEAD (status-view)
-bind status  H      ?git reset --hard HEAD
+# H で reset  HEAD (status-view)
+bind status  H      ?git reset HEAD
 
 # S で stash save
 bind generic S      ?git stash save "%(prompt Enter stash comment: )"
