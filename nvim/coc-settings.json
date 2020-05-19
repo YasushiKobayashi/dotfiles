@@ -20,6 +20,11 @@
         "filetypes": ["dockerfile"],
         "args": ["--stdio"]
     },
+    "rust": {
+      "command": "rustup",
+      "args": ["run", "stable", "rls"],
+      "filetypes": ["rust"]
+    },
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".git/"],

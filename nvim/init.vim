@@ -193,12 +193,17 @@ let g:ale_fixers = {
       \ 'python': ['autopep8', 'isort'],
       \ 'php': ['php_cs_fixer', 'phpcbf'],
       \ 'scala': ['scalafmt'],
+      \ 'rust': ['rustfmt'],
       \ }
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
+let g:ale_rustfmt_executable = 'rustfmt'
+let g:ale_rust_cargo_use_check = 1
+let g:ale_rust_cargo_check_tests = 1
+let g:ale_rust_cargo_check_examples = 1
 
 "Quickfixが残っている場合に閉じる
 augroup QfAutoCommands
