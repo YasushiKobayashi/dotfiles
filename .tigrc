@@ -1,3 +1,4 @@
+set main-view   = date id author:email-user commit-title:graph=yes,refs=yes
 # 行数表示をON
 set blob-view-line-number = yes
 set blame-view-line-number = yes

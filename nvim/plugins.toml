@@ -118,6 +118,14 @@ repo = 'AndrewRadev/tagalong.vim'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
 
 [[plugins]]
+repo = 'gko/vim-coloresque'
+on_ft = ['html', 'css', 'scss', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = ['scss']
+
+[[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 on_i = 1
