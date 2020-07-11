@@ -146,9 +146,6 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
-" js import
-nnoremap <C-i> :ImportJSFix<CR>
-
 " vue
 autocmd FileType vue syntax sync fromstart
 
@@ -290,12 +287,6 @@ let g:formatters_scala = ['scalafmt']
 
 au BufRead,BufNewFile *.sbt set filetype=scala
 
-" Remap keys for gotos coc.nvim
-nmap <C-]> <Plug>(coc-definition)
-nnoremap <C-[> <Plug>(coc-references)
-
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)
 xmap tc <plug>(operator-camelize)
@@ -305,3 +296,47 @@ let g:camelcasemotion_key = ','
 
 " sonictemplate
 let g:sonictemplate_vim_template_dir = expand('~/.config/nvim/sonictemplate')
+
+" vim-lsp
+nmap <C-]> :LspDefinition <CR>
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_virtual_text_enabled = 1
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_highlight_references_enabled = 1
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_popup_delay = 200
+let g:asyncomplete_enable_for_all = 1
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+if executable('vls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'vue-language-server',
+        \ 'cmd': {server_info->['vls']},
+        \ 'whitelist': ['vue'],
+        \ 'initialization_options': {
+        \         'config': {
+        \             'html': {},
+        \              'vetur': {
+        \                  'validation': {}
+        \              }
+        \         }
+        \     }
+        \ })
+endif
+
+" terraform
+let g:terraform_fmt_on_save=1
