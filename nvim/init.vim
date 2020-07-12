@@ -146,9 +146,6 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
-" js import
-nnoremap <C-i> :ImportJSFix<CR>
-
 " vue
 autocmd FileType vue syntax sync fromstart
 

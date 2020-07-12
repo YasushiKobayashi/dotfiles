@@ -112,10 +112,12 @@ on_ft = ['javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
 [[plugins]]
 repo = 'alvan/vim-closetag'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
+on_i = 1
 
 [[plugins]]
 repo = 'AndrewRadev/tagalong.vim'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
+on_i = 1
 
 [[plugins]]
 repo = 'gko/vim-coloresque'
@@ -124,11 +126,6 @@ on_ft = ['html', 'css', 'scss', 'php', 'javascript', 'javascript.jsx', 'jsx', 't
 [[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss']
-
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
-on_i = 1
 
 [[plugins]]
 repo = 'gabrielelana/vim-markdown'
@@ -146,10 +143,4 @@ on_ft = 'graphql'
 repo = 'sheerun/vim-polyglot'
 hook_add = '''
 let g:polyglot_disabled = ['markdown']
-'''
-
-[[plugins]]
-repo = 'glacambre/firenvim'
-hook_post_update = '''
-  call firenvim#install(0)
 '''
