@@ -44,21 +44,6 @@ let g:test#strategy = 'dispatch'
 '''
 
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-
-[[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
@@ -127,12 +112,10 @@ on_ft = ['javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
 [[plugins]]
 repo = 'alvan/vim-closetag'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
-on_i = 1
 
 [[plugins]]
 repo = 'AndrewRadev/tagalong.vim'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
-on_i = 1
 
 [[plugins]]
 repo = 'gko/vim-coloresque'
@@ -143,8 +126,17 @@ repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss']
 
 [[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+on_i = 1
+
+[[plugins]]
 repo = 'gabrielelana/vim-markdown'
 on_ft = ['markdown','mkd']
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
 
 [[plugins]]
 repo = 'jparise/vim-graphql'
@@ -157,5 +149,7 @@ let g:polyglot_disabled = ['markdown']
 '''
 
 [[plugins]]
-repo = 'hashivim/vim-terraform.git'
-on_ft = 'terraform'
+repo = 'glacambre/firenvim'
+hook_post_update = '''
+  call firenvim#install(0)
+'''
