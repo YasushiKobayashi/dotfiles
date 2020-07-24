@@ -177,6 +177,7 @@ let g:ale_linters = {
       \ 'typescript.tsx': ['eslint', 'stylelint'],
       \ 'swift': ['swiftlint'],
       \ 'php': ['phpcs'],
+      \ 'go': ['gopls', 'golint', 'gometalinter']
       \ }
 
 let g:ale_fixers = {
@@ -184,12 +185,13 @@ let g:ale_fixers = {
       \ 'typescript': ['prettier', 'stylelint'],
       \ 'typescript.tsx': ['prettier', 'stylelint'],
       \ 'vue': ['prettier'],
-      \ 'css': ['prettier_eslint'],
-      \ 'scss': ['stylelint'],
+      \ 'css': ['prettier', 'stylelint'],
+      \ 'scss': ['prettier', 'stylelint'],
       \ 'python': ['autopep8', 'isort'],
       \ 'php': ['php_cs_fixer', 'phpcbf'],
       \ 'scala': ['scalafmt'],
       \ 'rust': ['rustfmt'],
+      \ 'go': ['gofmt']
       \ }
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
@@ -291,14 +293,14 @@ au BufRead,BufNewFile *.sbt set filetype=scala
 nmap <C-]> <Plug>(coc-definition)
 nnoremap <C-[> <Plug>(coc-references)
 
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)
 xmap tc <plug>(operator-camelize)
 xmap ts <plug>(operator-decamelize)
 
 let g:camelcasemotion_key = ','
+
+let g:goimports_simplify = 1
 
 " sonictemplate
 let g:sonictemplate_vim_template_dir = expand('~/.config/nvim/sonictemplate')

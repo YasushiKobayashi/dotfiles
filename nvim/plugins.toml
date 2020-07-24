@@ -97,10 +97,6 @@ repo = 'kamykn/spelunker.vim'
 repo = 'mattn/vim-sonictemplate'
 
 [[plugins]]
-repo = 'mattn/vim-goimports'
-on_ft = 'go'
-
-[[plugins]]
 repo = 'neovim/node-host'
 on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
 build = './install.sh'

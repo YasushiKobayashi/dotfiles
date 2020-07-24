@@ -23,3 +23,5 @@ out
 .next
 storybook-static/
 coverage
+__screenshots__
+.reg
