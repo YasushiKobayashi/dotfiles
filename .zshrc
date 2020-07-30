@@ -85,6 +85,7 @@ alias dc='docker-compose'
 alias k='kubectl'
 alias mkdir='mkdir -p'
 alias lerna='npx lerna'
+alias t="tmuximum"
 
 function peco-history-selection() {
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`

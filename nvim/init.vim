@@ -171,6 +171,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
       \ 'html': [],
       \ 'css': ['stylelint'],
+      \ 'scss': ['stylelint'],
       \ 'javascript': ['eslint', 'stylelint'],
       \ 'vue': ['eslint', 'stylelint'],
       \ 'typescript': ['eslint', 'stylelint'],
@@ -213,6 +214,7 @@ augroup END
 
 " setting vimfiler
 let g:vimfiler_as_default_explorer = 2
+let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$']
 function! UniteFileCurrentDir()
   let s  = ':Unite file -start-insert -path='
   let s .= vimfiler#helper#_get_file_directory()
