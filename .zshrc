@@ -128,8 +128,15 @@ export PATH="/usr/local/opt/bison/bin:$PATH"
 function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 alias top='tab-color 134 200 0; top; tab-reset'
 
+function precmd() {
+  if [ ! -z $TMUX ]; then
+    tmux refresh-client -S
+  fi
+}
+
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
