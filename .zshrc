@@ -72,8 +72,6 @@ export PATH=$GOENV_ROOT/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 export EDITOR=/usr/local/bin/nvim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
 alias ll='ls -la'
 alias g='git'
@@ -149,3 +147,5 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

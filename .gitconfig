@@ -20,8 +20,6 @@
   chl = !git branch --sort=-authordate | peco | awk '{ print $NF }' | xargs git checkout
   # pecoでリモートブランチチェックアウト
   chr = !git fetch && git branch --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed "s/^\\*\\s*//" | sed -E 's/remotes\\/[^\\/]*\\/(.*)/\\1 &/' | xargs git checkout
-[credential]
-  helper = osxkeychain
 [push]
 	default = current
 
