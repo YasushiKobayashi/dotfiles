@@ -71,7 +71,16 @@ export PATH=$GOENV_ROOT/bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
 
-export EDITOR=/usr/local/bin/nvim
+case ${OSTYPE} in
+  darwin*)
+  export EDITOR=/usr/local/bin/nvim
+    # ここに Mac 向けの設定
+    ;;
+  linux*)
+  export EDITOR=/bin/nvim
+    # ここに Linux 向けの設定
+    ;;
+esac
 
 alias ll='ls -la'
 alias g='git'
@@ -86,7 +95,7 @@ alias lerna='npx lerna'
 alias t="tmuximum"
 
 function peco-history-selection() {
-    BUFFER=`history -n 1 | tail  | awk '!a[$0]++' | peco`
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
