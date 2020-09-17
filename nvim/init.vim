@@ -303,6 +303,3 @@ xmap ts <plug>(operator-decamelize)
 let g:camelcasemotion_key = ','
 
 let g:goimports_simplify = 1
-
-" sonictemplate
-let g:sonictemplate_vim_template_dir = expand('~/.config/nvim/sonictemplate')
