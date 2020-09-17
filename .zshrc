@@ -71,21 +71,10 @@ export PATH=$GOENV_ROOT/bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
 
-case ${OSTYPE} in
-  darwin*)
-  export EDITOR=/usr/local/bin/nvim
-    # ここに Mac 向けの設定
-    ;;
-  linux*)
-  export EDITOR=/bin/nvim
-    # ここに Linux 向けの設定
-    ;;
-esac
-
 alias ll='ls -la'
 alias g='git'
 alias gc='cd $(ghq root)/$(ghq list | peco)'
-alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias gho='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='bat $(ls | peco)'
 alias d='docker'
 alias dc='docker-compose'
@@ -116,6 +105,7 @@ export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 # hub https://github.com/github/hub
 eval "$(hub alias -s)"
+eval "$(gh completion -s zsh)"
 
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 export CLOUDSDK_PYTHON=$HOME/.pyenv/versions/2.7.11/bin/python
@@ -131,6 +121,18 @@ export EXPANDED_CODE_SIGN_IDENTITY=
 export EXPANDED_CODE_SIGN_IDENTITY_NAME=
 export EXPANDED_PROVISIONING_PROFILE=
 export PATH="/usr/local/opt/bison/bin:$PATH"
+
+case ${OSTYPE} in
+  darwin*)
+  alias tac="tail -r"
+  export EDITOR=/usr/local/bin/nvim
+    # ここに Mac 向けの設定
+    ;;
+  linux*)
+  export EDITOR=/bin/nvim
+    # ここに Linux 向けの設定
+    ;;
+esac
 
 function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 alias top='tab-color 134 200 0; top; tab-reset'
