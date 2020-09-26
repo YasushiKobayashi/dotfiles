@@ -11,6 +11,7 @@ ln -sf ~/dotfiles/.editorconfig ~/.editorconfig
 ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 
 ln -sf ~/dotfiles/.mac_gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.linux_gitconfig ~/.gitconfig
 
 ln -sf ~/dotfiles/.stCommitMsg ~/.stCommitMsg
 ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
