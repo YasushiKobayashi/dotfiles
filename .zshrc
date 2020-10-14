@@ -78,7 +78,7 @@ alias gho='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='bat $(ls | peco)'
 alias d='docker'
 alias dc='docker-compose'
-alias k='kubectl'
+alias k='kubecolor'
 alias mkdir='mkdir -p'
 alias lerna='npx lerna'
 alias t="tmuximum"
@@ -96,6 +96,7 @@ bindkey '^r' peco-history-selection
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zsh/completion $fpath)
 source <(kubectl completion zsh)
+complete -o default -F __start_kubectl k
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
