@@ -8,6 +8,7 @@ ln -sf ~/dotfiles/tmuxinator ~/.config/tmuxinator
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/.editorconfig ~/.editorconfig
+ln -sf ~/dotfiles/.textlintrc ~/.textlintrc
 ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 
 ln -sf ~/dotfiles/.mac_gitconfig ~/.gitconfig

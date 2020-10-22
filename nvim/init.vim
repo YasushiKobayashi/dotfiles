@@ -294,6 +294,22 @@ au BufRead,BufNewFile *.sbt set filetype=scala
 " Remap keys for gotos coc.nvim
 nmap <C-]> <Plug>(coc-definition)
 nnoremap <C-[> <Plug>(coc-references)
+let g:coc_global_extensions = [
+  \ 'coc-diagnostic',
+  \ 'coc-rls',
+  \ 'coc-go',
+  \ 'coc-phpls',
+  \ 'coc-python',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-stylelint',
+  \ 'coc-tailwindcss',
+  \ 'coc-vetur',
+  \ 'coc-json',
+  \ 'coc-tsserver',
+  \ 'coc-prettier',
+  \ 'coc-eslint',
+  \ ]
 
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)
