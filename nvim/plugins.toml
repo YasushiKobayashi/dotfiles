@@ -19,6 +19,9 @@ build = 'make'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'skanehira/gh.vim'
+
+[[plugins]]
 repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
@@ -143,3 +146,4 @@ repo = 'sheerun/vim-polyglot'
 hook_add = '''
 let g:polyglot_disabled = ['markdown']
 '''
+

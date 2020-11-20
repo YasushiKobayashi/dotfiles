@@ -170,24 +170,11 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_linters = {
       \ 'html': [],
-      \ 'css': ['stylelint'],
-      \ 'scss': ['stylelint'],
-      \ 'javascript': ['eslint', 'stylelint'],
-      \ 'vue': ['eslint', 'stylelint'],
-      \ 'typescript': ['eslint', 'stylelint'],
-      \ 'typescript.tsx': ['eslint', 'stylelint'],
-      \ 'swift': ['swiftlint'],
-      \ 'php': ['phpcs'],
       \ 'go': ['gopls', 'golint', 'gometalinter']
       \ }
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
-      \ 'typescript': ['prettier', 'stylelint'],
-      \ 'typescript.tsx': ['prettier', 'stylelint'],
-      \ 'vue': ['prettier'],
-      \ 'css': ['prettier', 'stylelint'],
-      \ 'scss': ['prettier', 'stylelint'],
       \ 'python': ['autopep8', 'isort'],
       \ 'php': ['php_cs_fixer', 'phpcbf'],
       \ 'scala': ['scalafmt'],
@@ -229,6 +216,11 @@ let g:airline_section_c = '%f%t'
 let g:airline_section_x = '%{&filetype}'
 let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
 let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#error_symbol = 'E:'
+let airline#extensions#coc#warning_symbol = 'W:'
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 
 " setting ctrlp
 let g:ctrlp_max_height    = 20
