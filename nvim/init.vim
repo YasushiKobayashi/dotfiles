@@ -326,3 +326,5 @@ if system('uname -a | grep Microsoft') != ""
         \   'cache_enabled': 1,
         \ }
 endif
+
+nnoremap <silent> <Leader>y :call emmet#expandAbbr(3,"")<CR>

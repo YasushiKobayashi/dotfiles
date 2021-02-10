@@ -112,6 +112,10 @@ repo = 'styled-components/vim-styled-components'
 on_ft = ['javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
 
 [[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
+
+[[plugins]]
 repo = 'alvan/vim-closetag'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
 on_i = 1
@@ -147,3 +151,6 @@ hook_add = '''
 let g:polyglot_disabled = ['markdown']
 '''
 
+[[plugins]]
+repo = 'mattn/vim-goimports'
+on_ft = ['go']
