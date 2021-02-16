@@ -328,3 +328,4 @@ if system('uname -a | grep Microsoft') != ""
 endif
 
 nnoremap <silent> <Leader>y :call emmet#expandAbbr(3,"")<CR>
+let g:tagalong_filetypes = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']

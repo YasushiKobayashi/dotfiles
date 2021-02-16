@@ -82,6 +82,7 @@ alias k='kubecolor'
 alias mkdir='mkdir -p'
 alias lerna='npx lerna'
 alias t="tmuximum"
+alias tf="terraform"
 
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
