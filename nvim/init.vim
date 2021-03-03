@@ -301,6 +301,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-eslint',
+  \ 'coc-graphql',
+  \ 'coc-prisma',
   \ ]
 
 " operator-camelize

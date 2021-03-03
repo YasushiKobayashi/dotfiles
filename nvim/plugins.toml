@@ -129,6 +129,9 @@ repo = 'gko/vim-coloresque'
 on_ft = ['html', 'css', 'scss', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
 
 [[plugins]]
+repo  = 'pantharshit00/vim-prisma'
+
+[[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss']
 

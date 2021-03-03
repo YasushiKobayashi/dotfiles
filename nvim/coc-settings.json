@@ -1,42 +1,182 @@
 {
-"suggest.noselect": true,
-"suggest.preferCompleteThanJumpPlaceholder": true,
-  "languageserver": {
-    "metals": {
-      "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt"]
-    },
-    "intelephense": {
-        "command": "intelephense",
-        "args": ["--stdio"],
-        "filetypes": ["php"],
-        "initializationOptions": {
-            "storagePath": "/tmp/intelephense"
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "scss",
+        "markdown",
+        "typescript",
+        "typescript.tsx",
+        "vue",
+        "prisma"
+    ],
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "wxss.validate": false,
+    "eslint.autoFixOnSave": true,
+    "suggest.noselect": true,
+    "suggest.preferCompleteThanJumpPlaceholder": true,
+    "languageserver": {
+        "efm": {
+            "command": "efm-langserver",
+            "args": [],
+            "filetypes": ["markdown"]
+        },
+        "metals": {
+            "command": "metals-vim",
+            "rootPatterns": ["build.sbt"],
+            "filetypes": ["scala", "sbt"]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["dockerfile"],
+            "args": ["--stdio"]
+        },
+        "rust": {
+            "command": "rustup",
+            "args": ["run", "stable", "rls"],
+            "filetypes": ["rust"]
+        },
+        "terraform": {
+            "command": "terraform-lsp",
+            "filetypes": ["terraform"],
+            "initializationOptions": {}
+        },
+        "js-dls": {
+            "command": "diagnostic-languageserver",
+            "args": ["--stdio"],
+            "filetypes": [
+                "html",
+                "php",
+                "javascript",
+                "javascript.jsx",
+                "jsx",
+                "typescript",
+                "typescript.tsx",
+                "tsx",
+                "vue",
+                "javascript.vue",
+                "typescript.vue"
+            ],
+            "initializationOptions": {
+                "linters": {
+                    "eslint": {
+                        "command": "eslint",
+                        "rootPatterns": [],
+                        "isStdout": true,
+                        "isStderr": false,
+                        "debounce": 100,
+                        "args": ["%filepath"],
+                        "offsetLine": 0,
+                        "offsetColumn": 0,
+                        "sourceName": "eslint",
+                        "formatLines": 1,
+                        "formatPattern": [
+                            "^[^:]+:(\\d+):(\\d+):\\s(.*)$",
+                            {
+                                "line": 1,
+                                "column": 2,
+                                "message": [3]
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".git/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        },
+        "go-dls": {
+            "command": "diagnostic-languageserver",
+            "args": ["--stdio"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "linters": {
+                    "golint": {
+                        "command": "golint",
+                        "rootPatterns": [],
+                        "isStdout": true,
+                        "isStderr": false,
+                        "debounce": 100,
+                        "args": ["%filepath"],
+                        "offsetLine": 0,
+                        "offsetColumn": 0,
+                        "sourceName": "golint",
+                        "formatLines": 1,
+                        "formatPattern": [
+                            "^[^:]+:(\\d+):(\\d+):\\s(.*)$",
+                            {
+                                "line": 1,
+                                "column": 2,
+                                "message": [3]
+                            }
+                        ]
+                    }
+                },
+                "formatters": {},
+                "filetypes": {
+                    "go": "golint"
+                },
+                "formatFiletypes": {}
+            }
+        },
+        "shel-dls": {
+            "command": "diagnostic-languageserver",
+            "args": ["--stdio"],
+            "filetypes": ["sh"],
+            "initializationOptions": {
+                // <<< start of config for shellcheck >>>
+                "filetypes": {
+                    // lint `sh` (includes `bash`) files
+                    "sh": "shellcheck"
+                },
+                "linters": {
+                    // set up `shellcheck`, this lifted directly from example on README
+                    "shellcheck": {
+                        "command": "shellcheck",
+                        "debounce": 100,
+                        "args": ["--format=gcc", "-"],
+                        "offsetLine": 0,
+                        "offsetColumn": 0,
+                        "sourceName": "shellcheck",
+                        "formatLines": 1,
+                        "formatPattern": [
+                            "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
+                            {
+                                "line": 1,
+                                "column": 2,
+                                "message": 4,
+                                "security": 3
+                            }
+                        ],
+                        "securities": {
+                            "error": "error",
+                            "warning": "warning",
+                            "note": "info"
+                        }
+                    }
+                },
+                // <<< start of config for shfmt >>>
+                "formatFiletypes": {
+                    // format `sh` (includes `bash`) files using formatter defined below
+                    "sh": "shfmt"
+                },
+                "formatters": {
+                    // define our formatter so that we can reference it from `formatFiletypes`
+                    "shfmt": {
+                        "command": "shfmt",
+                        // all the below args are entirely optional
+                        // primarily listed here to call out that flags which take an
+                        // argument (such as `-i <num-spaces>` for specifying indentation)
+                        // should be split into two strings, the flag and then the value
+                        "args": ["-i", "2", "-bn", "-ci", "-sr"]
+                    }
+                }
+            }
         }
-    },
-    "dockerfile": {
-        "command": "docker-langserver",
-        "filetypes": ["dockerfile"],
-        "args": ["--stdio"]
-    },
-    "rust": {
-      "command": "rustup",
-      "args": ["run", "stable", "rls"],
-      "filetypes": ["rust"]
-    },
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["terraform"],
-      "initializationOptions": {}
-    },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".git/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
     }
-  }
 }
