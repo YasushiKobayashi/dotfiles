@@ -152,6 +152,7 @@ eval "$(anyenv init -)"
 
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+export OMPOSER_MEMORY_LIMIT=-1
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
