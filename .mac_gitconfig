@@ -3,3 +3,7 @@
 
 [credential]
   helper = osxkeychain
+
+[user]
+	name = YasushiKobayashi
+	email = ptpadan@gmail.com

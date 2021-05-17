@@ -50,5 +50,5 @@ windows:
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && dc up -d db
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn test:watch
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn type-check:watch
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/front
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/api
+        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/front && yarn dev
+        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/api && yarn dev
