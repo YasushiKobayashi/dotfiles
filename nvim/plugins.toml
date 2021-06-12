@@ -53,6 +53,12 @@ repo = 'kana/vim-operator-user'
 repo = 'tyru/operator-camelize.vim'
 
 [[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'skanehira/command.vim'
+
+[[plugins]]
 repo = 'bkad/CamelCaseMotion'
 
 [[plugins]]
