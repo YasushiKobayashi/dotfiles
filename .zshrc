@@ -149,7 +149,7 @@ function precmd() {
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
-
+eval "$(pyenv init --path)"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export OMPOSER_MEMORY_LIMIT=-1
