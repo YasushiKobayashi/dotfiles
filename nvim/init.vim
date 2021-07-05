@@ -1,5 +1,5 @@
-let g:python_host_prog = $PYENV_ROOT.'/versions/neovim2/bin/python'
-let g:python3_host_prog = expand('$HOME') . '/.anyenv/envs/pyenv/shims/python'
+let g:python_host_prog = $PYENV_ROOT.'/shims/python'
+let g:python3_host_prog = $PYENV_ROOT.'/shims/python'
 let g:node_host_prog =  expand('$HOME') . '.anyenv/envs/nodenv//shims/neovim-node-host'
 
 let g:NVIM_NODE_LOG_FILE ='/tmp/log/node/nvim.log'
