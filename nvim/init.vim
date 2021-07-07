@@ -60,7 +60,7 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 tnoremap <silent> <ESC> <C-\><C-n>
 
-
+nnoremap x "_x
 nnoremap s <Nop>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -198,16 +198,6 @@ augroup QfAutoCommands
         autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
 augroup END
 
-
-" setting vimfiler
-let g:vimfiler_as_default_explorer = 2
-let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$']
-function! UniteFileCurrentDir()
-  let s  = ':Unite file -start-insert -path='
-  let s .= vimfiler#helper#_get_file_directory()
-  execute s
-endfunction
-
 " vim-airline
 let g:airline_theme = 'molokai'
 let g:airline#extensions#branch#enabled = 1
@@ -221,22 +211,6 @@ let airline#extensions#coc#error_symbol = 'E:'
 let airline#extensions#coc#warning_symbol = 'W:'
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
-
-" setting ctrlp
-let g:ctrlp_max_height    = 20
-let g:ctrlp_user_command  = 'ag %s -l'
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log|dist|out|.next)$'
-let g:ctrlp_use_caching   = 0
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
-endif
 
 " unite
 " insert modeで開始
@@ -264,9 +238,6 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
-" vim test
-nnoremap <silent> <Leader>t :TestFile<CR>
-
 " Qfreplace
 nnoremap <silent> <Leader>q :Qfreplace<CR>
 
@@ -284,7 +255,7 @@ let g:formatters_scala = ['scalafmt']
 au BufRead,BufNewFile *.sbt set filetype=scala
 
 " Remap keys for gotos coc.nvim
-nmap <C-]> <Plug>(coc-definition)
+nnoremap <C-]> <Plug>(coc-definition)
 nnoremap <C-[> <Plug>(coc-references)
 let g:coc_global_extensions = [
   \ 'coc-diagnostic',

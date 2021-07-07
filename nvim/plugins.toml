@@ -9,7 +9,51 @@ repo  = 'ryanoasis/vim-devicons'
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
-repo = 'Shougo/vimfiler'
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>      <SID>defx_edit()
+    nnoremap <silent><buffer><expr> c         defx#do_action('copy')
+    nnoremap <silent><buffer><expr> m         defx#do_action('move')
+    nnoremap <silent><buffer><expr> p         defx#do_action('paste')
+    nnoremap <silent><buffer><expr> <Enter>   defx#do_action('open')
+    nnoremap <silent><buffer><expr> o         defx#do_action('open_or_close_tree', 'open')
+    nnoremap <silent><buffer><expr> O         defx#do_action('open_tree_recursive')
+    nnoremap <silent><buffer><expr> K         defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> N         defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> d         defx#do_action('remove')
+    nnoremap <silent><buffer><expr> r         defx#do_action('rename')
+    nnoremap <silent><buffer><expr> x         defx#do_action('execute_system')
+    nnoremap <silent><buffer><expr> yy        defx#do_action('yank_path')
+    nnoremap <silent><buffer><expr> .         defx#do_action('toggle_ignored_files')
+    nnoremap <silent><buffer><expr> q         defx#do_action('quit')
+    nnoremap <silent><buffer> D :<C-u>call <SID>defx_reload()<CR>
+endfunction
+
+autocmd BufEnter,VimEnter,BufNew,BufWinEnter,BufRead,BufCreate
+      \ * if isdirectory(expand('<amatch>'))
+      \   | call s:browse_check(expand('<amatch>')) | endif
+
+function! s:browse_check(path) abort
+  if bufnr('%') != expand('<abuf>')
+    return
+  endif
+
+  " Disable netrw.
+  augroup FileExplorer
+    autocmd!
+  augroup END
+
+  execute 'Defx' a:path
+endfunction
+'''
+
+hook_post_source = '''
+call defx#custom#option('_', {
+    \ 'ignored_files': '^\.git$, ^\.DS_Store$',
+    \ })
+'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -29,21 +73,38 @@ repo = 'kana/vim-altr'
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+let g:ctrlp_max_height    = 20
+let g:ctrlp_user_command  = 'ag %s -l'
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log|dist|out|.next)$'
+let g:ctrlp_use_caching   = 0
+if executable('ag')
+set grepprg=ag\ --nogroup\ --nocolor
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+  \ }
+  endif
+  '''
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+  [[plugins]]
+  repo = 'itchyny/lightline.vim'
 
-[[plugins]]
-repo = 'Yggdroot/indentLine'
+  [[plugins]]
+  repo = 'Yggdroot/indentLine'
 
-[[plugins]]
-repo = 'tpope/vim-dispatch'
+  [[plugins]]
+  repo = 'tpope/vim-dispatch'
 
-[[plugins]]
-repo = 'janko-m/vim-test'
+  [[plugins]]
+  repo = 'janko-m/vim-test'
 depends = ['vim-dispatch']
 hook_add = '''
 let g:test#strategy = 'dispatch'
+nnoremap <silent> <Leader>t :TestFile<CR>
 '''
 
 [[plugins]]
