@@ -255,7 +255,7 @@ let g:formatters_scala = ['scalafmt']
 au BufRead,BufNewFile *.sbt set filetype=scala
 
 " Remap keys for gotos coc.nvim
-nnoremap <C-]> <Plug>(coc-definition)
+nmap <C-]> <Plug>(coc-definition)
 nnoremap <C-[> <Plug>(coc-references)
 let g:coc_global_extensions = [
   \ 'coc-diagnostic',
