@@ -21,7 +21,7 @@
   chl = !git branch --sort=-authordate | peco | awk '{ print $NF }' | xargs git checkout
 
   # pecoでリモートブランチチェックアウト
-  chr = !git fetch && git branch --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed "s/^\\*\\s*//" | sed -E 's/remotes\\/[^\\/]*\\/(.*)/\\1 &/' | xargs git checkout
+  chr = !git fetch && git branch --sort=-authordate -a | peco --query 'remotes/ ' | head -n 1 | sed -e 's/remotes\\/origin\\///' | xargs git checkout
   p = !git stash && git pull && git stash pop stash@{0}
 
 [push]
