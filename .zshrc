@@ -93,6 +93,17 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^r' peco-history-selection
 
+function peco-git-recent-pull-requests () {
+    local selected_pr_number=$(hub pr list --limit 40 --sort updated --format "%pC%>(8)%i%Creset  %t (by @%au)%n" | peco | sed -r 's/^ +#([0-9]+).*$/\1/')
+    if [ -n "$selected_pr_number" ]; then
+        BUFFER="hub pr checkout ${selected_pr_number}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-git-recent-pull-requests
+alias gpc='peco-git-recent-pull-requests'
+
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zsh/completion $fpath)
