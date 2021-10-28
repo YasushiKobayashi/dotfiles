@@ -189,7 +189,6 @@ on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'ty
 [[plugins]]
 repo = 'alvan/vim-closetag'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
-on_i = 1
 
 [[plugins]]
 repo = 'AndrewRadev/tagalong.vim'
@@ -227,3 +226,6 @@ let g:polyglot_disabled = ['markdown']
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = ['go']
+
+[[plugins]]
+repo = 'github/copilot.vim'
