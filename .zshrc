@@ -159,8 +159,12 @@ function precmd() {
 }
 
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-eval "$(pyenv init --path)"
+# eval "$(anyenv init -)"
+# eval "$(pyenv init --path)"
+# anyenv init - --no-rehash > ~/.anyenv-rc.sh
+if [ -f ~/.anyenv-rc.sh ]; then
+    source ~/.anyenv-rc.sh
+fi
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export OMPOSER_MEMORY_LIMIT=-1

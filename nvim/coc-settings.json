@@ -5,6 +5,7 @@
         "markdown",
         "typescript",
         "typescript.tsx",
+        "tsx",
         "vue",
         "prisma"
     ],
