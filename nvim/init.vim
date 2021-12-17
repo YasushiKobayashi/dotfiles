@@ -95,7 +95,6 @@ autocmd QuickFixCmdPost *grep* cwindow
 let mapleader = "\<Space>"
 
 " 起動時設定
-au BufRead,BufNewFile *.scala set filetype=scala
 au BufRead,BufNewFile *.tsx set filetype=typescript.tsx
 au BufRead,BufNewFile *.jsx set filetype=typescript.jsx
 
@@ -177,15 +176,12 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'python': ['autopep8', 'isort'],
       \ 'php': ['php_cs_fixer', 'phpcbf'],
-      \ 'scala': ['scalafmt'],
       \ 'rust': ['rustfmt'],
       \ 'go': ['gofmt']
       \ }
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:formatdef_scalafmt = "'scalafmt --stdin'"
-let g:formatters_scala = ['scalafmt']
 let g:ale_rustfmt_executable = 'rustfmt'
 let g:ale_rust_cargo_use_check = 1
 let g:ale_rust_cargo_check_tests = 1
@@ -222,7 +218,6 @@ let g:unite_source_file_mru_limit = 200
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
-nnoremap <silent> <Leader>p  :<C-u>CtrlP<CR>
 nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> <Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> <Leader>r  :<C-u>UniteResume search-buffer<CR>
@@ -248,15 +243,9 @@ nnoremap <silent> <Leader>a <Plug>(altr-forward)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" scala
-let g:formatdef_scalafmt = "'scalafmt --stdin'"
-let g:formatters_scala = ['scalafmt']
-
-au BufRead,BufNewFile *.sbt set filetype=scala
-
 " Remap keys for gotos coc.nvim
 nmap <C-]> <Plug>(coc-definition)
-nnoremap <C-[> <Plug>(coc-references)
+nnoremap <C-/> <Plug>(coc-references)
 let g:coc_global_extensions = [
   \ 'coc-diagnostic',
   \ 'coc-rls',

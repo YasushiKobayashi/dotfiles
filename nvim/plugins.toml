@@ -70,6 +70,9 @@ repo = 'tpope/vim-fugitive'
 repo = 'skanehira/gh.vim'
 
 [[plugins]]
+repo = 'iberianpig/tig-explorer.vim'
+
+[[plugins]]
 repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
@@ -78,6 +81,7 @@ repo = 'kana/vim-altr'
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 hook_add = '''
+nnoremap <silent> <Leader>p  :<C-u>CtrlP<CR>
 let g:ctrlp_max_height    = 20
 let g:ctrlp_user_command  = 'ag %s -l'
 let g:ctrlp_working_path_mode = 'a'
@@ -94,17 +98,17 @@ let g:ctrlp_prompt_mappings = {
   endif
   '''
 
-  [[plugins]]
-  repo = 'itchyny/lightline.vim'
+[[plugins]]
+repo = 'itchyny/lightline.vim'
 
-  [[plugins]]
-  repo = 'Yggdroot/indentLine'
+[[plugins]]
+repo = 'Yggdroot/indentLine'
 
-  [[plugins]]
-  repo = 'tpope/vim-dispatch'
+[[plugins]]
+repo = 'tpope/vim-dispatch'
 
-  [[plugins]]
-  repo = 'janko-m/vim-test'
+[[plugins]]
+repo = 'janko-m/vim-test'
 depends = ['vim-dispatch']
 hook_add = '''
 let g:test#strategy = 'dispatch'
@@ -116,12 +120,6 @@ repo = 'kana/vim-operator-user'
 
 [[plugins]]
 repo = 'tyru/operator-camelize.vim'
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'skanehira/command.vim'
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion'
@@ -160,9 +158,6 @@ repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = 'AndrewRadev/switch.vim'
-
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
 repo = 'kamykn/spelunker.vim'
@@ -211,7 +206,10 @@ on_ft = ['markdown','mkd']
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
+rev = 'release'
+build = '''
+  git checkout release
+'''
 
 [[plugins]]
 repo = 'jparise/vim-graphql'
