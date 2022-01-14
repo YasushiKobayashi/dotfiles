@@ -169,15 +169,5 @@ fi
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export OMPOSER_MEMORY_LIMIT=-1
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/yasushi.kobayashi/.anyenv/envs/nodenv/versions/10.15.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
