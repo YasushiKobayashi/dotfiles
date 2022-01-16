@@ -251,7 +251,6 @@ let g:coc_global_extensions = [
   \ 'coc-rls',
   \ 'coc-go',
   \ 'coc-phpls',
-  " \ 'coc-python',
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-stylelint',
@@ -262,9 +261,10 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-eslint',
   \ 'coc-graphql',
-  " \ 'coc-prisma',
   \ 'coc-sql',
   \ ]
+  " \ 'coc-python',
+  " \ 'coc-prisma',
 
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)
