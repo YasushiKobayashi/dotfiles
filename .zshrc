@@ -63,11 +63,8 @@ setopt hist_ignore_all_dups
 eval "$(direnv hook zsh)"
 
 export COMPOSER_PROCESS_TIMEOUT=1600
-export GO111MODULE=on
-export GOENV_DISABLE_GOPATH=1
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
-export PATH=$GOENV_ROOT/bin:$PATH
 
 export PATH=/usr/local/bin:$PATH
 
@@ -81,7 +78,7 @@ alias dc='docker-compose'
 alias k='kubecolor'
 alias mkdir='mkdir -p'
 alias lerna='npx lerna'
-alias t="tmuximum"
+alias t="tig status"
 alias tf="terraform"
 
 function peco-history-selection() {
