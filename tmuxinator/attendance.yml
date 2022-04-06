@@ -1,7 +1,7 @@
 # /Users/yasushi.kobayashi/.tmuxinator/attendance.yml
 
 name: attendance
-root: ~/
+root: ~/go/src/github.com/YasushiKobayashi/attendance
 
 # Optional tmux socket
 # socket_name: foo
@@ -51,4 +51,5 @@ windows:
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/front && yarn dev
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn test:watch
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn type-check:watch
+        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn story
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && dc up -d db
