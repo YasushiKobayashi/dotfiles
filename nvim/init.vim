@@ -21,7 +21,8 @@ set modifiable
 set smartindent
 set nobackup
 set directory=~/.vim/tmp
-set clipboard+=unnamedplus
+set clipboard&
+set clipboard^=unnamedplus
 set undodir=D:/home/koron/var/vim/undo
 set tabstop=2
 set shiftwidth=2
@@ -139,8 +140,8 @@ autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai
 
 " auto close
-let g:closetag_filenames = "*.html, *.xhtml, *.phtml, *.erb,*.jsx, *.php, *.tsx"
-let g:closetag_xhtml_filenames = '*.xhtml, *.jsx, *.erb, *.php, *.tsx'
+let g:closetag_filenames = "*.html,*.jsx, *.blade.php, *.tsx, *.vue"
+let g:closetag_xhtml_filenames = '*.html, *.jsx, *.blade.php, *.tsx, *.vue'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
@@ -292,3 +293,5 @@ endif
 
 nnoremap <silent> <Leader>y :call emmet#expandAbbr(3,"")<CR>
 let g:tagalong_filetypes = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
+
+nnoremap <silent> <Leader>c :G commit<CR>

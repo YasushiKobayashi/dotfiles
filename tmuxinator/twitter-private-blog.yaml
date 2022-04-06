@@ -1,7 +1,7 @@
-# /Users/yasushi.kobayashi/.tmuxinator/attendance.yml
+# /Users/yasushi.kobayashi/.tmuxinator/twitter-private-blog.yml
 
-name: attendance
-root: ~/
+name: twitter-private-blog
+root: ~/go/src/github.com/YasushiKobayashi/twitter-private-blog
 
 # Optional tmux socket
 # socket_name: foo
@@ -42,13 +42,9 @@ root: ~/
 windows:
   - editor:
       layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
       panes:
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/api && yarn dev
-
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/front && yarn dev
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn test:watch
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn type-check:watch
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && dc up -d db
+        - cd $GOPATH/src/github.com/YasushiKobayashi/twitter-private-blog/go/src/api && make dev
+        - cd $GOPATH/src/github.com/YasushiKobayashi/twitter-private-blog/src/app && yarn dev
+        - cd $GOPATH/src/github.com/YasushiKobayashi/twitter-private-blog && yarn test:watch
+        - cd $GOPATH/src/github.com/YasushiKobayashi/twitter-private-blog && yarn type-check:watch
+        - cd $GOPATH/src/github.com/YasushiKobayashi/twitter-private-blog && dc up -d db
