@@ -170,7 +170,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_linters = {
       \ 'html': [],
-      \ 'go': ['gopls', 'golint', 'gometalinter']
       \ }
 
 let g:ale_fixers = {
@@ -263,9 +262,9 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-graphql',
   \ 'coc-sql',
+  \ 'coc-prisma',
   \ ]
   " \ 'coc-python',
-  " \ 'coc-prisma',
 
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)
