@@ -9,6 +9,9 @@ repo  = 'ryanoasis/vim-devicons'
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
+repo = 'github/copilot.vim'
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
 autocmd FileType defx call s:defx_my_settings()
@@ -130,13 +133,13 @@ repo = 'terryma/vim-multiple-cursors'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-on_i = 1
+# [[plugins]]
+# repo = 'Townk/vim-autoclose'
+# on_i = 1
 
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_i = 1
+# [[plugins]]
+# repo = 'jiangmiao/auto-pairs'
+# on_i = 1
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -226,4 +229,10 @@ repo = 'mattn/vim-goimports'
 on_ft = ['go']
 
 [[plugins]]
-repo = 'github/copilot.vim'
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'skanehira/denops-twihi.vim'
+
+[[plugins]]
+repo = 'skanehira/denops-gh.vim'
