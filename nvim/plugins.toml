@@ -133,14 +133,6 @@ repo = 'terryma/vim-multiple-cursors'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-# [[plugins]]
-# repo = 'Townk/vim-autoclose'
-# on_i = 1
-
-# [[plugins]]
-# repo = 'jiangmiao/auto-pairs'
-# on_i = 1
-
 [[plugins]]
 repo = 'w0rp/ale'
 
@@ -182,10 +174,6 @@ on_ft = ['javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
-
-[[plugins]]
-repo = 'alvan/vim-closetag'
 on_ft = ['html', 'php', 'javascript', 'javascript.jsx', 'jsx', 'typescript', 'typescript.tsx', 'tsx', 'vue', 'javascript.vue', 'typescript.vue']
 
 [[plugins]]

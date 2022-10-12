@@ -52,9 +52,6 @@ set incsearch
 set inccommand=split
 
 " imap
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
@@ -139,13 +136,6 @@ set background=dark
 autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai
 
-" auto close
-let g:closetag_filenames = "*.html,*.jsx, *.blade.php, *.tsx, *.vue"
-let g:closetag_xhtml_filenames = '*.html, *.jsx, *.blade.php, *.tsx, *.vue'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
-
 " vue
 autocmd FileType vue syntax sync fromstart
 
@@ -167,31 +157,19 @@ let g:ale_statusline_format = ['Error%d', 'W%d', '']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-let g:ale_linters = {
-      \ 'html': [],
-      \ }
-
 let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'python': ['autopep8', 'isort'],
-      \ 'php': ['php_cs_fixer', 'phpcbf'],
       \ 'rust': ['rustfmt'],
-      \ 'go': ['gofmt']
       \ }
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_rustfmt_executable = 'rustfmt'
-let g:ale_rust_cargo_use_check = 1
-let g:ale_rust_cargo_check_tests = 1
-let g:ale_rust_cargo_check_examples = 1
 
 "Quickfixが残っている場合に閉じる
 augroup QfAutoCommands
   autocmd!
-        " Auto-close quickfix window
-        autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
+  " Auto-close quickfix window
+  autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif
 augroup END
 
 " vim-airline
@@ -245,28 +223,32 @@ nmap ga <Plug>(EasyAlign)
 nmap <C-]> <Plug>(coc-definition)
 nnoremap <C-/> <Plug>(coc-references)
 let g:coc_global_extensions = [
+  \ 'coc-pairs',
   \ 'coc-diagnostic',
   \ 'coc-rls',
   \ 'coc-go',
   \ 'coc-phpls',
+  \ 'coc-php-cs-fixer',
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-stylelint',
   \ 'coc-tailwindcss',
-  \ 'coc-vetur',
   \ 'coc-json',
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-eslint',
-  \ 'coc-graphql',
-  \ 'coc-sql',
   \ 'coc-prisma',
+  \ 'coc-graphql',
+  \ 'coc-vetur',
+  \ 'coc-sql',
   \ ]
   " \ 'coc-python',
 
-inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
 
 " operator-camelize
 xmap tt <plug>(operator-camelize-toggle)

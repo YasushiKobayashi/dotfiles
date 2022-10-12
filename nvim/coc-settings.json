@@ -1,4 +1,5 @@
 {
+    "coc.preferences.formatOnType": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
         "scss",
@@ -7,7 +8,10 @@
         "typescript.tsx",
         "tsx",
         "vue",
-        "prisma"
+        "javascript.vue",
+        "typescript.vue",
+        "prisma",
+        "php"
     ],
     "css.validate": false,
     "less.validate": false,
@@ -16,7 +20,6 @@
     "eslint.autoFixOnSave": true,
     "eslint.filetypes": [
         "html",
-        "php",
         "javascript",
         "javascript.jsx",
         "jsx",
@@ -27,8 +30,22 @@
         "javascript.vue",
         "typescript.vue"
     ],
+    "php-cs-fixer.enable": true,
+    "php-cs-fixer.allowRisky": true,
     "suggest.noselect": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
+    "diagnostic-languageserver.filetypes": {
+        "php": ["phpcs", "phpstan"]
+    },
+     "diagnostic-languageserver.formatFiletypes": {
+        "php": ["phpcbf"]
+     },
+    "diagnostic-languageserver.formatters": {
+        "phpcbf": {
+            "command": "./vendor/bin/phpcbf",
+            "args": ["--standard=phpcs.xml", "-p", "-"],
+        },
+    },
     "languageserver": {
         "efm": {
             "command": "efm-langserver",
@@ -60,7 +77,6 @@
             "args": ["--stdio"],
             "filetypes": [
                 "html",
-                "php",
                 "javascript",
                 "javascript.jsx",
                 "jsx",
