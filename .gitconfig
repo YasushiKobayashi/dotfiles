@@ -13,6 +13,7 @@
   root = ~/go/src
 [commit]
   template = ~/.stCommitMsg
+  gpgsign = true
 [alias]
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
   ch = checkout
@@ -25,16 +26,17 @@
   p = !git stash && git pull && git stash pop stash@{0}
 
 [push]
-	default = current
+  default = current
 
 [fetch]
-    prune = true
+  prune = true
 
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [pull]
-	rebase = false
+  rebase = false

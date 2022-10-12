@@ -1,9 +1,10 @@
 [include]
   path = ~/dotfiles/.gitconfig
+  path = ~/private-dotfile/mac.gitconfig
 
 [credential]
   helper = osxkeychain
 
 [user]
-	name = YasushiKobayashi
-	email = ptpadan@gmail.com
+  name = YasushiKobayashi
+  email = ptpadan@gmail.com
