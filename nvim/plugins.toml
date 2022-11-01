@@ -115,6 +115,7 @@ repo = 'janko-m/vim-test'
 depends = ['vim-dispatch']
 hook_add = '''
 let g:test#strategy = 'dispatch'
+let g:test#php#phpunit#executable = './vendor/bin/phpunit'
 nnoremap <silent> <Leader>t :TestFile<CR>
 '''
 
