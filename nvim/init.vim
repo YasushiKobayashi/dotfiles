@@ -50,6 +50,7 @@ set smartcase
 set wrapscan
 set incsearch
 set inccommand=split
+set mouse=
 
 " imap
 inoremap {<Enter> {}<Left><CR><ESC><S-o>

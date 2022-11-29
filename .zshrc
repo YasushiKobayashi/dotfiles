@@ -80,6 +80,7 @@ alias mkdir='mkdir -p'
 alias lerna='npx lerna'
 alias t="tig status"
 alias tf="terraform"
+alias phpunit="./vendor/bin/phpunit"
 
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
@@ -117,20 +118,13 @@ export NVIM_PYTHON_LOG_LEVEL=DEBUG
 eval "$(hub alias -s)"
 eval "$(gh completion -s zsh)"
 
-export CLOUDSDK_PYTHON_SITEPACKAGES=1
-export CLOUDSDK_PYTHON=$HOME/.pyenv/versions/2.7.11/bin/python
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then source $HOME/google-cloud-sdk/path.zsh.inc; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then source $HOME/google-cloud-sdk/completion.zsh.inc; fi
-export PATH="/usr/local/sbin:$PATH"
+export CLOUDSDK_PYTHON=python3
 
 export EXPANDED_CODE_SIGN_IDENTITY=
 export EXPANDED_CODE_SIGN_IDENTITY_NAME=
 export EXPANDED_PROVISIONING_PROFILE=
 export PATH="/usr/local/opt/bison/bin:$PATH"
+export NUXT_TELEMETRY_DISABLED=1
 
 case ${OSTYPE} in
   darwin*)
@@ -168,3 +162,9 @@ export OMPOSER_MEMORY_LIMIT=-1
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
