@@ -114,7 +114,6 @@ if dein#load_state(s:dein_path)
   call dein#begin(s:dein_path)
 
   call dein#add('Shougo/dein.vim')
-  call dein#add('tomasr/molokai')
 
   let s:toml_dir = expand('$XDG_CONFIG_HOME/nvim/')
   call dein#load_toml(s:toml_dir . 'plugins.toml', {'lazy': 0})

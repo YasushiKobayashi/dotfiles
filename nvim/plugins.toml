@@ -1,4 +1,7 @@
 [[plugins]]
+repo = "tomasr/molokai"
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 if = 'has("nvim")'
 
