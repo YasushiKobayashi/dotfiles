@@ -48,7 +48,7 @@ windows:
       panes:
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/api && yarn dev
 
-        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/front && yarn dev
+        - cd $GOPATH/src/github.com/YasushiKobayashi/attendance/src/app && yarn dev
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn test:watch
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn type-check:watch
         - cd $GOPATH/src/github.com/YasushiKobayashi/attendance && yarn story
