@@ -221,6 +221,11 @@ repo = 'mattn/vim-goimports'
 on_ft = ['go']
 
 [[plugins]]
+repo = 'zalgo3/vim-chatgpt'
+rev = 'nvim'
+# https://github.com/mattn/vim-chatgpt/pull/4
+
+[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]

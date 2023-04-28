@@ -59,9 +59,6 @@ setopt hist_ignore_all_dups
 
 
 ##############################
-# package setting
-eval "$(direnv hook zsh)"
-
 export COMPOSER_PROCESS_TIMEOUT=1600
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -108,7 +105,7 @@ alias gpc='peco-git-recent-pull-requests'
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zsh/completion $fpath)
 source <(kubectl completion zsh)
-complete -o default -F __start_kubectl k
+# complete -o default -F __start_kubectl k
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
@@ -170,3 +167,4 @@ if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/path.zsh.inc' ]; then
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
+source /Users/yasushi.kobayashi/.config/op/plugins.sh
