@@ -16,7 +16,7 @@ packages:
 - name: peco/peco@v0.5.10
 - name: x-motemen/ghq@v1.3.0
 - name: stedolan/jq@jq-1.6
-- name: ktr0731/evans@v0.10.9
+- name: ktr0731/evans@v0.10.11
 - name: aws/aws-cli@2.9.13
 - name: Versent/saml2aws@v2.36.2
 - name: direnv/direnv@v2.32.2
