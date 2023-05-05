@@ -1,0 +1,129 @@
+{
+  "checksums": [
+    {
+      "id": "github_release/github.com/Versent/saml2aws/v2.36.2/saml2aws_2.36.2_darwin_amd64.tar.gz",
+      "checksum": "9783865ed950284bf3789333ec413fc1ae0c194e1d88012f0cbd21f34112c463",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/Versent/saml2aws/v2.36.2/saml2aws_2.36.2_linux_amd64.tar.gz",
+      "checksum": "f415ae8476cf8c3814a74f9377bed5e9eca189a3c6013030cbe709ac45cf2e45",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/Versent/saml2aws/v2.36.2/saml2aws_2.36.2_linux_arm64.tar.gz",
+      "checksum": "e403386e519204760fa4352aafa29586bc40d8bf679d4d7e06fcc44c4a207e1e",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/Versent/saml2aws/v2.36.2/saml2aws_2.36.2_windows_amd64.zip",
+      "checksum": "7bc1f73b0d0ae2bdb33f5d755227c4f0e762283b96622f256f50235576a45c6f",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/Versent/saml2aws/v2.36.2/saml2aws_2.36.2_windows_arm64.zip",
+      "checksum": "b8c398eb955fe23c2f4dc765d247c1ec1617d9e1521981ceee0886873ba2c29a",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.21.2/gh_2.21.2_linux_amd64.tar.gz",
+      "checksum": "6b3e56ee3253795d9c48e019cfd7b8dfc03b28073a411d1f527f5021764f63cb",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.21.2/gh_2.21.2_linux_arm64.tar.gz",
+      "checksum": "fc341a2672d9444ed963530cf4ab28a9590ae07b644ce0de52372b3477535b01",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.21.2/gh_2.21.2_macOS_amd64.tar.gz",
+      "checksum": "3187174428dfb73b712f50b550e6a148f3f0ad4b2dbdf352519b159652ed9f50",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.21.2/gh_2.21.2_windows_amd64.zip",
+      "checksum": "f6e4aead0cd85cb50f811f4a3497f288f52a013589b48e684ec617510463580f",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/junegunn/fzf/0.35.1/fzf-0.35.1-linux_amd64.tar.gz",
+      "checksum": "bfba07d56bf4b596ab60efb049a3f5badcf665fa516ba6fe96d2d142c17551ed",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/junegunn/fzf/0.35.1/fzf-0.35.1-linux_arm64.tar.gz",
+      "checksum": "f7b0ac51442c29ace84fa8af9f7b209c0471fa0a55b99f16126b70af18dcdb40",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/junegunn/fzf/0.35.1/fzf-0.35.1-windows_amd64.zip",
+      "checksum": "621e37dfb2338f021632ab819fe5479d56f912bf642db6bc242f59443d143d32",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/junegunn/fzf/0.35.1/fzf-0.35.1-windows_arm64.zip",
+      "checksum": "c4d6d31f7d75576b3268e9691de3c5bd322168f37293a14cc7a8817406cff178",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ktr0731/evans/v0.10.9/evans_darwin_amd64.tar.gz",
+      "checksum": "d86210c4c04c8c455e900143d72d147394e5b62aabe33a1ce0542408b8ced368",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ktr0731/evans/v0.10.9/evans_linux_amd64.tar.gz",
+      "checksum": "e7e6e20aa420743c69106fa97e79b30fca9e8d38d3011e7939dc5f3afee0b2fb",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ktr0731/evans/v0.10.9/evans_linux_arm64.tar.gz",
+      "checksum": "c967ec854e19e5ce0f42bc1c14eb55b0e11e972cb54f2f95b48b139313b542a8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ktr0731/evans/v0.10.9/evans_windows_amd64.tar.gz",
+      "checksum": "1e50fd8e060b5aa77ebebbd3daac2675aaa3db305c7f2b4638bbc4d3245b615f",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ktr0731/evans/v0.10.9/evans_windows_arm64.tar.gz",
+      "checksum": "1d7d5109aaf9071dab8ffa28934e44fbb32907b98b32f998c7daa7a736b53763",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vmware-tanzu/octant/v0.25.1/octant_0.25.1_Linux-64bit.tar.gz",
+      "checksum": "b12bb6752e43f4e0fe54278df8e98dee3439c4066f66cdb7a0ca4a1c7d8eaa1e",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vmware-tanzu/octant/v0.25.1/octant_0.25.1_Linux-arm64.tar.gz",
+      "checksum": "a3eb4973a0c869267e3916bd43e0b41b2bbc73b898376b795a617299c7b2a623",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vmware-tanzu/octant/v0.25.1/octant_0.25.1_Windows-64bit.zip",
+      "checksum": "b1e8f372f64c79ff04d69d19f11773936b67447a3abd5a496fbdfef10b6b6d19",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vmware-tanzu/octant/v0.25.1/octant_0.25.1_Windows-arm64.zip",
+      "checksum": "d871f2b5e9e048983c19e72e1e1f36806ef16819ec2344b4e60e0c5db8356a8e",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vmware-tanzu/octant/v0.25.1/octant_0.25.1_macOS-64bit.tar.gz",
+      "checksum": "97b1510362d99c24eeef98b61ca327e6e5323c99a1c774bc8e60751d3c923b33",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vmware-tanzu/octant/v0.25.1/octant_0.25.1_macOS-arm64.tar.gz",
+      "checksum": "9528d1a3e00f1bf0180457a347aac6963dfdc3faa3a85970b93932a352fb38cf",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v3.117.1/registry.yaml",
+      "checksum": "a1dcd6785554abb3e4c54a0078d3f08668ca5c650d170f941e660440e77a9dcc8b35750b0dca82656c01257b43d1eb4952bc8092eb25d5d6139dd8f3011eb68d",
+      "algorithm": "sha512"
+    }
+  ]
+}

@@ -15,7 +15,6 @@ packages:
 - name: junegunn/fzf@0.35.1
 - name: peco/peco@v0.5.10
 - name: x-motemen/ghq@v1.3.0
-- name: neovim/neovim@stable
 - name: stedolan/jq@jq-1.6
 - name: ktr0731/evans@v0.10.9
 - name: aws/aws-cli@2.9.13
