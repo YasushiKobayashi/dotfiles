@@ -18,7 +18,7 @@ packages:
 - name: stedolan/jq@jq-1.6
 - name: ktr0731/evans@v0.10.9
 - name: aws/aws-cli@2.9.13
-- name: Versent/saml2aws@v2.36.2
+- name: Versent/saml2aws@v2.36.6
 - name: direnv/direnv@v2.32.2
 - name: vmware-tanzu/octant@v0.25.1
 
