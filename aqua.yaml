@@ -21,4 +21,5 @@ packages:
 - name: Versent/saml2aws@v2.36.6
 - name: direnv/direnv@v2.32.2
 - name: vmware-tanzu/octant@v0.25.1
+- name: neovim/neovim@stable
 
