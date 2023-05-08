@@ -17,9 +17,8 @@ packages:
 - name: x-motemen/ghq@v1.4.2
 - name: stedolan/jq@jq-1.6
 - name: ktr0731/evans@v0.10.11
-- name: aws/aws-cli@2.9.13
-- name: Versent/saml2aws@v2.36.7
 - name: direnv/direnv@v2.32.2
 - name: vmware-tanzu/octant@v0.25.1
 - name: neovim/neovim@stable
 - name: suzuki-shunsuke/ci-info@v2.1.2
+- name: aws/aws-cli@2.11.18
