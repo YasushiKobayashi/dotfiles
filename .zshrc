@@ -67,7 +67,6 @@ export PATH=/usr/local/bin:$PATH
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
 
-
 alias ll='ls -la'
 alias g='git'
 alias gc='cd $(ghq root)/$(ghq list | peco)'
@@ -105,8 +104,6 @@ alias gpc='peco-git-recent-pull-requests'
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zsh/completion $fpath)
-source <(kubectl completion zsh)
-# complete -o default -F __start_kubectl k
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
