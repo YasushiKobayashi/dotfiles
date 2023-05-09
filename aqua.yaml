@@ -19,6 +19,7 @@ packages:
 - name: ktr0731/evans@v0.10.11
 - name: direnv/direnv@v2.32.2
 - name: vmware-tanzu/octant@v0.25.1
-- name: neovim/neovim@stable
 - name: suzuki-shunsuke/ci-info@v2.1.2
 - name: aws/aws-cli@2.11.18
+- name: github/hub@v2.14.2
+- name: denoland/deno@v1.33.2
