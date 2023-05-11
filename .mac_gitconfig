@@ -1,6 +1,3 @@
 [include]
   path = ~/dotfiles/.gitconfig
   path = ~/private-dotfile/mac.gitconfig
-
-[credential]
-  helper = osxkeychain
