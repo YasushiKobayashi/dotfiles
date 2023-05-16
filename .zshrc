@@ -103,11 +103,9 @@ alias gpc='peco-git-recent-pull-requests'
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
-fpath=($(brew --prefix)/share/zsh-completions $fpath)
+# fpath=$(brew --prefix)/share/zsh-completions:$fpath
 fpath=(~/.zsh/completion $fpath)
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-autoload -U compinit
-compinit -u
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
