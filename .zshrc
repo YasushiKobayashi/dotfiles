@@ -122,17 +122,15 @@ export EXPANDED_CODE_SIGN_IDENTITY_NAME=
 export EXPANDED_PROVISIONING_PROFILE=
 export PATH="/usr/local/opt/bison/bin:$PATH"
 export NUXT_TELEMETRY_DISABLED=1
+export VISUAL=nvim
+export EDITOR=nvim
 
 case ${OSTYPE} in
   darwin*)
   alias tac="tail -r"
-  export VISUAL=/usr/local/bin/nvim
-  export EDITOR=/usr/local/bin/nvim
     # ここに Mac 向けの設定
     ;;
   linux*)
-  export VISUAL=/bin/nvim
-  export EDITOR=/bin/nvim
     # ここに Linux 向けの設定
     ;;
 esac
