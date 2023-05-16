@@ -103,7 +103,11 @@ alias gpc='peco-git-recent-pull-requests'
 
 # completions
 fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
 fpath=(~/.zsh/completion $fpath)
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+autoload -U compinit
+compinit -u
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
@@ -163,4 +167,4 @@ if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/path.zsh.inc' ]; then
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
-source /Users/yasushi.kobayashi/.config/op/plugins.sh
+source ~/.config/op/plugins.sh
