@@ -4,7 +4,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 
 brew install wget anyenv zsh-completions tmux tmuxinator \
-  neovim htop octant tig tor yarn
+  neovim htop octant tig tor yarn deepl
 
 
 brew tap caskroom/cask
