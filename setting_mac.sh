@@ -4,7 +4,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 
 brew install wget anyenv zsh-completions tmux tmuxinator \
-  neovim htop octant tig tor yarn deepl
+  neovim htop octant tig tor yarn deepl \
+  table-tool medis obsa elgato-game-capture-hd \
+  zoom dropbox imageoptim figma miro mysqlworkbench
 
 
 brew tap caskroom/cask
