@@ -80,6 +80,7 @@ alias lerna='npx lerna'
 alias t="tig status"
 alias tf="terraform"
 alias phpunit="./vendor/bin/phpunit"
+export PATH=$PATH:/usr/local/go/bin
 
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
@@ -105,7 +106,6 @@ alias gpc='peco-git-recent-pull-requests'
 fpath=(/usr/local/share/zsh-completions $fpath)
 # fpath=$(brew --prefix)/share/zsh-completions:$fpath
 fpath=(~/.zsh/completion $fpath)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
@@ -131,6 +131,7 @@ case ${OSTYPE} in
   darwin*)
   alias tac="tail -r"
     # ここに Mac 向けの設定
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     ;;
   linux*)
     # ここに Linux 向けの設定

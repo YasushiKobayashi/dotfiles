@@ -1,5 +1,3 @@
 [include]
   path = ~/dotfiles/.gitconfig
-
-[credential]
-	helper = store
+  path = ~/private-dotfile/wsl.gitconfig
