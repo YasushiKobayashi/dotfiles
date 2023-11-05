@@ -76,6 +76,7 @@ alias d='docker'
 alias dc='docker-compose'
 alias k='kubecolor'
 alias mkdir='mkdir -p'
+alias y="yarn"
 alias lerna='npx lerna'
 alias t="tig status"
 alias tf="terraform"
