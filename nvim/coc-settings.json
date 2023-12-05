@@ -1,4 +1,6 @@
 {
+    "suggest.noselect": true,
+    "suggest.preferCompleteThanJumpPlaceholder": true,
     "coc.preferences.formatOnType": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
@@ -32,8 +34,7 @@
     ],
     "php-cs-fixer.enable": true,
     "php-cs-fixer.allowRisky": true,
-    "suggest.noselect": true,
-    "suggest.preferCompleteThanJumpPlaceholder": true,
+    "php-cs-fixer.activateTool": "pint",
     "diagnostic-languageserver.filetypes": {
         "php": ["phpcs", "phpstan"]
     },
