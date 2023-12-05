@@ -26,4 +26,4 @@ packages:
 - name: neovim/neovim@v0.9.4
 - name: showwin/speedtest-go@v1.6.6
 - name: GoogleCloudPlatform/cloud-sql-proxy@v2.7.0
-- name: twistedpair/google-cloud-sdk@450.0.0
+- name: twistedpair/google-cloud-sdk@456.0.0
