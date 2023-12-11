@@ -25,3 +25,4 @@ storybook-static/
 coverage
 __screenshots__
 .reg
+vendor
