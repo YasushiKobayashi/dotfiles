@@ -11,13 +11,18 @@
 # See the documentation for more https://github.com/rossmacarthur/sheldon#readme
 
 shell = "zsh"
+apply = ["defer"]
 
-[plugins]
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+apply = ["source"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 
-# For example:
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
 #
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
+[plugins.base16]
+github = "chriskempson/base16-shell"
+
