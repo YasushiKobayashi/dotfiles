@@ -103,10 +103,6 @@ function peco-git-recent-pull-requests () {
 zle -N peco-git-recent-pull-requests
 alias gpc='peco-git-recent-pull-requests'
 
-# completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-# fpath=$(brew --prefix)/share/zsh-completions:$fpath
-fpath=(~/.zsh/completion $fpath)
 
 # nvim
 export XDG_CONFIG_HOME=$HOME/.config
@@ -117,6 +113,10 @@ export NVIM_PYTHON_LOG_LEVEL=DEBUG
 # hub https://github.com/github/hub
 eval "$(hub alias -s)"
 eval "$(gh completion -s zsh)"
+
+# sheldon
+export SHELDON_CONFIG_FILE=$HOME/dotfiles/sheldon/plugins.toml
+eval "$(sheldon source)"
 
 export CLOUDSDK_PYTHON=python3
 
@@ -132,7 +132,6 @@ case ${OSTYPE} in
   darwin*)
   alias tac="tail -r"
     # ここに Mac 向けの設定
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     ;;
   linux*)
     # ここに Linux 向けの設定
@@ -149,9 +148,6 @@ function precmd() {
 }
 
 export PATH="$HOME/.anyenv/bin:$PATH"
-# eval "$(anyenv init -)"
-# eval "$(pyenv init --path)"
-# anyenv init - --no-rehash > ~/.anyenv-rc.sh
 if [ -f ~/.anyenv-rc.sh ]; then
     source ~/.anyenv-rc.sh
 fi
@@ -162,9 +158,4 @@ export OMPOSER_MEMORY_LIMIT=-1
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yasushi.kobayashi/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
 source ~/.config/op/plugins.sh
