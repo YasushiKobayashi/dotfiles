@@ -241,6 +241,7 @@ let g:coc_global_extensions = [
   \ 'coc-graphql',
   \ 'coc-vetur',
   \ 'coc-sql',
+  \ 'coc-protobuf',
   \ ]
   " \ 'coc-python',
 
