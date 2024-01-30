@@ -159,3 +159,10 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 source ~/.config/op/plugins.sh
+
+# bun completions
+[ -s "/Users/yasushi.kobayashi/.bun/_bun" ] && source "/Users/yasushi.kobayashi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
