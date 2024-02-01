@@ -28,3 +28,12 @@ github = "zsh-users/zsh-completions"
 
 [plugins.base16]
 github = "chriskempson/base16-shell"
+
+[plugins.kubectl-completion]
+remote = "https://raw.githubusercontent.com/nnao45/zsh-kubectl-completion/master/_kubectl"
+apply = ["fpath"]
+
+
+[plugins.git-completion]
+remote = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
+apply = ["fpath"]
