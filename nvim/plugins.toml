@@ -85,26 +85,6 @@ repo = 'tpope/vim-rhubarb'
 repo = 'kana/vim-altr'
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-hook_add = '''
-nnoremap <silent> <Leader>p  :<C-u>CtrlP<CR>
-let g:ctrlp_max_height    = 20
-let g:ctrlp_user_command  = 'ag %s -l'
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|pkg\|git\|vender\|Vender\|vendor\|tmp\|\v\.(o|d|out|log|bin|gcno|gcda|pyc|retry|log|dist|out|.next|vendor)$'
-let g:ctrlp_use_caching   = 1
-if executable('ag')
-set grepprg=ag\ --nogroup\ --nocolor
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-  \ }
-  endif
-  '''
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]

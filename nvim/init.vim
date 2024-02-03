@@ -223,6 +223,7 @@ nmap ga <Plug>(EasyAlign)
 nmap <C-]> <Plug>(coc-definition)
 nnoremap <C-/> <Plug>(coc-references)
 let g:coc_global_extensions = [
+  \ 'coc-lists',
   \ 'coc-pairs',
   \ 'coc-diagnostic',
   \ 'coc-rls',
@@ -255,6 +256,9 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 xmap tt <plug>(operator-camelize-toggle)
 xmap tc <plug>(operator-camelize)
 xmap ts <plug>(operator-decamelize)
+
+nnoremap <silent> <Leader>p :CocList files<CR>
+
 
 let g:camelcasemotion_key = ','
 
