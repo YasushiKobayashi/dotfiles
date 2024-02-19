@@ -37,3 +37,11 @@ apply = ["fpath"]
 [plugins.git-completion]
 remote = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
 apply = ["fpath"]
+
+[plugins.git-completion-bash]
+remote = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
+apply = ["fpath"]
+
+[plugins.git-prompt]
+remote = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+apply = ["source"]
