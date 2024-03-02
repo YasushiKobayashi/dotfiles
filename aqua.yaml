@@ -33,3 +33,5 @@ packages:
 - name: docker/cli@v25.0.3
 - name: uber-go/mock@v0.4.0
 - name: bufbuild/buf@v1.29.0
+- name: nametake/golangci-lint-langserver@v0.0.9
+- name: golang.org/x/tools/gopls@gopls/v0.15.1
