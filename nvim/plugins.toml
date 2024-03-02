@@ -197,10 +197,6 @@ let g:polyglot_disabled = ['markdown']
 '''
 
 [[plugins]]
-repo = 'mattn/vim-goimports'
-on_ft = ['go']
-
-[[plugins]]
 repo = 'zalgo3/vim-chatgpt'
 rev = 'nvim'
 # https://github.com/mattn/vim-chatgpt/pull/4

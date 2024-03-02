@@ -262,8 +262,6 @@ nnoremap <silent> <Leader>p :CocList files<CR>
 
 let g:camelcasemotion_key = ','
 
-let g:goimports_simplify = 1
-
 if system('uname -a | grep Microsoft') != ""
   let g:clipboard = {
         \   'name': 'myClipboard',
