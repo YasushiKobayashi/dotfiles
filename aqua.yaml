@@ -36,3 +36,4 @@ packages:
 - name: nametake/golangci-lint-langserver@v0.0.9
 - name: cosmtrek/air@v1.51.0
 - name: oven-sh/bun@bun-v1.0.29
+- name: golang/tools/goimports@v0.18.0
