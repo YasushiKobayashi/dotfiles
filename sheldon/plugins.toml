@@ -20,6 +20,14 @@ apply = ["source"]
 [templates]
 defer = ""
 
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
+
+[plugins.prezto]
+github = "sorin-ionescu/prezto"
+use = ["init.zsh"]
+apply = ["source"]
+
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 
@@ -33,7 +41,6 @@ github = "chriskempson/base16-shell"
 remote = "https://raw.githubusercontent.com/nnao45/zsh-kubectl-completion/master/_kubectl"
 apply = ["fpath"]
 
-
 [plugins.git-completion]
 remote = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
 apply = ["fpath"]
@@ -45,3 +52,15 @@ apply = ["fpath"]
 [plugins.git-prompt]
 remote = "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
 apply = ["source"]
+
+[plugins.zsh-better-npm-completion]
+github = "lukechilds/zsh-better-npm-completion"
+
+[plugins.bun]
+remote = "https://raw.githubusercontent.com/oven-sh/bun/6d52b3b62b6ba1171ba97bd9509f7e8e8611624f/completions/bun.zsh"
+apply = ["source"]
+
+# [plugins.autojump]
+# github = "wting/autojump"
+# dir = "bin"
+# apply = ["PATH", "source"]

@@ -37,3 +37,5 @@ packages:
 - name: cosmtrek/air@v1.51.0
 - name: oven-sh/bun@bun-v1.0.29
 - name: golang/tools/goimports@v0.18.0
+- name: golang/go@go1.22.0
+- name: mislav/hub@v2.14.2

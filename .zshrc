@@ -1,15 +1,5 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
+export SHELDON_CONFIG_FILE=$HOME/dotfiles/sheldon/plugins.toml
+eval "$(sheldon source)"
 export LANG=ja_JP.UTF-8
 
 # 履歴ファイルの保存先
@@ -29,10 +19,6 @@ autoload -Uz colors
 colors
 
 ########################################
-# 補完
-# 補完機能を有効にする
-autoload -Uz compinit
-compinit
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -111,12 +97,7 @@ export NVIM_NODE_LOG_FILE=/tmp/log
 export NVIM_PYTHON_LOG_LEVEL=DEBUG
 
 # hub https://github.com/github/hub
-eval "$(hub alias -s)"
 eval "$(gh completion -s zsh)"
-
-# sheldon
-export SHELDON_CONFIG_FILE=$HOME/dotfiles/sheldon/plugins.toml
-eval "$(sheldon source)"
 
 export CLOUDSDK_PYTHON=python3
 
@@ -159,10 +140,3 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 source ~/.config/op/plugins.sh
-
-# bun completions
-[ -s "/Users/yasushi.kobayashi/.bun/_bun" ] && source "/Users/yasushi.kobayashi/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
