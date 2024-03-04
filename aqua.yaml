@@ -35,7 +35,7 @@ packages:
 - name: bufbuild/buf@v1.29.0
 - name: nametake/golangci-lint-langserver@v0.0.9
 - name: cosmtrek/air@v1.51.0
-- name: oven-sh/bun@bun-v1.0.29
+- name: oven-sh/bun@bun-v1.0.30
 - name: golang/tools/goimports@v0.18.0
 - name: golang/go@go1.22.0
 - name: mislav/hub@v2.14.2
