@@ -1,3 +1,7 @@
+export PATH=/usr/local/bin:$PATH
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
+
 export SHELDON_CONFIG_FILE=$HOME/dotfiles/sheldon/plugins.toml
 eval "$(sheldon source)"
 export LANG=ja_JP.UTF-8
@@ -48,10 +52,6 @@ setopt hist_ignore_all_dups
 export COMPOSER_PROCESS_TIMEOUT=1600
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
-
-export PATH=/usr/local/bin:$PATH
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
-export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
 
 alias ll='ls -la'
 alias g='git'
