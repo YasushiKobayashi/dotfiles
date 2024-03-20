@@ -26,7 +26,7 @@ packages:
 - name: neovim/neovim@v0.9.5
 - name: showwin/speedtest-go@v1.6.10
 - name: GoogleCloudPlatform/cloud-sql-proxy@v2.10.0
-- name: twistedpair/google-cloud-sdk@468.0.0
+- name: twistedpair/google-cloud-sdk@469.0.0
 - name: rossmacarthur/sheldon@0.7.4
 - name: aws/session-manager-plugin@1.2.553.0
 - name: sqldef/sqldef/mysqldef@v0.16.15
