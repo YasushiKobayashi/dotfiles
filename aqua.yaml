@@ -29,7 +29,7 @@ packages:
 - name: twistedpair/google-cloud-sdk@469.0.0
 - name: rossmacarthur/sheldon@0.7.4
 - name: aws/session-manager-plugin@1.2.553.0
-- name: sqldef/sqldef/mysqldef@v0.17.5
+- name: sqldef/sqldef/mysqldef@v0.17.6
 - name: docker/cli@v26.0.0
 - name: uber-go/mock@v0.4.0
 - name: bufbuild/buf@v1.30.1
