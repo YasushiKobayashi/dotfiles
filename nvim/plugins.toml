@@ -205,7 +205,4 @@ rev = 'nvim'
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
-repo = 'skanehira/denops-twihi.vim'
-
-[[plugins]]
 repo = 'skanehira/denops-gh.vim'

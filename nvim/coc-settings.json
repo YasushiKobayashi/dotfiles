@@ -1,13 +1,19 @@
 {
-    "suggest.noselect": true,
-    "suggest.preferCompleteThanJumpPlaceholder": true,
+    "prettier.arguments": ["--log", "verbose"],
     "coc.preferences.formatOnType": true,
     "coc.preferences.formatOnSaveFiletypes": [
+        "json",
+        "jsonc",
         "css",
         "scss",
         "markdown",
         "typescript",
+        "typescript.react",
         "typescript.tsx",
+        "typescriptreact",
+        "javascriptreact",
+        "javascript.react",
+        "javascript.tsx",
         "tsx",
         "vue",
         "javascript.vue",
@@ -22,10 +28,14 @@
     "eslint.autoFixOnSave": true,
     "eslint.filetypes": [
         "html",
+        "json",
+        "jsonc",
         "javascript",
         "javascript.jsx",
+        "javascriptreact",
         "jsx",
         "typescript",
+        "typescriptreact",
         "typescript.tsx",
         "tsx",
         "vue",
@@ -38,14 +48,14 @@
     "diagnostic-languageserver.filetypes": {
         "php": ["phpcs", "phpstan"]
     },
-     "diagnostic-languageserver.formatFiletypes": {
+    "diagnostic-languageserver.formatFiletypes": {
         "php": ["phpcbf"]
-     },
+    },
     "diagnostic-languageserver.formatters": {
         "phpcbf": {
             "command": "./vendor/bin/phpcbf",
-            "args": ["--standard=phpcs.xml", "-p", "-"],
-        },
+            "args": ["--standard=phpcs.xml", "-p", "-"]
+        }
     },
     "languageserver": {
         "efm": {
@@ -66,10 +76,7 @@
         "terraform": {
             "command": "terraform-ls",
             "args": ["serve"],
-            "filetypes": [
-                "terraform",
-                "tf"
-            ],
+            "filetypes": ["terraform", "tf"],
             "initializationOptions": {},
             "settings": {}
         },
@@ -125,7 +132,15 @@
             "command": "golangci-lint-langserver",
             "filetypes": ["go"],
             "initializationOptions": {
-                "command": ["golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json"]
+                "command": [
+                    "golangci-lint",
+                    "run",
+                    "--enable-all",
+                    "--disable",
+                    "lll",
+                    "--out-format",
+                    "json"
+                ]
             }
         },
         "go-dls": {
