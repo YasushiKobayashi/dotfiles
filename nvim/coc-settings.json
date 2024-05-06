@@ -19,6 +19,7 @@
         "javascript.vue",
         "typescript.vue",
         "prisma",
+        "go",
         "php"
     ],
     "css.validate": false,
@@ -120,14 +121,6 @@
                 }
             }
         },
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod", ".git/"],
-            "filetypes": ["go"],
-            "initializationOptions": {
-                "usePlaceholders": true
-            }
-        },
         "golangci-lint-languageserver": {
             "command": "golangci-lint-langserver",
             "filetypes": ["go"],
@@ -139,7 +132,8 @@
                     "--disable",
                     "lll",
                     "--out-format",
-                    "json"
+                    "json",
+                    "--fix"
                 ]
             }
         },
