@@ -220,6 +220,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Remap keys for gotos coc.nvim
 nmap <C-]> <Plug>(coc-definition)
+nmap <C-j> <Plug>(coc-definition)
 nnoremap <C-/> <Plug>(coc-references)
 let g:coc_global_extensions = [
   \ 'coc-lists',
