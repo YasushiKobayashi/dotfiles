@@ -27,3 +27,4 @@ __screenshots__
 .reg
 vendor
 build
+tsconfig.tsbuildinfo
