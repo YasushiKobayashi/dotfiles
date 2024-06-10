@@ -1,4 +1,4 @@
 {
 
-    "extends": ["github>HikaruEgashira/renovate", "github>aquaproj/aqua-renovate-config#2.2.1"]
+    "extends": ["github>HikaruEgashira/renovate", "github>aquaproj/aqua-renovate-config#2.3.1"]
 }
