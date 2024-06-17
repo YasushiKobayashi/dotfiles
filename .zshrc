@@ -1,3 +1,4 @@
+eval $(/opt/homebrew/bin/brew shellenv)
 export PATH=/usr/local/bin:$PATH
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
@@ -128,6 +129,7 @@ function precmd() {
   fi
 }
 
+# anyenv init - > ~/.anyenv-rc.sh
 export PATH="$HOME/.anyenv/bin:$PATH"
 if [ -f ~/.anyenv-rc.sh ]; then
     source ~/.anyenv-rc.sh
