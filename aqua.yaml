@@ -42,4 +42,4 @@ packages:
 - name: aquasecurity/trivy@v0.50.4
 - name: hashicorp/terraform-ls@v0.33.2
 - name: juliosueiras/terraform-lsp@v0.0.12
-- name: kayac/ecspresso@v2.3.3
+- name: kayac/ecspresso@v2.3.5
