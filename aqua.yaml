@@ -43,5 +43,5 @@ packages:
 - name: juliosueiras/terraform-lsp@v0.0.12
 - name: kayac/ecspresso@v2.3.5
 - name: go-task/task@v3.37.2
-- name: kayac/ecspresso@v2.3.3
+- name: kayac/ecspresso@v2.3.5
 - name: golangci/golangci-lint@v1.59.1
