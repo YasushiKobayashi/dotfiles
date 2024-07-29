@@ -43,8 +43,9 @@
         "javascript.vue",
         "typescript.vue"
     ],
-    "php-cs-fixer.enable": true,
-    "php-cs-fixer.allowRisky": true,
+    "[php]": {
+        "coc.preferences.formatOnSave": true
+    },
     "php-cs-fixer.activateTool": "pint",
     "diagnostic-languageserver.filetypes": {
         "php": ["phpcs", "phpstan"]
