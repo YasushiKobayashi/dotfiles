@@ -28,7 +28,7 @@ packages:
 - name: GoogleCloudPlatform/cloud-sql-proxy@v2.12.0
 - name: twistedpair/google-cloud-sdk@469.0.0
 - name: aws/session-manager-plugin@1.2.553.0
-- name: sqldef/sqldef/mysqldef@v0.17.15
+- name: sqldef/sqldef/mysqldef@v0.17.16
 - name: docker/cli@v26.0.0
 - name: uber-go/mock@v0.4.0
 - name: bufbuild/buf@v1.35.1
