@@ -44,4 +44,4 @@ packages:
 - name: kayac/ecspresso@v2.4.1
 - name: golangci/golangci-lint@v1.59.1
 - name: oven-sh/bun@bun-v1.1.26
-- name: aws/aws-cli@2.17.37
+- name: aws/aws-cli@2.17.42
