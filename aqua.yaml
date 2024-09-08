@@ -45,3 +45,4 @@ packages:
 - name: golangci/golangci-lint@v1.59.1
 - name: oven-sh/bun@bun-v1.1.26
 - name: aws/aws-cli@2.17.42
+- name: itchyny/gojq@v0.12.16
