@@ -23,7 +23,7 @@ packages:
 - name: github/hub@v2.14.2
 - name: denoland/deno@v1.46.3
 - name: sharkdp/bat@v0.24.0
-- name: neovim/neovim@v0.10.1
+- name: neovim/neovim@v0.10.2
 - name: showwin/speedtest-go@v1.7.9
 - name: GoogleCloudPlatform/cloud-sql-proxy@v2.13.0
 - name: twistedpair/google-cloud-sdk@492.0.0
