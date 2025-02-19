@@ -1,5 +1,6 @@
 if [ -f /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export PATH="/opt/homebrew/Cellar/git/$(brew list --versions git | awk "{print \$2}")/share/git-core/contrib/diff-highlight:$PATH"
 fi
 export PATH=/usr/local/bin:$PATH
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
