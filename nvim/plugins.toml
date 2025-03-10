@@ -1,5 +1,5 @@
 [[plugins]]
-repo = "tomasr/molokai"
+repo = "ku1ik/vim-monokai"
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -196,14 +196,15 @@ hook_add = '''
 let g:polyglot_disabled = ['markdown']
 '''
 
-[[plugins]]
-repo = 'zalgo3/vim-chatgpt'
-rev = 'nvim'
-# https://github.com/mattn/vim-chatgpt/pull/4
-
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
 hook_add = '''
 let g:goimports_simplify = 1
 '''
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'yetone/avante.nvim'

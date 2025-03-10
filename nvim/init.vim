@@ -133,8 +133,8 @@ syntax enable
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
-autocmd colorscheme molokai highlight Visual ctermbg=8
-colorscheme molokai
+autocmd colorscheme monokai highlight Visual ctermbg=8
+colorscheme monokai
 
 " vue
 autocmd FileType vue syntax sync fromstart
