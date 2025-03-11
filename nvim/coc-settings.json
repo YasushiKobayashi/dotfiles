@@ -46,6 +46,7 @@
     "[php]": {
         "coc.preferences.formatOnSave": true
     },
+    "intelephense.environment.phpVersion": "8.2.0",
     "php-cs-fixer.activateTool": "pint",
     "diagnostic-languageserver.filetypes": {
         "php": ["phpcs", "phpstan"]
