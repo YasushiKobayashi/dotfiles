@@ -82,9 +82,6 @@ repo = 'iberianpig/tig-explorer.vim'
 repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
-repo = 'kana/vim-altr'
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
@@ -206,5 +203,66 @@ let g:goimports_simplify = 1
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 
+# avante関連の依存
 [[plugins]]
 repo = 'yetone/avante.nvim'
+hook_post_source = '''
+lua << EOF
+  require('avante').setup({
+    provider = "openai",
+    openai = {
+      endpoint = "https://api.openai.com/v1",
+      model = "gpt-4o",
+      timeout = 30000,
+      temperature = 0,
+      max_completion_tokens = 8192,
+    },
+  })
+EOF
+'''
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+[[plugins]]
+repo = 'stevearc/dressing.nvim'
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'
+[[plugins]]
+repo = 'echasnovski/mini.pick'
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+[[plugins]]
+repo = 'ibhagwan/fzf-lua'
+[[plugins]]
+repo = 'nvim-tree/nvim-web-devicons'
+[[plugins]]
+repo = 'zbirenbaum/copilot.lua'
+[[plugins]]
+repo = 'HakonHarnes/img-clip.nvim'
+hook_post_source = '''
+lua << EOF
+  require('img-clip').setup({
+    default = {
+      embed_image_as_base64 = false,
+      prompt_for_file_name = false,
+      drag_and_drop = {
+        insert_mode = true,
+      },
+      use_absolute_path = true,
+    },
+  })
+EOF
+'''
+
+[[plugins]]
+repo = 'MeanderingProgrammer/render-markdown.nvim'
+hook_post_source = '''
+lua << EOF
+  require('render-markdown').setup({
+    file_types = { "markdown", "Avante" },
+  })
+EOF
+'''

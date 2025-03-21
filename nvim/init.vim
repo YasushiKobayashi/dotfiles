@@ -211,9 +211,6 @@ endif
 " Qfreplace
 nnoremap <silent> <Leader>q :Qfreplace<CR>
 
-" vim-altr
-nnoremap <silent> <Leader>a <Plug>(altr-forward)
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
