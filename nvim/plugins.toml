@@ -1,5 +1,5 @@
 [[plugins]]
-repo = "ku1ik/vim-monokai"
+repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
