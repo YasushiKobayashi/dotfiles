@@ -95,7 +95,7 @@ alias gpc='peco-git-recent-pull-requests'
 
 
 # nvim
-export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CONFIG_HOME="$HOME/dotfiles"
 export NVIM_PYTHON_LOG_FILE=/tmp/log
 export NVIM_NODE_LOG_FILE=/tmp/log
 export NVIM_PYTHON_LOG_LEVEL=DEBUG

@@ -38,3 +38,6 @@ nvim/repos/*
 .zprofile
 hub
 tmuxinator/cl-*
+coc
+github-copilot
+dein
