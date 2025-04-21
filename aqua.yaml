@@ -32,7 +32,7 @@ packages:
 - name: docker/cli@v27.2.1
 - name: uber-go/mock@v0.4.0
 - name: bufbuild/buf@v1.48.0
-- name: nametake/golangci-lint-langserver@v0.0.10
+- name: nametake/golangci-lint-langserver@v0.0.11
 - name: cosmtrek/air@v1.52.3
 - name: golang/tools/goimports@v0.25.0
 - name: golang/go@go1.23.6
