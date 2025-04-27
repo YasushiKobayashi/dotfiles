@@ -199,3 +199,6 @@ repo = 'mattn/vim-goimports'
 hook_add = '''
 let g:goimports_simplify = 1
 '''
+
+[[plugins]]
+repo = 'joshuavial/aider.nvim'
