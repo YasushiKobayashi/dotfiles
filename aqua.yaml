@@ -35,7 +35,7 @@ packages:
 - name: nametake/golangci-lint-langserver@v0.0.11
 - name: cosmtrek/air@v1.61.7
 - name: golang/tools/goimports@v0.32.0
-- name: golang/go@go1.24.2
+- name: golang/go@go1.24.3
 - name: mislav/hub@v2.14.2
 - name: aquasecurity/trivy@v0.62.1
 - name: hashicorp/terraform-ls@v0.36.4
