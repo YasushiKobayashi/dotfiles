@@ -43,6 +43,6 @@ packages:
 - name: go-task/task@v3.43.3
 - name: kayac/ecspresso@v2.4.6
 - name: golangci/golangci-lint@v2.1.6
-- name: oven-sh/bun@bun-v1.2.11
+- name: oven-sh/bun@bun-v1.2.14
 - name: aws/aws-cli@2.27.22
 - name: itchyny/gojq@v0.12.17
