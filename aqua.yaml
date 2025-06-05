@@ -9,40 +9,40 @@
 #   - all
 registries:
 - type: standard
-  ref: v4.371.1 # renovate: depName=aquaproj/aqua-registry
+  ref: v4.375.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-- name: cli/cli@v2.71.2
-- name: junegunn/fzf@v0.61.3
+- name: cli/cli@v2.74.0
+- name: junegunn/fzf@v0.62.0
 - name: peco/peco@v0.5.11
 - name: x-motemen/ghq@v1.8.0
-- name: stedolan/jq@jq-1.7.1
+- name: stedolan/jq@jq-1.8.0
 - name: ktr0731/evans@v0.10.11
 - name: direnv/direnv@v2.36.0
 - name: vmware-tanzu/octant@v0.25.1
 - name: suzuki-shunsuke/ci-info@v2.3.2
 - name: github/hub@v2.14.2
-- name: denoland/deno@v2.3.3
+- name: denoland/deno@v2.3.5
 - name: sharkdp/bat@v0.25.0
-- name: neovim/neovim@v0.11.1
+- name: neovim/neovim@v0.11.2
 - name: showwin/speedtest-go@v1.7.10
 - name: GoogleCloudPlatform/cloud-sql-proxy@v2.16.0
-- name: twistedpair/google-cloud-sdk@520.0.0
+- name: twistedpair/google-cloud-sdk@525.0.0
 - name: aws/session-manager-plugin@1.2.707.0
-- name: sqldef/sqldef/mysqldef@v1.0.7
-- name: docker/cli@v28.1.1
+- name: sqldef/sqldef/mysqldef@v2.0.0
+- name: docker/cli@v28.2.2
 - name: uber-go/mock@v0.5.2
-- name: bufbuild/buf@v1.53.0
+- name: bufbuild/buf@v1.54.0
 - name: nametake/golangci-lint-langserver@v0.0.11
-- name: cosmtrek/air@v1.61.7
-- name: golang/tools/goimports@v0.32.0
+- name: cosmtrek/air@v1.62.0
+- name: golang/tools/goimports@v0.33.0
 - name: golang/go@go1.24.3
 - name: mislav/hub@v2.14.2
-- name: aquasecurity/trivy@v0.62.1
+- name: aquasecurity/trivy@v0.63.0
 - name: hashicorp/terraform-ls@v0.36.4
 - name: juliosueiras/terraform-lsp@v0.0.12
 - name: go-task/task@v3.43.3
-- name: kayac/ecspresso@v2.4.6
+- name: kayac/ecspresso@v2.5.0
 - name: golangci/golangci-lint@v2.1.6
-- name: oven-sh/bun@bun-v1.2.14
-- name: aws/aws-cli@2.27.22
+- name: oven-sh/bun@bun-v1.2.15
+- name: aws/aws-cli@2.27.29
 - name: itchyny/gojq@v0.12.17
