@@ -142,6 +142,7 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 export OMPOSER_MEMORY_LIMIT=-1
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$(npm config get prefix)/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 source ~/.config/op/plugins.sh
