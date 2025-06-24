@@ -1,0 +1,45 @@
+{
+    "permissions": {
+        "allow": [
+            "Bash(go test:*)",
+            "Bash(bun vitest:*)",
+            "Bash(bun type-chkck:*)",
+            "Bash(bun lint-ts:*)",
+            "Bash(bun:*)",
+            "Bash(php:*)",
+            "Bash(composer lint:*)",
+            "Bash(composer larastan:*)",
+            "Bash(make:*)",
+            "Bash(make lint)",
+            "Bash(docker:*)",
+            "Bash(pre-commit run:*)",
+            "Bash(golangci-lint run:*)",
+            "WebFetch(domain:docs.anthropic.com)",
+            "Bash(claude mcp add:*)",
+            "Bash(claude mcp:*)",
+            "mcp__github__get_pull_request",
+            "mcp__github__get_issue",
+            "mcp__github__get_pull_request_files",
+            "Bash(cat:*)",
+            "Bash(find:*)",
+            "Bash(rg:*)",
+            "Bash(ls:*)",
+            "Bash(grep:*)",
+            "Bash(pwd)",
+            "Bash(/usr/bin/make:*)"
+        ],
+        "deny": []
+    },
+    "enabledMcpjsonServers": [
+        "figma-developer-mcp",
+        "playwright-mcp",
+        "Sentry",
+        "github-copilot",
+        "github"
+    ],
+    "system": {
+        "purpose": "あなたは日本語で応答するプロのソフトウェア開発アシスタントです。出力はすべて日本語で行ってください。",
+        "tone": "丁寧",
+        "language": "日本語"
+    }
+}

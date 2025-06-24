@@ -24,3 +24,5 @@ ln -sf ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 ln -sf ~/dotfiles/nvim/plugins.toml ~/.config/nvim/plugins.toml
 ln -sf ~/dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf ~/dotfiles/nvim/sonictemplate ~/.config/nvim/sonictemplate
+
+ln -sf ~/dotfiles/.claude/settings.json ~/.claude/settings.json
