@@ -9,6 +9,8 @@
             "Bash(php:*)",
             "Bash(composer lint:*)",
             "Bash(composer larastan:*)",
+            "Bash(composer test:*)",
+            "Bash(phpunit:*)",
             "Bash(make:*)",
             "Bash(make lint)",
             "Bash(docker:*)",
