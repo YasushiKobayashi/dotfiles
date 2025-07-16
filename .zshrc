@@ -117,6 +117,7 @@ case ${OSTYPE} in
   darwin*)
   alias tac="tail -r"
     # ここに Mac 向けの設定
+    alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
     ;;
   linux*)
     # ここに Linux 向けの設定
