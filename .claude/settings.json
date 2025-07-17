@@ -7,6 +7,10 @@
             "Bash(bun type-chkck:*)",
             "Bash(bun lint-ts:*)",
             "Bash(bun:*)",
+            "Bash(bunx:*)",
+            "Bash(npm:*)",
+            "Bash(npx:*)",
+            "Bash(yarn:*)",
             "Bash(php:*)",
             "Bash(composer lint:*)",
             "Bash(composer larastan:*)",
@@ -41,10 +45,5 @@
         "Sentry",
         "github-copilot",
         "github"
-    ],
-    "system": {
-        "purpose": "あなたは日本語で応答するプロのソフトウェア開発アシスタントです。出力はすべて日本語で行ってください。",
-        "tone": "丁寧",
-        "language": "日本語"
-    }
+    ]
 }
