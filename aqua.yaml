@@ -46,5 +46,5 @@ packages:
 - name: oven-sh/bun@bun-v1.2.19
 - name: aws/aws-cli@2.27.60
 - name: itchyny/gojq@v0.12.17
-- name: jdx/mise@v2025.7.11
+- name: jdx/mise@v2025.7.29
 - name: astral-sh/rye@0.44.0
