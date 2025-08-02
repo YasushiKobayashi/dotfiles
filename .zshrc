@@ -147,5 +147,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 source ~/.config/op/plugins.sh
+# mise completions zsh > ~/.mise-completion.zsh
+source ~/.mise-completion.zsh
 
 . "$HOME/.local/bin/env"
