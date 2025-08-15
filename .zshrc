@@ -133,7 +133,7 @@ function precmd() {
   fi
 }
 
-# anyenv init - > ~/.anyenv-rc.sh
+# anyenv init - | tee ~/.anyenv-rc.sh > /dev/null
 export PATH="$HOME/.anyenv/bin:$PATH"
 if [ -f ~/.anyenv-rc.sh ]; then
     source ~/.anyenv-rc.sh
