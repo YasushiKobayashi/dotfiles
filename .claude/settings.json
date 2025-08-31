@@ -38,7 +38,7 @@
             "Bash(pwd)",
             "Bash(/usr/bin/make:*)"
         ],
-        "deny": [],
+        "deny": ["Bash(git add:*)", "Bash(git commit:*)", "Bash(git push:*)"],
         "defaultMode": "acceptEdits"
     },
     "enabledMcpjsonServers": [
@@ -52,4 +52,3 @@
         "lastShownTime": 1754277517119
     }
 }
-
