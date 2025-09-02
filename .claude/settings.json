@@ -29,6 +29,9 @@
             "mcp__github__get_issue",
             "mcp__github__get_pull_request_files",
             "Bash(cat:*)",
+            "Bash(git status:*)",
+            "Bash(git diff:*)",
+            "Bash(git log:*)",
             "Bash(touch:*)",
             "Bash(mkdir:*)",
             "Bash(find:*)",
@@ -38,7 +41,16 @@
             "Bash(pwd)",
             "Bash(/usr/bin/make:*)"
         ],
-        "deny": ["Bash(git add:*)", "Bash(git commit:*)", "Bash(git push:*)"],
+        "acceptedTools": [
+            "Edit.*",
+            "Read",
+            "Write",
+            "Glob",
+            "Grep",
+            "Bash:git status*",
+            "Bash:git diff*",
+            "Bash:git log*"
+          ],
         "defaultMode": "acceptEdits"
     },
     "enabledMcpjsonServers": [
