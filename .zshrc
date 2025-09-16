@@ -147,7 +147,14 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 source ~/.config/op/plugins.sh
-# mise completions zsh > ~/.mise-completion.zsh
-source ~/.mise-completion.zsh
+source ~/dotfiles/comp/.mise-completion.zsh
 
 . "$HOME/.local/bin/env"
+
+# pnpm
+export PNPM_HOME="/Users/yasushi.kobayashi/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
