@@ -42,5 +42,8 @@ coc
 github-copilot
 dein
 claude_task.md
-claude
+codex_task.md
 .wrangler
+claude/projects
+claude/statsig
+claude/todos

@@ -25,4 +25,4 @@ ln -sf ~/dotfiles/nvim/plugins.toml ~/.config/nvim/plugins.toml
 ln -sf ~/dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf ~/dotfiles/nvim/sonictemplate ~/.config/nvim/sonictemplate
 
-ln -sf ~/dotfiles/.claude/settings.json ~/.claude/settings.json
+ln -s ~/dotfiles/claude/.mcp.json ~/.mcp.json
