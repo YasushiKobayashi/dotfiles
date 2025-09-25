@@ -13,6 +13,7 @@
             "Bash(npx:*)",
             "Bash(yarn:*)",
             "Bash(php:*)",
+            "Bash(rye:*)",
             "Bash(composer lint:*)",
             "Bash(composer larastan:*)",
             "Bash(composer test:*)",
@@ -28,6 +29,14 @@
             "mcp__github__get_pull_request",
             "mcp__github__get_issue",
             "mcp__github__get_pull_request_files",
+            "mcp__serena__read_file",
+            "mcp__serena__activate_project",
+            "mcp__serena__search_for_pattern",
+            "mcp__Sentry__find_projects",
+            "mcp__Sentry__find_organizations",
+            "mcp__serena__list_dir",
+            "mcp__serena__execute_shell_command",
+            "mcp__serena__find_file",
             "Bash(cat:*)",
             "Bash(git status:*)",
             "Bash(git diff:*)",
@@ -50,7 +59,7 @@
             "Bash:git status*",
             "Bash:git diff*",
             "Bash:git log*"
-          ],
+        ],
         "defaultMode": "acceptEdits"
     },
     "enabledMcpjsonServers": [
