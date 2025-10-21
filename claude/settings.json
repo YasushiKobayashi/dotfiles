@@ -22,6 +22,8 @@
             "Bash(make lint)",
             "Bash(docker:*)",
             "Bash(pre-commit run:*)",
+            "Bash(gcloud logging read:*)",
+            "Bash(bg query:*)",
             "Bash(golangci-lint run:*)",
             "WebFetch(domain:docs.anthropic.com)",
             "Bash(claude mcp add:*)",
