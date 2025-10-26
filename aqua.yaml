@@ -50,5 +50,5 @@ packages:
 - name: astral-sh/rye@0.44.0
 - name: jdx/usage@v2.3.2
 - name: oapi-codegen/oapi-codegen@v2.5.0
-- name: astral-sh/uv@0.9.4
+- name: astral-sh/uv@0.9.5
 - name: openai/codex@rust-v0.47.0
