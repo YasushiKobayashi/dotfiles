@@ -42,7 +42,6 @@ set whichwrap=b,s,<,>,[,]
 set showtabline=2
 set nospell
 set ttimeout
-set ttimeoutlen=50
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 set ignorecase
@@ -51,6 +50,8 @@ set wrapscan
 set incsearch
 set inccommand=split
 set mouse=
+set ttimeoutlen=0
+set notermguicolors
 
 " imap
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
