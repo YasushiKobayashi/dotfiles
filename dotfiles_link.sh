@@ -26,4 +26,4 @@ ln -sf ~/dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf ~/dotfiles/nvim/sonictemplate ~/.config/nvim/sonictemplate
 
 ln -s ~/dotfiles/claude/.mcp.json ~/.mcp.json
-ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.jsoN
+ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
