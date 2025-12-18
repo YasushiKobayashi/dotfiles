@@ -2,6 +2,10 @@
     "$schema": "https://json.schemastore.org/claude-code-settings.json",
     "permissions": {
         "allow": [
+            "Edit",
+            "MultiEdit",
+            "Write",
+            "Read",
             "Bash(go test:*)",
             "Bash(bun vitest:*)",
             "Bash(bun type-chkck:*)",
