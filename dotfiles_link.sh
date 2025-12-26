@@ -27,3 +27,5 @@ ln -sf ~/dotfiles/nvim/sonictemplate ~/.config/nvim/sonictemplate
 
 ln -s ~/dotfiles/claude/.mcp.json ~/.mcp.json
 ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
+
+ln -s ~/dotfiles/codex/AGENTS.md ~/.codex/AGENTS.md
