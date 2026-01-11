@@ -246,13 +246,14 @@ function! CheckBackspace() abort
 endfunction
 
 " GitHub Copilot
-let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+imap <C-\> <Plug>(copilot-dismiss)
 imap <C-]> <Plug>(copilot-next)
 imap <C-[> <Plug>(copilot-previous)
 
+" TABキー: Copilot > CoC補完 > 通常のTab
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
+      \ exists('b:_copilot.suggestions') ? copilot#Accept("\<Tab>") :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
