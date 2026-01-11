@@ -23,7 +23,7 @@ tmux 2ペイン運用（左nvim / 右AI出力）を前提に、AIの出力に含
 3. ジャンプ方法:
    - `prefix + o`: 画面内テキストから抽出 → fzf 選択 → 左nvimへジャンプ
    - copy-mode で選択 → `Enter`: 選択文字列を左nvimへジャンプ
-   - `prefix + Space`（tmux-thumbs）: ヒント選択 → 左nvimへジャンプ
+  - `prefix + t`（tmux-thumbs）: ヒント選択 → 左nvimへジャンプ
 
 ### セットアップ
 - `dotfiles_link.sh` で `~/.local/bin` にスクリプトがリンクされる
