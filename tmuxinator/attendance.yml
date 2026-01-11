@@ -1,4 +1,4 @@
-# /Users/yasushi.kobayashi/.tmuxinator/attendance.yml
+# ~/.tmuxinator/attendance.yml
 
 name: attendance
 root: ~/go/src/github.com/YasushiKobayashi/attendance

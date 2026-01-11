@@ -1,4 +1,4 @@
-# /Users/yasushi.kobayashi/.tmuxinator/twitter-private-blog.yml
+# ~/.tmuxinator/twitter-private-blog.yml
 
 name: twitter-private-blog
 root: ~/go/src/github.com/YasushiKobayashi/twitter-private-blog

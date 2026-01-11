@@ -35,10 +35,10 @@ iTerm2 の Semantic History でクリックしたパスを `open_in_nvim_left` �
 
 - iTerm2 > Settings > Profiles > Advanced > Semantic History
 - Action: `Run command`
-- Command 例（1つ目のキャプチャを渡す）:
+- Command 例（1つ目のキャプチャを渡す。PATH問題を避けるため bash -lc 推奨）:
 
 ```
-/Users/yasushi.kobayashi/.local/bin/open_in_nvim_left \1
+/bin/bash -lc "$HOME/.local/bin/open_in_nvim_left \"\1\""
 ```
 
 - Regex 例（path / path:line / path:line:col）:
