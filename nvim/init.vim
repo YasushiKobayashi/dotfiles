@@ -195,12 +195,8 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 nnoremap <silent> <Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> <Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> <Leader>r  :<C-u>UniteResume search-buffer<CR>
-nnoremap <silent> <Leader>y :<C-u>Unite history/yank<CR>
 nnoremap <silent> <Leader>b :<C-u>Unite buffer<CR>
-nnoremap <silent> <Leader>f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> <Leader>r :<C-u>Unite -buffer-name=register register<CR>
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
@@ -244,6 +240,17 @@ let g:coc_global_extensions = [
   \ ]
   " \ 'coc-python',
 
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GitHub Copilot
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+imap <C-]> <Plug>(copilot-next)
+imap <C-[> <Plug>(copilot-previous)
+
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
@@ -256,6 +263,7 @@ xmap tc <plug>(operator-camelize)
 xmap ts <plug>(operator-decamelize)
 
 nnoremap <silent> <Leader>p :CocList files<CR>
+nnoremap <silent> <Leader>f :let @+=expand('%:p')<CR>:echo 'Copied: ' . expand('%:p')<CR>
 
 
 let g:camelcasemotion_key = ','

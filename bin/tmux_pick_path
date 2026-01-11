@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+pane_id="${TMUX_PANE_ID:-}"
+pane_path="${TMUX_PANE_PATH:-}"
+debug="${TMUX_PICK_PATH_DEBUG:-}"
+log_file="/tmp/tmux_pick_path.log"
+
+log() {
+  if [[ -n "$debug" ]]; then
+    printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >> "$log_file"
+  fi
+}
+
+if [[ -z "$pane_id" || "$pane_id" == *"#{"* ]]; then
+  pane_id="$(tmux display-message -p -t! "#{pane_id}")"
+fi
+if [[ -z "$pane_path" || "$pane_path" == *"#{"* ]]; then
+  pane_path="$(tmux display-message -p -t! "#{pane_current_path}")"
+fi
+if [[ -z "$pane_id" ]]; then
+  pane_id="$(tmux display-message -p "#{pane_id}")"
+fi
+if [[ -z "$pane_path" ]]; then
+  pane_path="$(tmux display-message -p "#{pane_current_path}")"
+fi
+log "pane_id=$pane_id pane_path=$pane_path"
+
+for bin in rg fzf tmux; do
+  if ! command -v "$bin" >/dev/null 2>&1; then
+    printf 'tmux_pick_path: %s not found in PATH\n' "$bin"
+    printf 'Press any key to close...\n'
+    read -r -n 1 -s
+    exit 1
+  fi
+done
+log "deps ok"
+
+regex='([A-Za-z0-9_./~+-]+/[A-Za-z0-9_./~+.-]+(:[0-9]+(:[0-9]+)?)?)|([A-Za-z0-9_./~+-]+\.[A-Za-z0-9]+(:[0-9]+(:[0-9]+)?)?)'
+
+tmp_file="$(mktemp -t tmux_pick_path.XXXXXX)"
+trap 'rm -f "$tmp_file"' EXIT
+
+target="$pane_id"
+if [[ -z "$target" ]]; then
+  target="!"
+fi
+if ! tmux capture-pane -pJ -t "$target" | rg -o --no-filename "$regex" > "$tmp_file"; then
+  log "capture/rg returned non-zero"
+fi
+
+if [[ ! -s "$tmp_file" ]]; then
+  printf '%s\n' \
+    "No path-like match found in pane output." \
+    "Tip: output should include path or path:line." \
+    "Press any key to close..."
+  read -r -n 1 -s
+  exit 0
+fi
+log "matches=$(wc -l < "$tmp_file" | tr -d ' ')"
+
+set +e
+selected="$(cat "$tmp_file" | fzf --prompt='open> ' --height=40% --reverse --no-multi --exit-0)"
+fzf_status=$?
+set -e
+if [[ $fzf_status -ne 0 ]]; then
+  log "fzf exit=$fzf_status"
+  exit 0
+fi
+if [[ -z "$selected" ]]; then
+  exit 0
+fi
+log "selected=$selected"
+
+OPEN_IN_NVIM_LEFT_DEBUG="${TMUX_PICK_PATH_DEBUG:-}" TMUX_PANE_PATH="$pane_path" open_in_nvim_left "$selected"

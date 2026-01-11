@@ -1,0 +1,172 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+SOCK="${NVIM_LEFT_LISTEN:-/tmp/nvim-left.sock}"
+debug="${OPEN_IN_NVIM_LEFT_DEBUG:-}"
+log_file="/tmp/open_in_nvim_left.log"
+
+log() {
+  if [[ -n "$debug" ]]; then
+    printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >> "$log_file"
+  fi
+}
+
+log_error() {
+  printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >> "$log_file"
+}
+
+trim() {
+  local s="$1"
+  s="${s#"${s%%[![:space:]]*}"}"
+  s="${s%"${s##*[![:space:]]}"}"
+  printf '%s' "$s"
+}
+
+strip_edges() {
+  local s
+  s="$(trim "$1")"
+
+  while [[ -n "$s" ]]; do
+    case "$s" in
+      \"*|\'*|\`*|\(*|\[*|\{*)
+        s="${s#?}"
+        s="$(trim "$s")"
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  while [[ -n "$s" ]]; do
+    case "$s" in
+      *\"|*\'|*\`|*\)|*\]|*\}|*\,|*.)
+        s="${s%?}"
+        s="$(trim "$s")"
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  printf '%s' "$s"
+}
+
+raw=""
+if [[ $# -gt 0 ]]; then
+  raw="$*"
+else
+  raw="$(cat)"
+  raw="${raw%%$'\n'*}"
+fi
+
+raw="$(trim "$raw")"
+log "raw=$raw"
+if [[ -z "$raw" ]]; then
+  exit 0
+fi
+
+input="$(strip_edges "$raw")"
+log "input=$input"
+if [[ -z "$input" ]]; then
+  exit 0
+fi
+
+file="$input"
+line=""
+col=""
+
+if [[ "$input" =~ ^(.+):([0-9]+):([0-9]+)$ ]]; then
+  file="${BASH_REMATCH[1]}"
+  line="${BASH_REMATCH[2]}"
+  col="${BASH_REMATCH[3]}"
+elif [[ "$input" =~ ^(.+):([0-9]+)$ ]]; then
+  file="${BASH_REMATCH[1]}"
+  line="${BASH_REMATCH[2]}"
+fi
+
+if [[ "$file" =~ ^(.+):$ ]]; then
+  file="${BASH_REMATCH[1]}"
+fi
+
+file="$(strip_edges "$file")"
+log "parsed file=$file line=$line col=$col"
+if [[ -z "$file" ]]; then
+  exit 0
+fi
+
+file="${file/#\~/$HOME}"
+
+if [[ "$file" != /* && -n "${TMUX_PANE_PATH:-}" && -e "$TMUX_PANE_PATH/$file" ]]; then
+  file="$TMUX_PANE_PATH/$file"
+elif [[ "$file" != /* && -n "${PWD:-}" && -e "$PWD/$file" ]]; then
+  file="$PWD/$file"
+fi
+
+NVR_BIN="$(command -v nvr 2>/dev/null || true)"
+if [[ -z "$NVR_BIN" ]]; then
+  for candidate in \
+    "$HOME/.anyenv/envs/pyenv/shims/nvr" \
+    "$HOME/.local/bin/nvr" \
+    "$HOME/.local/share/aquaproj-aqua/bin/nvr" \
+    "$HOME/.asdf/shims/nvr"
+  do
+    if [[ -x "$candidate" ]]; then
+      NVR_BIN="$candidate"
+      break
+    fi
+  done
+fi
+if [[ -z "$NVR_BIN" ]]; then
+  msg="open_in_nvim_left: nvr not found (PATH is likely missing in /bin/sh)"
+  log_error "$msg"
+  echo "$msg" >&2
+  exit 1
+fi
+
+if [[ -S "$SOCK" ]]; then
+  server_check="$("$NVR_BIN" --servername "$SOCK" --remote-expr 'v:servername' 2>/dev/null | head -n 1 || true)"
+  if [[ -z "$server_check" || "$server_check" != /* || ! -S "$server_check" ]]; then
+    log_error "socket exists but nvr cannot attach: $SOCK"
+    SOCK=""
+  fi
+fi
+
+if [[ -z "$SOCK" || ! -S "$SOCK" ]]; then
+  servers_list="$("$NVR_BIN" --serverlist 2>/dev/null || true)"
+  servers_count="$(printf '%s\n' "$servers_list" | sed '/^$/d' | wc -l | tr -d ' ')"
+  if [[ "$servers_count" == "1" ]]; then
+    SOCK="$(printf '%s\n' "$servers_list" | sed '/^$/d' | head -n 1)"
+  else
+    msg="open_in_nvim_left: nvim server not found at $SOCK"
+    if [[ -n "${TMUX:-}" ]]; then
+      tmux display-message "$msg"
+    fi
+    log_error "$msg"
+    echo "$msg" >&2
+    exit 1
+  fi
+fi
+log "socket=$SOCK"
+
+cmd=("$NVR_BIN" --servername "$SOCK" --remote-silent)
+if [[ -n "$line" ]]; then
+  if [[ -n "$col" ]]; then
+    cmd+=(+"call cursor($line,$col)")
+  else
+    cmd+=(+"call cursor($line,1)")
+  fi
+fi
+cmd+=("$file")
+log "cmd=${cmd[*]}"
+
+set +e
+"${cmd[@]}"
+status=$?
+set -e
+log "nvr_exit=$status"
+if [[ $status -ne 0 ]]; then
+  log_error "nvr failed with exit=$status"
+fi
+exit $status

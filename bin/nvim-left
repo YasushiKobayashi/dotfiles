@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SOCK="${NVIM_LEFT_LISTEN:-/tmp/nvim-left.sock}"
+exec nvim --listen "$SOCK" "$@"

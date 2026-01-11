@@ -11,6 +11,10 @@ ln -sf ~/dotfiles/.editorconfig ~/.editorconfig
 ln -sf ~/dotfiles/.textlintrc ~/.textlintrc
 ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 ln -sf ~/dotfiles/efm-langserver/config.yaml ~/.config/efm-langserver/config.yaml
+mkdir -p ~/.local/bin
+ln -sf ~/dotfiles/bin/open_in_nvim_left ~/.local/bin/open_in_nvim_left
+ln -sf ~/dotfiles/bin/nvim-left ~/.local/bin/nvim-left
+ln -sf ~/dotfiles/bin/tmux_pick_path ~/.local/bin/tmux_pick_path
 
 ln -sf ~/dotfiles/.mac_gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.linux_gitconfig ~/.gitconfig
