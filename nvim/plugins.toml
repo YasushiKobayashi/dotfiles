@@ -11,8 +11,6 @@ repo  = 'ryanoasis/vim-devicons'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 
-[[plugins]]
-repo = 'github/copilot.vim'
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'

@@ -237,6 +237,7 @@ let g:coc_global_extensions = [
   \ 'coc-vetur',
   \ 'coc-sql',
   \ 'coc-protobuf',
+  \ 'coc-copilot',
   \ ]
   " \ 'coc-python',
 
@@ -245,15 +246,9 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" GitHub Copilot
-imap <C-\> <Plug>(copilot-dismiss)
-imap <C-]> <Plug>(copilot-next)
-imap <C-[> <Plug>(copilot-previous)
-
-" TABキー: Copilot > CoC補完 > 通常のTab
+" TABキー: CoC補完 > 通常のTab
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
-      \ exists('b:_copilot.suggestions') ? copilot#Accept("\<Tab>") :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
