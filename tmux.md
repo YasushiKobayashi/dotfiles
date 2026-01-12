@@ -18,7 +18,7 @@
 ### Neovim連携（左ペインジャンプ）
 | キー | 機能 | 説明 |
 |------|------|------|
-| `prefix + o` | パス選択ジャンプ | 画面内のパスをfzfで選択→左nvimへジャンプ |
+| `prefix + p` | パス選択ジャンプ | 画面内のパスをfzfで選択→左nvimへジャンプ |
 | `prefix + t` | tmux-thumbsジャンプ | ヒント表示→選択→左nvimへジャンプ |
 | copy-mode + `Enter` | 選択テキストジャンプ | 選択したパスを左nvimで開く |
 
@@ -96,13 +96,13 @@ AIエージェントやログ出力を右ペインで表示し、含まれるフ
    # 右ペインでAIエージェントやログを表示
    # 出力にパスが含まれている場合...
 
-   # 方法1: prefix + o でパス選択
+   # 方法1: prefix + p でパス選択
    # 方法2: prefix + t でヒント表示（tmux-thumbs）
    # 方法3: copy-modeで選択してEnter
    ```
 
 ### 動作原理
-1. 左ペインのNeovimが`/tmp/nvim-left.sock`でリッスンモード起動
+1. 左ペインのNeovimがディレクトリごとのソケット（`/tmp/nvim-<hash>.sock`）でリッスンモード起動
 2. 右ペインからパスを検出・選択
 3. `nvr`コマンドで左Neovimにファイルを開く指示を送信
 4. 相対パスは右ペインのカレントディレクトリを基準に解決
@@ -140,7 +140,7 @@ tmux source-file ~/.tmux.conf
 ### 左nvimジャンプが動かない
 ```bash
 # ソケットファイルの確認
-ls -la /tmp/nvim-left.sock
+ls -la /tmp/nvim-*.sock
 
 # nvr がインストールされているか確認
 which nvr || pip install neovim-remote

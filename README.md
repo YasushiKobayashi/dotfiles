@@ -119,7 +119,7 @@ nvim
 
 ### AIエージェント連携（tmux + Neovim）
 右ペインのAI出力から左ペインのNeovimへ即座にジャンプ：
-- `prefix + o`: パスをfzfで選択してジャンプ
+- `prefix + p`: パスをfzfで選択してジャンプ
 - `prefix + t`: tmux-thumbsでヒント表示してジャンプ
 - `Cmd+Click`（iTerm2）: クリックしたパスをNeovimで開く
 

@@ -18,12 +18,12 @@ tmux 2ペイン運用（左nvim / 右AI出力）を前提に、AIの出力に含
 - 依存: `nvr`, `rg`, `fzf`, `tmux`（`tmux-thumbs` は任意）
 
 ### 使い方
-1. 左ペインで `nvim-left` を起動（`/tmp/nvim-left.sock` に listen）
+1. 左ペインで `nvim-left` を起動（カレントディレクトリ由来のソケットで listen）
 2. 右ペインで AI エージェントの出力を流す
 3. ジャンプ方法:
-   - `prefix + o`: 画面内テキストから抽出 → fzf 選択 → 左nvimへジャンプ
+   - `prefix + p`: 画面内テキストから抽出 → fzf 選択 → 左nvimへジャンプ
    - copy-mode で選択 → `Enter`: 選択文字列を左nvimへジャンプ
-  - `prefix + t`（tmux-thumbs）: ヒント選択 → 左nvimへジャンプ
+   - `prefix + t`（tmux-thumbs）: ヒント選択 → 左nvimへジャンプ
 
 ### セットアップ
 - `dotfiles_link.sh` で `~/.local/bin` にスクリプトがリンクされる
@@ -47,11 +47,12 @@ iTerm2 の Semantic History でクリックしたパスを `open_in_nvim_left` �
 ([A-Za-z0-9_./~+-]+/[A-Za-z0-9_./~+.-]+(?::\d+(?::\d+)?)?)
 ```
 
-相対パスは `PWD` を基準に解決するので、クリック元のカレントディレクトリが正しく取れていることが前提。
+相対パスは `TMUX_PANE_PATH`（なければ `PWD`）を基準に解決するので、クリック元のカレントディレクトリが正しく取れていることが前提。
 
 ### 補足
+- ソケットはディレクトリごとに `/tmp/nvim-<hash>.sock` を使う（1ディレクトリ1つのnvim想定）
 - 相対パスは右ペインの `pane_current_path` を基準に解決
-- ソケットを変えたい場合は `NVIM_LEFT_LISTEN` を指定
+- ソケットを固定したい場合は `NVIM_LEFT_LISTEN` を指定
 
 ## 対応言語とLSP
 

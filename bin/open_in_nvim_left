@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-SOCK="${NVIM_LEFT_LISTEN:-/tmp/nvim-left.sock}"
+SOCK="${NVIM_LEFT_LISTEN:-}"
 debug="${OPEN_IN_NVIM_LEFT_DEBUG:-}"
 log_file="/tmp/open_in_nvim_left.log"
 
@@ -67,6 +67,7 @@ if [[ -z "$raw" ]]; then
   exit 0
 fi
 
+base_dir=""
 input="$(strip_edges "$raw")"
 log "input=$input"
 if [[ -z "$input" ]]; then
@@ -98,10 +99,11 @@ fi
 
 file="${file/#\~/$HOME}"
 
-if [[ "$file" != /* && -n "${TMUX_PANE_PATH:-}" && -e "$TMUX_PANE_PATH/$file" ]]; then
-  file="$TMUX_PANE_PATH/$file"
-elif [[ "$file" != /* && -n "${PWD:-}" && -e "$PWD/$file" ]]; then
-  file="$PWD/$file"
+if [[ "$file" != /* ]]; then
+  base_dir="${TMUX_PANE_PATH:-${PWD:-}}"
+  if [[ -n "$base_dir" ]]; then
+    file="$base_dir/${file#./}"
+  fi
 fi
 
 NVR_BIN="$(command -v nvr 2>/dev/null || true)"
@@ -125,21 +127,131 @@ if [[ -z "$NVR_BIN" ]]; then
   exit 1
 fi
 
-if [[ -S "$SOCK" ]]; then
-  server_check="$("$NVR_BIN" --servername "$SOCK" --remote-expr 'v:servername' 2>/dev/null | head -n 1 || true)"
+valid_socket() {
+  local sock="$1"
+  if [[ ! -S "$sock" ]]; then
+    return 1
+  fi
+  local server_check=""
+  server_check="$("$NVR_BIN" --servername "$sock" --remote-expr 'v:servername' 2>/dev/null | head -n 1 || true)"
   if [[ -z "$server_check" || "$server_check" != /* || ! -S "$server_check" ]]; then
+    return 1
+  fi
+  return 0
+}
+
+path_is_under() {
+  local path="$1"
+  local base="$2"
+  if [[ -z "$path" || -z "$base" ]]; then
+    return 1
+  fi
+  if [[ "$path" == "$base" ]]; then
+    return 0
+  fi
+  case "$path" in
+    "$base"/*) return 0 ;;
+  esac
+  return 1
+}
+
+common_prefix_len() {
+  local a="$1"
+  local b="$2"
+  local IFS='/'
+  local -a aa bb
+  read -r -a aa <<< "$a"
+  read -r -a bb <<< "$b"
+  local i=0
+  local prefix=""
+  local count=0
+  local max=$(( ${#aa[@]} < ${#bb[@]} ? ${#aa[@]} : ${#bb[@]} ))
+
+  while (( i < max )); do
+    if [[ "${aa[$i]}" == "${bb[$i]}" ]]; then
+      if [[ $i -eq 0 ]]; then
+        prefix="/"
+      elif [[ -n "${aa[$i]}" ]]; then
+        prefix="${prefix%/}/${aa[$i]}/"
+      fi
+      count=$i
+    else
+      break
+    fi
+    (( i++ ))
+  done
+
+  printf '%s' "${#prefix}"
+}
+
+if [[ -n "$SOCK" && -S "$SOCK" ]]; then
+  if ! valid_socket "$SOCK"; then
     log_error "socket exists but nvr cannot attach: $SOCK"
     SOCK=""
   fi
 fi
 
-if [[ -z "$SOCK" || ! -S "$SOCK" ]]; then
+if [[ -z "$SOCK" ]]; then
+  file_dir="$(dirname "$file")"
+  file_dir_real=""
+  file_real=""
+  if [[ -d "$file_dir" ]]; then
+    file_dir_real="$(cd "$file_dir" 2>/dev/null && pwd -P || true)"
+  fi
+  if [[ -n "$file_dir_real" ]]; then
+    file_real="$file_dir_real/$(basename "$file")"
+  fi
+  log "file_dir=$file_dir file_dir_real=$file_dir_real"
+
   servers_list="$("$NVR_BIN" --serverlist 2>/dev/null || true)"
-  servers_count="$(printf '%s\n' "$servers_list" | sed '/^$/d' | wc -l | tr -d ' ')"
-  if [[ "$servers_count" == "1" ]]; then
-    SOCK="$(printf '%s\n' "$servers_list" | sed '/^$/d' | head -n 1)"
+  best_len=0
+  best_sock=""
+  best_cwd=""
+  while IFS= read -r sock; do
+    [[ -z "$sock" ]] && continue
+    if ! valid_socket "$sock"; then
+      log_error "socket exists but nvr cannot attach: $sock"
+      continue
+    fi
+    cwd="$("$NVR_BIN" --servername "$sock" --remote-expr 'getcwd()' 2>/dev/null | head -n 1 || true)"
+    cwd="$(trim "$cwd")"
+    [[ -z "$cwd" ]] && continue
+
+    cwd_real=""
+    if [[ -d "$cwd" ]]; then
+      cwd_real="$(cd "$cwd" 2>/dev/null && pwd -P || true)"
+    fi
+
+    if path_is_under "$file" "$cwd"; then
+      len=$((100000 + ${#cwd}))
+    else
+      len="$(common_prefix_len "$file" "$cwd")"
+    fi
+    if [[ -n "$file_real" && -n "$cwd_real" ]]; then
+      if path_is_under "$file_real" "$cwd_real"; then
+        len_real=$((100000 + ${#cwd_real}))
+      else
+        len_real="$(common_prefix_len "$file_real" "$cwd_real")"
+      fi
+      if (( len_real > len )); then
+        len="$len_real"
+        cwd="$cwd_real"
+      fi
+    fi
+
+    log "candidate sock=$sock cwd=$cwd score=$len"
+    if (( len > best_len )); then
+      best_len="$len"
+      best_sock="$sock"
+      best_cwd="$cwd"
+    fi
+  done <<< "$servers_list"
+
+  if [[ -n "$best_sock" && "$best_len" -gt 0 ]]; then
+    SOCK="$best_sock"
+    log "matched_cwd=$best_cwd"
   else
-    msg="open_in_nvim_left: nvim server not found at $SOCK"
+    msg="open_in_nvim_left: nvim server not found for $(dirname "$file")"
     if [[ -n "${TMUX:-}" ]]; then
       tmux display-message "$msg"
     fi

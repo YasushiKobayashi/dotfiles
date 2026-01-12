@@ -1,5 +1,55 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SOCK="${NVIM_LEFT_LISTEN:-/tmp/nvim-left.sock}"
-exec nvim --listen "$SOCK" "$@"
+has_listen=0
+for arg in "$@"; do
+  case "$arg" in
+    --listen|--listen=*)
+      has_listen=1
+      break
+      ;;
+  esac
+done
+
+if [[ "$has_listen" -eq 1 ]]; then
+  exec command nvim "$@"
+fi
+
+hash_dir() {
+  local dir="$1" hash=""
+  if command -v shasum >/dev/null 2>&1; then
+    hash="$(printf '%s' "$dir" | shasum -a 256 | awk '{print $1}')"
+  elif command -v md5 >/dev/null 2>&1; then
+    hash="$(printf '%s' "$dir" | md5)"
+  else
+    hash="$(printf '%s' "$dir" | cksum | awk '{print $1}')"
+  fi
+  printf '%s' "$hash" | cut -c1-12
+}
+
+socket_for_dir() {
+  local dir="$1"
+  printf '/tmp/nvim-%s.sock' "$(hash_dir "$dir")"
+}
+
+SERVER_DIR="${NVIM_SERVER_DIR:-$PWD}"
+if real_dir="$(cd "$SERVER_DIR" 2>/dev/null && pwd -P)"; then
+  SERVER_DIR="$real_dir"
+fi
+SOCK="${NVIM_LEFT_LISTEN:-}"
+if [[ -z "$SOCK" ]]; then
+  SOCK="$(socket_for_dir "$SERVER_DIR")"
+fi
+
+if [[ -S "$SOCK" ]] && command -v nvr >/dev/null 2>&1; then
+  server_check="$(nvr --servername "$SOCK" --remote-expr 'v:servername' 2>/dev/null | head -n 1 || true)"
+  if [[ -z "$server_check" || "$server_check" != /* || ! -S "$server_check" ]]; then
+    rm -f "$SOCK"
+  else
+    echo "nvim-left: server already running for $SERVER_DIR ($SOCK)" >&2
+    exit 0
+  fi
+fi
+
+mkdir -p "$(dirname "$SOCK")"
+exec command nvim --listen "$SOCK" "$@"

@@ -74,6 +74,8 @@ alias t="tig status"
 alias tf="terraform"
 alias phpunit="./vendor/bin/phpunit"
 export PATH=$PATH:/usr/local/go/bin
+# nvim-left を標準の nvim として使う
+alias nvim='nvim-left'
 
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
@@ -101,6 +103,18 @@ export XDG_CONFIG_HOME="$HOME/dotfiles"
 export NVIM_PYTHON_LOG_FILE=/tmp/log
 export NVIM_NODE_LOG_FILE=/tmp/log
 export NVIM_PYTHON_LOG_LEVEL=DEBUG
+ensure_nvim_listen_address_dir() {
+  local addr="${NVIM_LISTEN_ADDRESS:-}"
+  local tmpdir="${TMPDIR%/}"
+  if [[ -z "$addr" || "$addr" != /* ]]; then
+    return 0
+  fi
+  if [[ -n "$tmpdir" && "$addr" == "$tmpdir/"* ]]; then
+    addr="/tmp/${addr#$tmpdir/}"
+    export NVIM_LISTEN_ADDRESS="$addr"
+  fi
+  mkdir -p "$(dirname "$addr")"
+}
 
 # hub https://github.com/github/hub
 eval "$(gh completion -s zsh)"
@@ -133,6 +147,7 @@ function precmd() {
   if [ ! -z $TMUX ]; then
     tmux refresh-client -S
   fi
+  ensure_nvim_listen_address_dir
 }
 
 # anyenv init - | tee ~/.anyenv-rc.sh > /dev/null
