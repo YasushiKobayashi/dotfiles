@@ -71,7 +71,7 @@ build = 'make'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'skanehira/gh.vim'
+repo = 'pwntester/octo.nvim'
 
 [[plugins]]
 repo = 'iberianpig/tig-explorer.vim'
