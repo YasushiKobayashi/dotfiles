@@ -37,7 +37,7 @@ packages:
 - name: golang/tools/goimports@v0.42.0
 - name: golang/go@go1.25.7
 - name: mislav/hub@v2.14.2
-- name: aquasecurity/trivy@v0.69.1
+- name: aquasecurity/trivy@v0.69.3
 - name: hashicorp/terraform-ls@v0.38.4
 - name: juliosueiras/terraform-lsp@v0.0.12
 - name: go-task/task@v3.48.0
