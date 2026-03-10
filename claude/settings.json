@@ -89,5 +89,17 @@
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754277517119
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/notify.sh"
+          }
+        ]
+      }
+    ]
   }
 }
