@@ -5,9 +5,6 @@ fi
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
-export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
-
 export SHELDON_CONFIG_FILE=$HOME/dotfiles/sheldon/plugins.toml
 eval "$(sheldon source)"
 export LANG=ja_JP.UTF-8
@@ -155,6 +152,9 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 if [ -f ~/.anyenv-rc.sh ]; then
     source ~/.anyenv-rc.sh
 fi
+
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export OMPOSER_MEMORY_LIMIT=-1
