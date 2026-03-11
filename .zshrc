@@ -178,3 +178,6 @@ esac
 
 # Added by Antigravity
 export PATH="/Users/yasushi.kobayashi/.antigravity/antigravity/bin:$PATH"
+
+# gw shell integration
+eval "$(gw shell-integration --show-script --shell=zsh)"
