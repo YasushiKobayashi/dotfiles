@@ -27,6 +27,8 @@
       "Bash(docker:*)",
       "Bash(pre-commit run:*)",
       "Bash(gcloud logging read:*)",
+      "Bash(gcloud run revisions list:*)",
+      "Bash(gcloud run services list:*)",
       "Bash(bg query:*)",
       "Bash(golangci-lint run:*)",
       "WebFetch(domain:docs.anthropic.com)",
@@ -83,13 +85,6 @@
     "github-copilot",
     "github"
   ],
-  "enabledPlugins": {
-    "feature-dev@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true
-  },
-  "feedbackSurveyState": {
-    "lastShownTime": 1754277517119
-  },
   "hooks": {
     "Notification": [
       {
@@ -101,5 +96,13 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754277517119
+  },
+  "effortLevel": "high"
 }
