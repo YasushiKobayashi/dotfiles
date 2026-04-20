@@ -166,11 +166,6 @@ source ~/dotfiles/comp/.mise-completion.zsh
 if command -v gh >/dev/null 2>&1; then
   eval "$(gh completion -s zsh)"
 fi
-ope() {
-  if ! op account get >/dev/null 2>&1; then
-    echo "🔐 1Password signin..."
-    eval "$(op signin)"
-  fi
 source ~/dotfiles/op/plugins.sh
 
 . "$HOME/.local/bin/env"
