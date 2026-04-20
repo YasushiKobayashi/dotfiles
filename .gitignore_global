@@ -16,5 +16,6 @@ enisma.sbt
 claude_task.md
 codex_task.md
 gemini_task.md
+task_*.md
 .serena
 settings.local.json
