@@ -113,9 +113,6 @@ ensure_nvim_listen_address_dir() {
   mkdir -p "$(dirname "$addr")"
 }
 
-# hub https://github.com/github/hub
-eval "$(gh completion -s zsh)"
-
 export CLOUDSDK_PYTHON=python3
 
 export EXPANDED_CODE_SIGN_IDENTITY=
@@ -163,8 +160,13 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$(npm config get prefix)/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
-source ~/.config/op/plugins.sh
 source ~/dotfiles/comp/.mise-completion.zsh
+
+# gh completion (aqua で入れた gh と op プラグイン alias の両方が読み込まれた後に実行)
+if command -v gh >/dev/null 2>&1; then
+  eval "$(gh completion -s zsh)"
+fi
+source ~/.config/op/plugins.sh
 
 . "$HOME/.local/bin/env"
 
