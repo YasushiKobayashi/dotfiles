@@ -17,5 +17,7 @@ claude_task.md
 codex_task.md
 gemini_task.md
 task_*.md
+task.*.md
+task.md
 .serena
 settings.local.json
