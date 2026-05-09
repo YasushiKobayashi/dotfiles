@@ -166,7 +166,7 @@ source ~/dotfiles/comp/.mise-completion.zsh
 if command -v gh >/dev/null 2>&1; then
   eval "$(gh completion -s zsh)"
 fi
-source ~/dotfiles/op/plugins.sh
+source ~/dotfiles/gh/plugins.sh
 
 . "$HOME/.local/bin/env"
 
