@@ -28,4 +28,9 @@ ln -sf ~/dotfiles/nvim/sonictemplate ~/.config/nvim/sonictemplate
 ln -s ~/dotfiles/claude/.mcp.json ~/.mcp.json
 ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
 
+mkdir -p ~/.claude/skills
+for skill in ~/dotfiles/claude/skills/*/; do
+  ln -sfn "$skill" ~/.claude/skills/"$(basename "$skill")"
+done
+
 ln -s ~/dotfiles/codex/AGENTS.md ~/.codex/AGENTS.md
