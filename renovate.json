@@ -4,7 +4,7 @@
     "config:base",
     "schedule:weekly",
     ":timezone(Asia/Tokyo)",
-    "github>aquaproj/aqua-renovate-config#2.12.0",
+    "github>aquaproj/aqua-renovate-config#2.12.1",
     "helpers:pinGitHubActionDigests"
   ],
   "labels": ["dependencies"],
