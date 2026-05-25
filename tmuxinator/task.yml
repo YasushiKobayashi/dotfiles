@@ -1,6 +1,6 @@
 # ~/.tmuxinator/task
 
-name: task
+name: task-<%= File.basename(Dir.pwd) %>
 root: .
 
 # Optional tmux socket
