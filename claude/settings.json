@@ -95,6 +95,16 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/notify.sh"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
