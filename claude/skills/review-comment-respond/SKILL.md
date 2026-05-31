@@ -210,11 +210,18 @@ PR の title / body も読み込んでおく。**「この PR のスコープ」
 
 #### a. inline コメントへの返信
 
+**AI bot レビュアーには冒頭で `@<bot-login>` メンションを付ける** (例: `@gemini-code-assist`, `@coderabbitai`, `@cursor` 等)。理由:
+
+-   bot 側で「返信に対する追跡フィードバック」(誤指摘を bot 自身が訂正する / 学習に使う等) を行う実装がある場合、メンション無しの返信は bot から見えない / 反応してくれない
+-   PR 履歴を後追いするレビュアーが「この bot に対して人間がどう応答したか」を grep しやすい
+-   反証 / 不採用 の場合に「ちゃんと bot に向けて回答した」ことが明確になる
+
 ```bash
 # in-reply-to にスレッドの最初のコメントの databaseId を指定する
+# AI bot レビュアーには冒頭に @<bot-login> メンション必須
 gh api -X POST "repos/$REPO/pulls/$PR/comments" \
   -f body="$(cat <<'EOF'
-<対応内容を 2-4 行で要約>
+@gemini-code-assist <対応内容を 2-4 行で要約>
 
 - 対応: <変更ファイル:行 への参照>
 - テスト: <追加/拡張したテスト or "テスト不要の理由">
@@ -241,10 +248,12 @@ inline スレッドではないので resolve API は無い。`gh api -X POST "r
 
 #### d. 返信テンプレート（分類別）
 
+> いずれのテンプレートも **AI bot 宛なら冒頭に `@<bot-login>` メンションを付ける** (例: `@gemini-code-assist`)。下記は Gemini のケースで例示。
+
 **要対応 → 修正済み**:
 
 ```
-ご指摘ありがとうございます。<要約>を修正しました。
+@gemini-code-assist ご指摘ありがとうございます。<要約>を修正しました。
 - 対応: path/to/file.ts:42-58 で <変更内容>
 - テスト: path/to/file.test.ts に <ケース名> を追加
 ```
@@ -252,7 +261,7 @@ inline スレッドではないので resolve API は無い。`gh api -X POST "r
 **精査の結果、誤指摘**:
 
 ````
-ご指摘ありがとうございます。確認したところ、ご指摘の挙動は発生しないようです。
+@gemini-code-assist ご指摘ありがとうございます。確認したところ、ご指摘の挙動は発生しないようです。
 
 `path/to/file.ts:L42-L58` で <反証コード片を引用>
 ```ts
@@ -270,7 +279,7 @@ inline スレッドではないので resolve API は無い。`gh api -X POST "r
 **精査の結果、技術的に不可能 / プロジェクト方針外**:
 ```
 
-ご指摘ありがとうございます。検証した結果、本 PR では現状維持としたいです。
+@gemini-code-assist ご指摘ありがとうございます。検証した結果、本 PR では現状維持としたいです。
 
 検証内容:
 
@@ -284,7 +293,7 @@ inline スレッドではないので resolve API は無い。`gh api -X POST "r
 **スコープ外 → 別 issue 化**:
 ```
 
-ご指摘ありがとうございます。本 PR の趣旨（<PR 目的を 1 行>）から外れるため別 issue として切り出しました: <issue URL>
+@gemini-code-assist ご指摘ありがとうございます。本 PR の趣旨（<PR 目的を 1 行>）から外れるため別 issue として切り出しました: <issue URL>
 理由: <現 PR の diff と独立 / 影響範囲が広い / 等>
 
 ```
@@ -292,11 +301,12 @@ inline スレッドではないので resolve API は無い。`gh api -X POST "r
 **質問・議論への回答**:
 ```
 
-<回答本文>。根拠: path/to/file.ts:L42 / docs/foo.md
+@gemini-code-assist <回答本文>。根拠: path/to/file.ts:L42 / docs/foo.md
 
 ````
 
 **ポイント**:
+- **AI bot 宛 (gemini-code-assist / coderabbitai / cursor 等) は冒頭に `@<login>` メンション必須**
 - 反証する場合も口調は丁寧に。「ご指摘ありがとうございます」「確認したところ」「念のため」を使う
 - コード引用はバッククォート 3 つの ```ts ``` ブロック + 言語指定で見やすく
 - 行番号は `path/to/file.ts:L42-L58` 形式で書くと GitHub 上でクリック可能
