@@ -1,8 +1,11 @@
 if [ -f /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  export PATH="/opt/homebrew/Cellar/git/$(brew list --versions git | awk "{print \$2}")/share/git-core/contrib/diff-highlight:$PATH"
+  # git の diff-highlight。Cellar のバージョン直叩きは brew 呼び出しで 700ms 食うので glob で解決
+  for _dh in /opt/homebrew/Cellar/git/*/share/git-core/contrib/diff-highlight(N); do
+    export PATH="$_dh:$PATH"
+  done
+  unset _dh
 fi
-export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
 export SHELDON_CONFIG_FILE=$HOME/dotfiles/sheldon/plugins.toml
@@ -65,12 +68,10 @@ alias d='docker'
 alias dc='docker compose'
 alias k='kubecolor'
 alias mkdir='mkdir -p'
-alias y="yarn"
 alias lerna='npx lerna'
 alias t="tig status"
 alias tf="terraform"
 alias phpunit="./vendor/bin/phpunit"
-export PATH=$PATH:/usr/local/go/bin
 # nvim-left を標準の nvim として使う
 alias nvim='nvim-left'
 
@@ -118,7 +119,6 @@ export CLOUDSDK_PYTHON=python3
 export EXPANDED_CODE_SIGN_IDENTITY=
 export EXPANDED_CODE_SIGN_IDENTITY_NAME=
 export EXPANDED_PROVISIONING_PROFILE=
-export PATH="/usr/local/opt/bison/bin:$PATH"
 export NUXT_TELEMETRY_DISABLED=1
 export VISUAL=nvim
 export EDITOR=nvim
@@ -145,20 +145,12 @@ function precmd() {
 }
 
 # anyenv init - | tee ~/.anyenv-rc.sh > /dev/null
-export PATH="$HOME/.anyenv/bin:$PATH"
 if [ -f ~/.anyenv-rc.sh ]; then
     source ~/.anyenv-rc.sh
 fi
 
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
-
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-export OMPOSER_MEMORY_LIMIT=-1
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$(npm config get prefix)/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 source ~/dotfiles/comp/.mise-completion.zsh
 
@@ -177,9 +169,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# Added by Antigravity
-export PATH="/Users/yasushi.kobayashi/.antigravity/antigravity/bin:$PATH"
 
 # gw shell integration
 eval "$(gw shell-integration --show-script --shell=zsh)"
