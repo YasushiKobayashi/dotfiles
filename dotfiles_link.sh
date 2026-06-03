@@ -11,6 +11,8 @@ ln -sf ~/dotfiles/.editorconfig ~/.editorconfig
 ln -sf ~/dotfiles/.textlintrc ~/.textlintrc
 ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 ln -sf ~/dotfiles/efm-langserver/config.yaml ~/.config/efm-langserver/config.yaml
+mkdir -p ~/.config/ghostty
+ln -sf ~/dotfiles/ghostty/config.ghostty ~/.config/ghostty/config
 
 ln -sf ~/dotfiles/.mac_gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.linux_gitconfig ~/.gitconfig
