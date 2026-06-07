@@ -30,7 +30,7 @@ packages:
 - name: uber-go/mock@v0.6.0
 - name: bufbuild/buf@v1.69.0
 - name: nametake/golangci-lint-langserver@v0.0.12
-- name: cosmtrek/air@v1.65.2
+- name: cosmtrek/air@v1.65.3
 - name: golang/tools/goimports@v0.45.0
 - name: golang/go@go1.26.3
 - name: mislav/hub@v2.14.2
