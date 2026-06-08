@@ -64,7 +64,8 @@
             "Bash(ls:*)",
             "Bash(grep:*)",
             "Bash(pwd)",
-            "Bash(/usr/bin/make:*)"
+            "Bash(/usr/bin/make:*)",
+            "mcp__plugin_slack_slack__*"
         ],
         "ask": ["Bash(git stash:*)"],
         "defaultMode": "acceptEdits",
