@@ -123,5 +123,6 @@
   "skipAutoPermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754277517119
-  }
+  },
+  "model": "claude-fable-5[1m]"
 }
