@@ -19,5 +19,6 @@ gemini_task.md
 task_*.md
 task.*.md
 task.md
+task_old
 .serena
 settings.local.json
