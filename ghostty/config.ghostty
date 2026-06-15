@@ -1,3 +1,8 @@
 adjust-cell-width = 0
 adjust-cell-height = 0
-font-family = Hack Nerd Font
+theme = Monokai Soda
+font-family = Fira Code
+font-size = 14
+font-style = Regular
+font-feature = +calt
+font-feature = +liga
