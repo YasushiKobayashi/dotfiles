@@ -82,7 +82,24 @@ query($owner:String!, $name:String!, $pr:Int!) {
 gh api "repos/$REPO/issues/$PR/comments" > /tmp/issue-comments.json
 ```
 
-引数で特定コメント ID が指定されていればそれだけに絞る。未指定なら **未 resolve の全スレッド + 未対応の issue コメント** が対象。
+**さらに、レビュー本文（review summary body）も必ず取得する**。GitHub の PR フィードバックには 3 系統あり、ここを落とすと取りこぼしが頻発する:
+
+| 系統 | API | resolve 状態 | 落とし穴 |
+| --- | --- | --- | --- |
+| ① inline レビューコメント（スレッド） | `reviewThreads` (GraphQL, 上記) | あり (`isResolved`) | — |
+| ② issue コメント（PR 会話欄の一般コメント） | `issues/{pr}/comments` (上記) | なし | review thread だけ見て見落とす |
+| ③ **レビュー本文**（Approve/Comment/Request-changes 提出時の summary body） | `pulls/{pr}/reviews` | **なし** | **`isResolved` が無いため「未 resolve スレッド検索」に永久に引っかからない。統合レビュー型（要点を inline でなく本文にまとめる）でここに落ちる** |
+
+```bash
+# ③ レビュー本文を全件取得。body が非空のものが対象（bot の "quota limit" 等の定型文は除外して読む）
+gh api "repos/$REPO/pulls/$PR/reviews" \
+  --jq '.[] | select(.body != "") | {id, login: .user.login, state, submitted_at, body}' \
+  > /tmp/review-bodies.json
+```
+
+引数で特定コメント ID が指定されていればそれだけに絞る。未指定なら **未 resolve の全スレッド + 未対応の issue コメント + body 付き review 全件** が対象。
+
+> **③ には resolve の概念がない**。対応済みかどうかは「そのレビュー本文に対する返信コメントを投稿したか」で判断する（手順 5-c の issue コメント返信で、対象レビューの URL/著者を明記して紐付ける）。「全 inline スレッドが resolve 済み」を理由に終了してはいけない — ③ を必ず開いて中身を読んでから判定する。
 
 PR の title / body も読み込んでおく。**「この PR のスコープ」は後段の判定で必要になる**。
 
@@ -329,6 +346,16 @@ query($owner:String!, $name:String!, $pr:Int!) {
   | jq '.data.repository.pullRequest.reviewThreads.nodes[] | select(.isResolved == false)'
 ````
 
+**①（スレッド）だけでなく ③（レビュー本文）の取りこぼしも必ず再確認する**。③ には resolve 状態が無いため、「body 付き review それぞれに対し、自分の返信コメントを投稿したか」を突き合わせる:
+
+```bash
+# body 付き review 一覧（誰の・いつ・どの review に未返信か突き合わせる）
+gh api "repos/$REPO/pulls/$PR/reviews" \
+  --jq '.[] | select(.body != "") | "\(.submitted_at) \(.user.login) review=\(.id)"'
+# 自分が投稿した issue コメント（③ への返信先）
+gh api "repos/$REPO/issues/$PR/comments" --jq '.[] | select(.user.login=="<自分>") | .body[0:80]'
+```
+
 残っていれば原因を確認して再対応する。引数でコメントを絞り込んでいる場合は、対象外の未 resolve があっても良いが、その旨を最終報告に含める。
 
 ### 7. ユーザー向け最終報告
@@ -396,4 +423,5 @@ query($owner:String!, $name:String!, $pr:Int!) {
 -   **誤指摘に対し無言で resolve**: レビュアーは「修正されたかどうか分からないまま」になる。反証は丁寧に、コード引用付きで
 -   **テスト追加を後回し**: 修正と同じセッションで必ず追加する。「後で追加」と返信した時点で取りこぼす
 -   **issue コメントを見落とす**: review thread だけ見て PR 全体への一般コメントを見落とすケースが多い。両方確認する
+-   **レビュー本文（review summary body）を見落とす**: 最頻出の取りこぼし。inline スレッド（①）が全部 resolve 済みでも、`pulls/{pr}/reviews` の body に follow-up 指摘がまとまっている（③）ことがある。③ は `isResolved` を持たないため「未 resolve スレッド検索」では永久に検知できない。統合レビュー型のレビュアー（要点を本文にまとめる人/エージェント）で特に発生する。手順1で必ず `pulls/{pr}/reviews` を取得し、body を読んでから判定する
 -   **修正後の self-review を省略**: 変数名漏れ・lint エラー・型エラーで CI が落ちて 2 巡目レビューが発生する。コミット前にローカル lint / typecheck を走らせる
