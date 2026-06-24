@@ -48,6 +48,6 @@ packages:
 - name: jdx/usage@v3.5.2
 - name: oapi-codegen/oapi-codegen@v2.7.1
 - name: astral-sh/uv@0.11.21
-- name: openai/codex@rust-v0.139.0
+- name: openai/codex@rust-v0.141.0
 - name: anthropics/claude-code@v2.1.173
 - name: ast-grep/ast-grep@0.43.0
