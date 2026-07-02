@@ -128,10 +128,13 @@
     "slack@claude-plugins-official": true
   },
   "effortLevel": "high",
+  "tui": "default",
+  "autoScrollEnabled": false,
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754277517119
-  }
+  },
+  "model": "claude-fable-5[1m]"
 }
