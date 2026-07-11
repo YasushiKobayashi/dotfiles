@@ -49,6 +49,6 @@ packages:
 - name: oapi-codegen/oapi-codegen@v2.7.2
 - name: astral-sh/uv@0.11.28
 - name: openai/codex@rust-v0.143.0
-- name: anthropics/claude-code@v2.1.205
+- name: anthropics/claude-code@v2.1.207
 - name: ast-grep/ast-grep@0.44.1
 - name: evilmartians/lefthook@v2.1.10
