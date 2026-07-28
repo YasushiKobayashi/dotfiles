@@ -97,6 +97,28 @@ gh api "repos/$REPO/pulls/$PR/reviews" \
   > /tmp/review-bodies.json
 ```
 
+**さらに、request changes を出しているレビュアーを把握する**。CHANGES_REQUESTED のレビューがある場合、対応完了後に **re-request review（再レビュー依頼）を必ず行う**（手順 5-e）。レビュアーごとの「最新レビュー状態」で判定するため、`latestReviews` を使う（一度 request changes した後に approve し直した人は対象外）。
+
+```bash
+# reviewDecision（PR 全体の判定）と、各レビュアーの最新レビュー状態を取得
+# pullRequest.id は re-request の GraphQL / REST で必要になるので併せて控える
+gh api graphql -f query='
+query($owner:String!, $name:String!, $pr:Int!) {
+  repository(owner:$owner, name:$name) {
+    pullRequest(number:$pr) {
+      id
+      reviewDecision
+      latestReviews(first:50) {
+        nodes { author { login } state }
+      }
+    }
+  }
+}' -F owner="$OWNER" -F name="$NAME" -F pr="$PR" > /tmp/review-decision.json
+
+# 最新状態が CHANGES_REQUESTED のレビュアー（= re-request 対象）を抽出
+jq -r '.data.repository.pullRequest.latestReviews.nodes[] | select(.state=="CHANGES_REQUESTED") | .author.login' /tmp/review-decision.json
+```
+
 引数で特定コメント ID が指定されていればそれだけに絞る。未指定なら **未 resolve の全スレッド + 未対応の issue コメント + body 付き review 全件** が対象。
 
 > **③ には resolve の概念がない**。対応済みかどうかは「そのレビュー本文に対する返信コメントを投稿したか」で判断する（手順 5-c の issue コメント返信で、対象レビューの URL/著者を明記して紐付ける）。「全 inline スレッドが resolve 済み」を理由に終了してはいけない — ③ を必ず開いて中身を読んでから判定する。
@@ -328,6 +350,31 @@ inline スレッドではないので resolve API は無い。`gh api -X POST "r
 - コード引用はバッククォート 3 つの ```ts ``` ブロック + 言語指定で見やすく
 - 行番号は `path/to/file.ts:L42-L58` 形式で書くと GitHub 上でクリック可能
 
+#### e. re-request review（request changes のレビュアーへ再レビュー依頼）
+
+手順 1 で抽出した **最新状態が CHANGES_REQUESTED のレビュアー** については、そのレビュアー宛の全スレッド / レビュー本文への返信・resolve が完了した後に、**必ず re-request review を行う**。これをしないと PR の `reviewDecision` が CHANGES_REQUESTED のまま残り、対応済みでもマージ導線がブロックされ続ける。
+
+re-request は PR 単位・レビュアー単位の操作なので、対象レビュアーのコメントを全て返信し終えたタイミングで 1 回実行する。
+
+```bash
+# 対象レビュアー（手順 1 で抽出した CHANGES_REQUESTED のログイン）を再レビュー依頼
+# 人間レビュアーはこの REST で確実に再依頼できる
+gh api -X POST "repos/$REPO/pulls/$PR/requested_reviewers" \
+  -f "reviewers[]=<login1>" -f "reviewers[]=<login2>"
+```
+
+**AI bot レビュアー（gemini-code-assist / coderabbitai / cursor 等）の注意点**:
+
+- bot は GitHub App のことが多く、上記 REST の `reviewers[]`（User 前提）では `Could not resolve to a User` 等で弾かれる場合がある。その場合は次のいずれかで代替する:
+  - 返信コメント内で `@<bot-login>` メンション + 「対応したので再レビューお願いします」と明示的に依頼する（多くの bot はメンションで再レビューが走る）
+  - bot によっては新規 push で自動的に再レビューが走る（gemini / coderabbit 等）。その場合は明示 re-request 不要だが、返信で対応済みを伝えておく
+- REST が失敗したら、エラー内容を確認し、上記のメンション依頼にフォールバックする（re-request を諦めない）
+
+**禁止事項**:
+
+- CHANGES_REQUESTED のレビュアーが居るのに re-request（またはメンションでの再依頼）を省略しない。resolve だけして再依頼を忘れると PR がブロックされたまま放置される
+- 「精査の結果すべて誤指摘・現状維持」で 1 件も修正しなかった場合でも、反証返信を投稿した上で re-request する（レビュアーに再判断してもらうため）
+
 ### 6. 取りこぼしチェック（最終工程・必須）
 
 すべての対応終了後、再度 GraphQL で `isResolved=false` のスレッドが残っていないか確認する。
@@ -358,6 +405,25 @@ gh api "repos/$REPO/issues/$PR/comments" --jq '.[] | select(.user.login=="<自�
 
 残っていれば原因を確認して再対応する。引数でコメントを絞り込んでいる場合は、対象外の未 resolve があっても良いが、その旨を最終報告に含める。
 
+**さらに、request changes への re-request が完了しているか確認する**。`reviewDecision` がまだ `CHANGES_REQUESTED` の場合、対象レビュアーへの re-request（手順 5-e）が漏れている / 反映待ちの可能性がある:
+
+```bash
+# reviewDecision と、まだ CHANGES_REQUESTED のレビュアーが残っていないか再確認
+gh api graphql -f query='
+query($owner:String!, $name:String!, $pr:Int!) {
+  repository(owner:$owner, name:$name) {
+    pullRequest(number:$pr) {
+      reviewDecision
+      latestReviews(first:50) { nodes { author { login } state } }
+    }
+  }
+}' -F owner="$OWNER" -F name="$NAME" -F pr="$PR" \
+  | jq '{reviewDecision: .data.repository.pullRequest.reviewDecision,
+         changesRequested: [.data.repository.pullRequest.latestReviews.nodes[] | select(.state=="CHANGES_REQUESTED") | .author.login]}'
+```
+
+CHANGES_REQUESTED のレビュアーが残っている場合は、re-request（人間）または `@<bot-login>` メンションでの再依頼（bot）を実施したか確認する。re-request 直後は `reviewDecision` が即座に変わらないこともあるため、その場合は「re-request 済み・再レビュー待ち」として最終報告に明記する。
+
 ### 7. ユーザー向け最終報告
 
 以下の形式でまとめてユーザーに報告する。
@@ -381,6 +447,7 @@ gh api "repos/$REPO/issues/$PR/comments" --jq '.[] | select(.user.login=="<自�
 - <スレッド要約>: 返信のみ
 
 未 resolve 残: 0 件（or N 件: <理由>）
+re-request: <request changes だったレビュアー名> へ再レビュー依頼済み（reviewDecision: <現在値>）／ or 対象なし
 ```
 
 ---
@@ -393,6 +460,7 @@ gh api "repos/$REPO/issues/$PR/comments" --jq '.[] | select(.user.login=="<自�
 -   **テストなしで「対応済み」と返信しない**。テストが不要な根拠を返信に書くこと
 -   **resolve 前に返信を必ず投稿する**。返信なしの resolve は、レビュアーから見て何が行われたか追えなくなる
 -   **`gh pr review --approve` などレビュー状態を変える操作はしない**。これは PR 作者ではなくレビュアーの操作
+-   **request changes（CHANGES_REQUESTED）のレビュアーには、対応完了後に必ず re-request review する**（手順 5-e）。人間は REST で再依頼、bot は `@<login>` メンションでの再依頼 or 自動再レビューにフォールバック。resolve だけで済ませると PR がブロックされたまま残る
 -   inline コメント返信の `in_reply_to` には **スレッドの最初のコメントの `databaseId`（数値）** を指定する。`id`（base64 の Node ID）ではない
 
 ---
