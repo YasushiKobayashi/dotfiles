@@ -31,6 +31,7 @@ ln -sf ~/dotfiles/nvim/sonictemplate ~/.config/nvim/sonictemplate
 
 ln -s ~/dotfiles/claude/.mcp.json ~/.mcp.json
 ln -s ~/dotfiles/claude/settings.json ~/.claude/settings.json
+ln -s ~/dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
 
 mkdir -p ~/.claude/skills
 for skill in ~/dotfiles/claude/skills/*/; do
