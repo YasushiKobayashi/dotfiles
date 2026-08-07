@@ -16,4 +16,4 @@
 
 - **Go 製 CLI（gh / buf / golangci-lint / terraform 等）の TLS 検証は sandbox 内で失敗しがち**。根本原因は macOS sandbox の `com.apple.trustd.agent` 遮断。対処は **`~/dotfiles/claude/settings.json`（全プロジェクト共通）** の `sandbox.enableWeakerNetworkIsolation: true` + `sandbox.network.allowedDomains`（github 系 / buf.build / npm / golang / pypi 等を 2026-08-07 設定済み）。それでも失敗する場合のみ `dangerouslyDisableSandbox: true` で再実行する
 - sandbox 内ネットワークはプロキシ方式。`X-Proxy-Error: blocked-by-allowlist` の 403 は allowlist 層の遮断（trustd とは別レイヤ）。**どの環境でも使うホスト（GitHub 等）は共通 settings.json の allowedDomains に、プロジェクト固有ホストは各リポジトリの `.claude/settings.local.json` に**追記する
-- `gh` / `git push` / `git fetch` 等のリモート系 git は sandbox 外実行が必要なマシン（iesapuri は PR #2408 マージ後 excludedCommands で自動化される）
+- `gh` / `git push` / `git fetch` 等のリモート系 git は sandbox 外実行が必要なマシン（プロジェクト側の `sandbox.excludedCommands` に登録済みなら自動で sandbox 外になる）
