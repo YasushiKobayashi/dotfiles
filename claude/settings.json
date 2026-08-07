@@ -92,6 +92,27 @@
       "Bash:git log*"
     ]
   },
+  "sandbox": {
+    "enableWeakerNetworkIsolation": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "codeload.github.com",
+        "objects.githubusercontent.com",
+        "release-assets.githubusercontent.com",
+        "raw.githubusercontent.com",
+        "buf.build",
+        "registry.npmjs.org",
+        "proxy.golang.org",
+        "sum.golang.org",
+        "storage.googleapis.com",
+        "pypi.org",
+        "files.pythonhosted.org"
+      ]
+    }
+  },
+  "model": "claude-fable-5[1m]",
   "enabledMcpjsonServers": [
     "figma-developer-mcp",
     "playwright-mcp",
