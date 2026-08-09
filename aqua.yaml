@@ -22,7 +22,7 @@ packages:
 - name: sharkdp/bat@v0.26.1
 - name: neovim/neovim@v0.12.4
 - name: showwin/speedtest-go@v1.7.11
-- name: GoogleCloudPlatform/cloud-sql-proxy@v2.24.1
+- name: GoogleCloudPlatform/cloud-sql-proxy@v2.25.0
 - name: twistedpair/google-cloud-sdk@562.0.0
 - name: aws/session-manager-plugin@1.2.835.0
 - name: sqldef/sqldef/mysqldef@v3.11.19
