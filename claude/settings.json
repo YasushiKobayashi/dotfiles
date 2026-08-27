@@ -80,7 +80,7 @@
       "Bash(git stash clear)",
       "Bash(git stash branch:*)"
     ],
-    "defaultMode": "acceptEdits",
+    "defaultMode": "auto",
     "acceptedTools": [
       "Edit.*",
       "Read",
@@ -91,26 +91,6 @@
       "Bash:git diff*",
       "Bash:git log*"
     ]
-  },
-  "sandbox": {
-    "enableWeakerNetworkIsolation": true,
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "api.github.com",
-        "codeload.github.com",
-        "objects.githubusercontent.com",
-        "release-assets.githubusercontent.com",
-        "raw.githubusercontent.com",
-        "buf.build",
-        "registry.npmjs.org",
-        "proxy.golang.org",
-        "sum.golang.org",
-        "storage.googleapis.com",
-        "pypi.org",
-        "files.pythonhosted.org"
-      ]
-    }
   },
   "model": "claude-fable-5[1m]",
   "enabledMcpjsonServers": [
@@ -147,6 +127,26 @@
     "gopls-lsp@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "slack@claude-plugins-official": true
+  },
+  "sandbox": {
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "codeload.github.com",
+        "objects.githubusercontent.com",
+        "release-assets.githubusercontent.com",
+        "raw.githubusercontent.com",
+        "buf.build",
+        "registry.npmjs.org",
+        "proxy.golang.org",
+        "sum.golang.org",
+        "storage.googleapis.com",
+        "pypi.org",
+        "files.pythonhosted.org"
+      ]
+    },
+    "enableWeakerNetworkIsolation": true
   },
   "effortLevel": "high",
   "tui": "default",
