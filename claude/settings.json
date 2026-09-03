@@ -92,7 +92,6 @@
       "Bash:git log*"
     ]
   },
-  "model": "claude-fable-5[1m]",
   "enabledMcpjsonServers": [
     "figma-developer-mcp",
     "playwright-mcp",
