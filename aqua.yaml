@@ -51,4 +51,4 @@ packages:
 - name: openai/codex@rust-v0.150.1
 - name: anthropics/claude-code@v2.1.247
 - name: ast-grep/ast-grep@0.45.2
-- name: evilmartians/lefthook@v2.1.11
+- name: evilmartians/lefthook@v2.1.12
