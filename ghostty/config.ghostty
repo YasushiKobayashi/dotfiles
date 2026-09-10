@@ -6,3 +6,4 @@ font-size = 14
 font-style = Regular
 font-feature = +calt
 font-feature = +liga
+quick-terminal-space-behavior = remain
