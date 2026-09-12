@@ -100,6 +100,20 @@
     "github"
   ],
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/pre-push-merge-main.sh",
+            "if": "Bash(git push:*)",
+            "timeout": 120,
+            "statusMessage": "push 前に origin/main を取り込み中..."
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "hooks": [
@@ -157,5 +171,44 @@
   "skipAutoPermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754277517119
+  },
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: h-scape (GitHub org hosting github.com/h-scape/iesapuri)",
+      "**Cloud provider(s)**: AWS (ECS), Cloudflare (Pages/Workers)",
+      "**Repository visibility**: private (h-scape/iesapuri, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: CI secrets referenced by name only (CHROMATIC_PROJECT_TOKEN, CLOUDFLARE_API_TOKEN, GEMINI_API_KEY, GITHUB_TOKEN, NOTION_API_KEY, OPENAI_API_KEY, PROJECT_TOKEN, SENTRY_API_TOKEN, SLACK_BOT_TOKEN, SLACK_ENDPOINT, SLACK_WEBHOOK) — values not gathered; treat as sensitive, never print or exfiltrate",
+      "**Default / protected branches**: main (protected, per gh); no rulesets listed",
+      "**CI/CD deploy targets**: AWS ECS and Cloudflare (prod workflows: deploy_prod_ai_color.yml, deploy_prod_api.yml, deploy_prod_cli.yml, deploy_prod_external_import.yml, deploy_prod_front.yml, deploy_prod_job_worker.yml, deploy_prod_media.yml, deploy_prod_scheduler.yml, deploy_prod_worker.yml, run_prod_external_import.yml, run_prod_knowledge_rag.yml)",
+      "**Network posture**: sandboxed execution with allowlisted domains (per ~/.claude/CLAUDE.md); go-based CLIs (gh/buf/golangci-lint/terraform) may need sandbox exclusion for TLS; project-specific hosts added via .claude/settings.local.json",
+      "**Source control**: h-scape/iesapuri (this repo) and its origin remote (github.com/h-scape/iesapuri) only",
+      "**Trusted internal domains**: service2.stg.iesapuri.com, service.stg.iesapuri.com, image.iesapuri.com, image.stg.iesapuri.com, iesapuri-company.pages.dev (and PR preview subdomains), marketing-products-worker-stg.houscape.workers.dev, marketing-products-worker-production.houscape.workers.dev, metabase.iesapuri.com, houscape.slack.com",
+      "**Trusted cloud buckets**: image-private (config-derived — not a confirmed upload destination; uploads of local data still require confirmation)",
+      "**Key internal services**: Metabase (metabase.iesapuri.com), MySQL local `app` DB via mysql-local MCP (local only, production DB access explicitly disallowed per CLAUDE.md), Cloudflare R2 (6c5a16b27a71fd8b600a8ed221b7ebbb.r2.cloudflarestorage.com), Firebase Auth, Admin MCP server (media CMS)",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: .env.local and service .env/.env.production files (front/src/admin, front/src/company, front/src/customer, python/ai-color-simulation), go/ecs/*prod*.json and ecspresso-*prod*.yml task/service defs, go/ecs/prod.env, go/app_firebase/ecs_credential_supplier.go, go/repository/media_cms_credential_repository.go, go/app_middleware/ip_allowlist_middleware.go, doc/coding_rules/no_pii_in_logs.md (PII handling policy) — share only with audiences cleared per doc/coding_rules/no_pii_in_logs.md",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any host/namespace containing 'prod' or 'production' as a whole segment — includes deploy_prod_* workflows, run_prod_* workflows, go/ecs/*-prod.json, ecspresso-*-prod.yml, go/ecs/prod.env, marketing-products-worker-production.houscape.workers.dev",
+      "**Protected deployment namespaces / environments**: production ECS services/tasks (ai-color-prod, external-import-prod, knowledge-rag-prod, prod) and production Cloudflare Worker/Pages deploys; staging (stg) namespaces are not protected by this rule",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries 'prod' or 'production' as a whole segment — includes go/ecs/ecspresso-*-prod.yml and go/ecs/*-prod.json definitions",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (this repo: h-scape/iesapuri, a roofing-contractor CRM monorepo — Go API, Remix/Vite frontend, Python AI services)",
+      "**Trusted repo**: h-scape/iesapuri (private) at /Users/yasushi.kobayashi/go/src/github.com/h-scape/iesapuri and its origin remote (github.com/h-scape/iesapuri.git) — confidential material is fine here; content ported from outside this repo/session is not its own work",
+      "**Org-specific CLIs**: mise, openspec, pre-commit, uv, agent-browser, ast-grep, aqua (project toolchain/task runner and dev workflow CLIs used routinely in this repo)",
+      "**routine under this repo's mise/openspec workflow**: mise run <task>, openspec new/status/validate/archive, pre-commit run --files <changed>, are routine dev-loop actions in this repo"
+    ],
+    "allow": [
+      "$defaults",
+      "Bash(mise run *)",
+      "Bash(openspec *)",
+      "Bash(pre-commit run:*)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(mysql:*) -- writes/DDL against local app DB (INSERT/UPDATE/DELETE/TRUNCATE/ALTER/DROP) require explicit instruction per CLAUDE.md",
+      "git push to h-scape/iesapuri (batch at natural checkpoints only, not per-commit, per CLAUDE.md)"
+    ]
   }
 }
