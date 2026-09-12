@@ -47,3 +47,9 @@ codex_task.md
 claude/projects
 claude/statsig
 claude/todos
+
+# copilot-language-server の実体（361MB のバイナリ + node_modules）
+nvim/copliot/
+# dotfiles_link.sh が作る自己参照 symlink
+nvim/sonictemplate/sonictemplate
+tmuxinator/tmuxinator
