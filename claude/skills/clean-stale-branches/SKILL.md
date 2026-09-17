@@ -32,6 +32,11 @@ allowed-tools: Bash(git branch:*), Bash(git for-each-ref:*), Bash(git worktree:*
 ### 0. 前提
 
 - **現在のブランチ・`main` は絶対に削除しない**。
+- **保護 worktree は撤去しない**。worktree ディレクトリ名に `hoge` / `huga` / `fuga` / `piyo` を含むもの（例: `ai-interview-huga`）は、ユーザーが意図的に残している作業場所。worktree もそこでチェックアウトしているブランチも、**削除候補に入れず、確認も求めない**（PR が MERGED / upstream gone / 閾値超えでも同じ）。
+  ```bash
+  # 保護 worktree のパスとブランチ
+  git worktree list --porcelain | awk '/^worktree /{p=$2} /^branch /{b=$2} /^$/{if (p ~ /(hoge|huga|fuga|piyo)[^\/]*$/) print p, b; p=b=""}'
+  ```
 - worktree でチェックアウト中のブランチは普通に `git branch -D` できない。先に worktree を撤去する必要がある（手順は後述）。
 
 ### 1. リモート追跡情報を最新化
@@ -97,6 +102,7 @@ done
 
 | 条件 | 扱い |
 |---|---|
+| 保護 worktree（名前に hoge/huga/fuga/piyo）またはそこでチェックアウト中 | **削除しない・確認もしない**（残した理由として報告だけする）|
 | PR が MERGED、または main に取り込み済み | **自動削除して良い** |
 | PR が CLOSED かつ古い（カテゴリB該当）| クローズ済みPR紐付きなので削除候補。未マージ作業がある旨を添えて確認 |
 | PR 無し・main 未取込（未マージ作業あり）| **必ず `AskUserQuestion` で確認**（作業が消える）|
@@ -140,6 +146,7 @@ git push origin --delete <branch1> <branch2> ...
 ## 注意事項
 
 - **current ブランチと `main` は絶対に削除しない**。
+- **保護 worktree（ディレクトリ名に `hoge` / `huga` / `fuga` / `piyo` を含む）とそのブランチは対象外**。`git worktree prune` / `git worktree remove` の対象にもしない。
 - **`git branch -d` より前に必ず PR 状態と main 取り込みを確認**する。`gh pr list --head <branch> --state all` が一次情報。`: gone` は強いシグナルだが、PR が CLOSED（未マージ）で remote 削除されたケースもあるので過信しない。
 - **未マージ作業（main 未取込 commit）を持つブランチは勝手に消さない**。必ず `AskUserQuestion`。一度消すと `git reflog` 頼みになる。
 - **worktree チェックアウト中のブランチ**は `git branch -D` が失敗する。`git worktree remove` を先に。uncommitted changes があると remove も失敗するので、その場合はユーザー判断を仰ぐ。
