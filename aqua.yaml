@@ -28,7 +28,7 @@ packages:
 - name: sqldef/sqldef/mysqldef@v3.11.20
 - name: docker/cli@v29.8.0
 - name: uber-go/mock@v0.6.0
-- name: bufbuild/buf@v1.72.0
+- name: bufbuild/buf@v1.73.0
 - name: nametake/golangci-lint-langserver@v0.0.12
 - name: cosmtrek/air@v1.67.4
 - name: golang/tools/goimports@v0.50.0
