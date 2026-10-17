@@ -62,7 +62,7 @@ export PATH="$PATH:$GOPATH/bin"
 alias ll='ls -la'
 alias g='git'
 alias gc='cd $(ghq root)/$(ghq list | peco)'
-alias gho='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias gho='gh browse -R $(ghq list | peco | cut -d "/" -f 2,3)'
 alias pcat='bat $(ls | peco)'
 alias d='docker'
 alias dc='docker compose'
@@ -85,9 +85,9 @@ zle -N peco-history-selection
 bindkey '^r' peco-history-selection
 
 function peco-git-recent-pull-requests () {
-    local selected_pr_number=$(hub pr list --limit 40 --sort updated --format "%pC%>(8)%i%Creset  %t (by @%au)%n" | peco | sed -r 's/^ +#([0-9]+).*$/\1/')
+    local selected_pr_number=$(gh pr list --limit 40 --search "sort:updated-desc" --json number,title,author --template '{{range .}}{{printf "#%-6v" .number}}  {{.title}} (by @{{.author.login}}){{"\n"}}{{end}}' | peco | sed -E 's/^#([0-9]+).*$/\1/')
     if [ -n "$selected_pr_number" ]; then
-        BUFFER="hub pr checkout ${selected_pr_number}"
+        BUFFER="gh pr checkout ${selected_pr_number}"
         zle accept-line
     fi
     zle clear-screen
