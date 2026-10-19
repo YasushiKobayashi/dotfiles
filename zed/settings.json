@@ -12,8 +12,9 @@
   "buffer_font_size": 14,
   "vim_mode": true,
   "search": {
-    "include_ignored": true
+    "include_ignored": false
   },
+  "file_scan_inclusions": ["**/task.*.md"],
   "project_panel": {
     "dock": "left",
     "hide_gitignore": false
