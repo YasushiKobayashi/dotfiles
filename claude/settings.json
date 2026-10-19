@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "language": "japanese",
   "permissions": {
     "allow": [
       "Edit",
@@ -141,8 +140,10 @@
     "gopls-lsp@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "datadog@claude-plugins-official": true
+    "datadog@claude-plugins-official": true,
+    "claude-security@claude-plugins-official": true
   },
+  "language": "japanese",
   "sandbox": {
     "network": {
       "allowedDomains": [
@@ -170,10 +171,18 @@
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "feedbackSurveyState": {
-    "lastShownTime": 1754277517119
-  },
   "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(mise run *)",
+      "Bash(openspec *)",
+      "Bash(pre-commit run:*)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(mysql:*) -- writes/DDL against local app DB (INSERT/UPDATE/DELETE/TRUNCATE/ALTER/DROP) require explicit instruction per CLAUDE.md",
+      "git push to h-scape/iesapuri (batch at natural checkpoints only, not per-commit, per CLAUDE.md)"
+    ],
     "environment": [
       "### Org-wide",
       "**Organization**: h-scape (GitHub org hosting github.com/h-scape/iesapuri)",
@@ -199,17 +208,9 @@
       "**Trusted repo**: h-scape/iesapuri (private) at /Users/yasushi.kobayashi/go/src/github.com/h-scape/iesapuri and its origin remote (github.com/h-scape/iesapuri.git) — confidential material is fine here; content ported from outside this repo/session is not its own work",
       "**Org-specific CLIs**: mise, openspec, pre-commit, uv, agent-browser, ast-grep, aqua (project toolchain/task runner and dev workflow CLIs used routinely in this repo)",
       "**routine under this repo's mise/openspec workflow**: mise run <task>, openspec new/status/validate/archive, pre-commit run --files <changed>, are routine dev-loop actions in this repo"
-    ],
-    "allow": [
-      "$defaults",
-      "Bash(mise run *)",
-      "Bash(openspec *)",
-      "Bash(pre-commit run:*)"
-    ],
-    "soft_deny": [
-      "$defaults",
-      "Bash(mysql:*) -- writes/DDL against local app DB (INSERT/UPDATE/DELETE/TRUNCATE/ALTER/DROP) require explicit instruction per CLAUDE.md",
-      "git push to h-scape/iesapuri (batch at natural checkpoints only, not per-commit, per CLAUDE.md)"
     ]
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754277517119
   }
 }
