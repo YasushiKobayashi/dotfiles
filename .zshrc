@@ -60,6 +60,7 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
 alias ll='ls -la'
+alias c='claude'
 alias g='git'
 alias gc='cd $(ghq root)/$(ghq list | peco)'
 alias gho='gh browse -R $(ghq list | peco | cut -d "/" -f 2,3)'
