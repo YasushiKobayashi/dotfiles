@@ -145,10 +145,20 @@ function precmd() {
   ensure_nvim_listen_address_dir
 }
 
-# anyenv init - | tee ~/.anyenv-rc.sh > /dev/null
-if [ -f ~/.anyenv-rc.sh ]; then
-    source ~/.anyenv-rc.sh
+# anyenv init の結果をキャッシュして読む。起動毎の rehash は重い(~150ms)ので --no-rehash。
+# npm -g などで新しいコマンドを入れた時は手動で `nodenv rehash` / `pyenv rehash` する。
+# env を追加/削除したら ~/.anyenv/envs の mtime が変わり自動で再生成される。
+_anyenv_cache=${XDG_CACHE_HOME:-$HOME/.cache}/anyenv-init.zsh
+if (( $+commands[anyenv] )); then
+  if [[ ! -s $_anyenv_cache || ~/.anyenv/envs -nt $_anyenv_cache ]]; then
+    mkdir -p ${_anyenv_cache:h}
+    # XDG_CONFIG_HOME=~/dotfiles のままだと定義ディレクトリが見つからず env が 1 つも出力されない
+    ANYENV_DEFINITION_ROOT=${ANYENV_DEFINITION_ROOT:-$HOME/.config/anyenv/anyenv-install} \
+      anyenv init - --no-rehash zsh >| $_anyenv_cache
+  fi
+  source $_anyenv_cache
 fi
+unset _anyenv_cache
 
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfiles}/aqua.yaml
@@ -156,8 +166,15 @@ export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/dotfi
 source ~/dotfiles/comp/.mise-completion.zsh
 
 # gh completion (aqua で入れた gh と op プラグイン alias の両方が読み込まれた後に実行)
-if command -v gh >/dev/null 2>&1; then
-  eval "$(gh completion -s zsh)"
+# 毎回 gh を起動すると ~110ms かかるのでキャッシュ。aqua.yaml 更新(= gh のバージョン変更)で再生成
+if (( $+commands[gh] )); then
+  _gh_comp_cache=${XDG_CACHE_HOME:-$HOME/.cache}/gh-completion.zsh
+  if [[ ! -s $_gh_comp_cache || ~/dotfiles/aqua.yaml -nt $_gh_comp_cache ]]; then
+    mkdir -p ${_gh_comp_cache:h}
+    gh completion -s zsh >| $_gh_comp_cache
+  fi
+  source $_gh_comp_cache
+  unset _gh_comp_cache
 fi
 source ~/dotfiles/gh/plugins.sh
 

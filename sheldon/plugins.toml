@@ -25,7 +25,8 @@ inline = 'autoload -Uz compinit && zsh-defer compinit'
 
 [plugins.prezto]
 github = "sorin-ionescu/prezto"
-use = ["init.zsh"]
+# 先頭の "/" 必須。"init.zsh" だと modules/*/init.zsh まで再帰マッチして全モジュールを直接 source してしまう
+use = ["/init.zsh"]
 apply = ["source"]
 
 [plugins.zsh-autosuggestions]
