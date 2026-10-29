@@ -581,6 +581,31 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/astral-sh/uv/0.13.5/uv-aarch64-apple-darwin.tar.gz",
+      "checksum": "743F85035A1996ECB350659E01CD9FAEA9709829BE09B1B4B03C73EAF3C9CD73",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/astral-sh/uv/0.13.5/uv-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "7906C79ADB21C81ABD559841BA76BB1D9AF9D791ACAC7A041B2972E03AE16538",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/astral-sh/uv/0.13.5/uv-x86_64-apple-darwin.tar.gz",
+      "checksum": "B0F52B0E3945B4107D89024EA38E625683011FBFC05A0D98F9FA2D6DCEE28C66",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/astral-sh/uv/0.13.5/uv-x86_64-pc-windows-msvc.zip",
+      "checksum": "A38B8D1902B7CFBC76B423BA1BB456F623F42064CDC72628B6075B89AFD1019A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/astral-sh/uv/0.13.5/uv-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "57EF9D9CCB01FB1BD998DF995B0DD221B52F7D7841FBEA93F2D4463BF61FB7A9",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/bufbuild/buf/v1.72.0/buf-Darwin-arm64.tar.gz",
       "checksum": "BE040AE0CA381103DFDA68A36738695C4DB3E48DE8E91412ACDC3D991F39B91E",
       "algorithm": "sha256"
@@ -758,6 +783,36 @@
     {
       "id": "github_release/github.com/cli/cli/v2.102.0/gh_2.102.0_windows_arm64.zip",
       "checksum": "5DCF12AA8525EABD0C46EC414F323AB6CF65229FC2CD46543CC705001BBAF223",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.102.1/gh_2.102.1_linux_amd64.tar.gz",
+      "checksum": "77B9E297E94C50336823D0F84DE7EF1BE60CBA704601FA0D98F129F47A94987B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.102.1/gh_2.102.1_linux_arm64.tar.gz",
+      "checksum": "5019B3CC6E8A03BB4D88600F8DBDA2ADD8E6407705C159B0C63151036E77A1AF",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.102.1/gh_2.102.1_macOS_amd64.zip",
+      "checksum": "91C5FBD493274B545B03EF32A89C2A21238393C0C0B1108210967199B3230D9D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.102.1/gh_2.102.1_macOS_arm64.zip",
+      "checksum": "08BFEF98B50C553DF122BB34EE8DCF415CAE7D3B108891488964A0DF07AA2AEB",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.102.1/gh_2.102.1_windows_amd64.zip",
+      "checksum": "843C0DC119F014D9458AEAFF96C44C16FC4B8E556C1C4C5DF9BAB5BA002356E9",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.102.1/gh_2.102.1_windows_arm64.zip",
+      "checksum": "1FE7462F72424F9309F5444B4C24E2246F5C40130AFA0B1C61A3FDC6FC54CC04",
       "algorithm": "sha256"
     },
     {
@@ -2481,6 +2536,11 @@
       "algorithm": "sha256"
     },
     {
+      "id": "http/download.docker.com/linux/static/stable/aarch64/docker-29.9.2.tgz",
+      "checksum": "873B3E0207857C3B2F28392FB922F3EA6EFE37620C16D4D4AAF2FEF409C90B73",
+      "algorithm": "sha256"
+    },
+    {
       "id": "http/download.docker.com/linux/static/stable/x86_64/docker-29.7.2.tgz",
       "checksum": "803D433F226DB4776E1768FD319FC6C6E4935A456ACF84FCC0080818B854BC8F",
       "algorithm": "sha256"
@@ -2503,6 +2563,11 @@
     {
       "id": "http/download.docker.com/linux/static/stable/x86_64/docker-29.9.1.tgz",
       "checksum": "C158ECC55ADB3AFB01BBD3539ED3B997D20C26DBDC418080506CC1BF5243FF57",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/download.docker.com/linux/static/stable/x86_64/docker-29.9.2.tgz",
+      "checksum": "9AC225999FD5E863F7694C728EF23D480616B1E5639328FA309BEFD4243D69EB",
       "algorithm": "sha256"
     },
     {
@@ -2531,6 +2596,11 @@
       "algorithm": "sha256"
     },
     {
+      "id": "http/download.docker.com/mac/static/stable/aarch64/docker-29.9.2.tgz",
+      "checksum": "EA8A2CE5AC31F9F5F3FB711A7A485E1E46CC7A69798A629A70306F6E6AF25B7A",
+      "algorithm": "sha256"
+    },
+    {
       "id": "http/download.docker.com/mac/static/stable/x86_64/docker-29.7.2.tgz",
       "checksum": "FB1F1AA7AC7AF4364165B9EADFDA92E96C8CED508FCA74F53079719891367438",
       "algorithm": "sha256"
@@ -2556,6 +2626,11 @@
       "algorithm": "sha256"
     },
     {
+      "id": "http/download.docker.com/mac/static/stable/x86_64/docker-29.9.2.tgz",
+      "checksum": "089C3F618DF88BDEF4F1257D9D604499136A1EC5168B67D194C260ACAD2B522F",
+      "algorithm": "sha256"
+    },
+    {
       "id": "http/download.docker.com/win/static/stable/x86_64/docker-29.7.2.zip",
       "checksum": "ED9222F478A5D143AC90E8E2FD3209B5076382CDB4B210321F97AA4B68BC6811",
       "algorithm": "sha256"
@@ -2578,6 +2653,11 @@
     {
       "id": "http/download.docker.com/win/static/stable/x86_64/docker-29.9.1.zip",
       "checksum": "5D9B66509390553FD97D590EC2FF0CE10B04C2AC653FA52F2ABF2F05C4C197CA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/download.docker.com/win/static/stable/x86_64/docker-29.9.2.zip",
+      "checksum": "B2BE959BFED1281DDAF665C0972CBA9A62CE30C542B6BCCE82F055BF8886BC7D",
       "algorithm": "sha256"
     },
     {
