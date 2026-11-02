@@ -142,7 +142,8 @@
     "slack@claude-plugins-official": true,
     "datadog@claude-plugins-official": true,
     "claude-security@claude-plugins-official": true,
-    "codex@openai-codex": true
+    "codex@openai-codex": true,
+    "security-guidance@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
