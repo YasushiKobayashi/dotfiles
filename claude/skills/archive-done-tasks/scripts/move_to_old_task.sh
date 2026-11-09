@@ -6,6 +6,7 @@
 # - git worktree 内のファイルも、worktree ではなくメインのチェックアウトの old_task/ に集める
 #   （worktree は撤去されることがあり、そこに置くと一緒に消えるため）
 # - git 管理外のディレクトリなら、ファイルと同じディレクトリの old_task/ に置く
+# - 本文に <!-- keep-task --> を含むファイルは継続して使うので移動しない
 # - 同名ファイルがあれば <名前>-<元ディレクトリ名>.md にする。それも埋まっていたら移動しない（上書きしない）
 #
 # zsh の chpwd フック等が出力を汚すので、cd は使わず git -C で解決する。
@@ -13,6 +14,7 @@ set -uo pipefail
 
 for f in "$@"; do
   [[ -f $f ]] || { echo "SKIP(not found) $f" >&2; continue; }
+  if grep -qF '<!-- keep-task -->' "$f"; then echo "SKIP(keep-task) $f" >&2; continue; fi
   src_dir=$(dirname "$f")
   src_abs=$(git -C "$src_dir" rev-parse --show-toplevel 2>/dev/null || echo "$src_dir")
   common=$(git -C "$src_dir" rev-parse --path-format=absolute --git-common-dir 2>/dev/null || true)

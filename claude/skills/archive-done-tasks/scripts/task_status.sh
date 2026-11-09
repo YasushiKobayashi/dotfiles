@@ -8,6 +8,8 @@
 # 名前に番号が無いファイルは、本文の GitHub URL がすべて主参照になる。
 # 取りまとめ用 issue を本文で言及しているだけのファイルを「OPEN 参照あり」と誤判定しないため、
 # 判定は主参照で行い、その他参照は参考情報として並べる。
+#
+# 本文に <!-- keep-task --> を含むファイルは、継続して使うタスクファイルなので主参照を KEEP にする（移動しない）。
 set -uo pipefail
 
 state_of() { # $1=owner/repo $2=number -> MERGED / OPEN / CLOSED / ?（404 等の取得失敗）
@@ -35,6 +37,11 @@ for f in "$@"; do
     sed -E 's#github\.com/##; s#/(pull|issues)/# #' | sort -u)
 
   p_out=""; o_out=""
+  if grep -qF '<!-- keep-task -->' "$f"; then
+    mtime=$(stat -f %Sm -t %F "$f" 2>/dev/null || stat -c %y "$f" | cut -c1-10)
+    printf '%s\t%s\t%s/%s\t%s\t%s\n' "$f" "$mtime" "$unchecked" "$total" "KEEP" ""
+    continue
+  fi
   if [[ -n $primary ]]; then
     read -r r n <<<"$primary"; p_out="${r##*/}#$n:$(state_of "$r" "$n")"
   fi
