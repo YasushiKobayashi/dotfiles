@@ -1,3 +1,9 @@
 [include]
   path = ~/dotfiles/.gitconfig
   path = ~/private-dotfile/mac.gitconfig
+[credential "https://github.com"]
+	helper = 
+	helper = !$HOME/.local/share/aquaproj-aqua/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !$HOME/.local/share/aquaproj-aqua/bin/gh auth git-credential
